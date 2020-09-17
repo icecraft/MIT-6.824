@@ -264,7 +264,16 @@ func (sm *ShardMaster) Raft() *raft.Raft {
 }
 
 func (sm *ShardMaster) mayShrinkHistory() {
-	// log.Warn(Red("shrink history not implemented\n"))
+	sm.mu.Lock()
+	nHistory := make(map[string]Record)
+	for key, val := range sm.clientSn {
+		historyKey := sm.getHistoryKey(key, val)
+		if v, ok := sm.history[historyKey]; ok {
+			nHistory[historyKey] = v
+		}
+	}
+	sm.history = nHistory
+	sm.mu.Unlock()
 }
 
 func (sm *ShardMaster) getHistoryKey(clientId int, SerialNumber int64) string {
@@ -275,11 +284,96 @@ func (sm *ShardMaster) getLatestConfig() Config {
 	n := len(sm.configs)
 	config := Config{Num: n}
 	config.Shards = sm.configs[n-1].Shards
-	config.Groups = sm.configs[n-1].Groups
+	config.Groups = make(map[int][]string)
+	for key, value := range sm.configs[n-1].Groups {
+		config.Groups[key] = value
+	}
 	if nil == config.Groups {
 		config.Groups = make(map[int][]string)
 	}
 	return config
+}
+
+func (sm *ShardMaster) reblance(config *Config) {
+	N := len(config.Groups)
+	if N == 0 {
+		for i, _ := range config.Shards {
+			config.Shards[i] = INIT_GID
+		}
+		return
+	}
+
+	// 统计每个 gids 拥有的 shards.
+	gidShards := make(map[int][]int)
+	for key, _ := range config.Groups {
+		gidShards[key] = make([]int, 0)
+	}
+
+	for i, v := range config.Shards {
+		if v != INIT_GID {
+			gidShards[v] = append(gidShards[v], i)
+		}
+	}
+
+	// 从已经拥有很多 shards 的 gids 手中抢取份额
+	M := NShards / N
+	MM := NShards % N
+
+	fmt.Printf("me: %d, bef :%v, mm: %d\n", sm.me, config.Shards, MM)
+
+	if NShards%N != 0 {
+		for key, _ := range gidShards {
+
+			if len(gidShards[key]) > M && MM > 0 {
+				fmt.Printf("key: %v, len: %v, mm: %d, %v\n ", key, len(gidShards[key]), MM, gidShards[key][M+1:])
+				for _, v := range gidShards[key][M+1:] {
+					config.Shards[v] = INIT_GID
+				}
+				gidShards[key] = gidShards[key][:M+1]
+				MM--
+			} else if len(gidShards[key]) > M {
+				for key, _ := range gidShards {
+					if len(gidShards[key]) > M {
+						for _, v := range gidShards[key][M:] {
+							config.Shards[v] = INIT_GID
+						}
+						gidShards[key] = gidShards[key][:M]
+					}
+				}
+			}
+		}
+	} else {
+		for key, _ := range gidShards {
+			if len(gidShards[key]) > M {
+				for _, v := range gidShards[key][M:] {
+					config.Shards[v] = INIT_GID
+				}
+				gidShards[key] = gidShards[key][:M]
+			}
+		}
+	}
+
+	// 收集可以分配的 shards
+	freeShards := make([]int, 0)
+	for i, _ := range config.Shards {
+		if config.Shards[i] == INIT_GID {
+			freeShards = append(freeShards, i)
+		}
+	}
+
+	// fmt.Printf("%v %v %v %d\n", gidShards, freeShards, config.Shards, M)
+	for key, _ := range gidShards {
+		keyL := len(gidShards[key])
+		if M > keyL {
+			for _, v := range freeShards[:M-keyL] {
+				gidShards[key] = append(gidShards[key], v)
+				config.Shards[v] = key
+			}
+			freeShards = freeShards[M-keyL:]
+		}
+	}
+
+	fmt.Printf("me: %d, aft, %v\n", sm.me, config.Shards)
 }
 
 //
@@ -322,8 +416,9 @@ func (sm *ShardMaster) Persiste() {
 						config.Groups[key] = v
 						sm.joinedGids[key] = true
 					}
+					sm.reblance(&config)
 					sm.configs = append(sm.configs, config)
-					fmt.Printf("me: %d, new configs %v\n", sm.me, sm.configs)
+					// fmt.Printf("me: %d, join new configs %v\n", sm.me, sm.configs)
 				} else {
 					t.Err = "ErrNoNewGids"
 				}
@@ -350,9 +445,9 @@ func (sm *ShardMaster) Persiste() {
 				args := p.ArgLeave
 				gidsWillRemove := make([]int, 0)
 				config := sm.getLatestConfig()
-				for key := range args.GIDs {
-					if _, existed := config.Groups[key]; existed {
-						gidsWillRemove = append(gidsWillRemove, key)
+				for _, value := range args.GIDs {
+					if _, existed := config.Groups[value]; existed {
+						gidsWillRemove = append(gidsWillRemove, value)
 					}
 				}
 				if len(gidsWillRemove) == 0 {
@@ -366,11 +461,13 @@ func (sm *ShardMaster) Persiste() {
 							}
 						}
 					}
+					sm.reblance(&config)
 					sm.configs = append(sm.configs, config)
+					// fmt.Printf("me: %d, leave new configs %v\n", sm.me, sm.configs)
 				}
 			case QueryOp:
 				args := p.ArgQuery
-
+				// fmt.Printf("me: %d, num: %d, configs %v\n", sm.me, args.Num, sm.configs)
 				if args.Num == -1 {
 					if len(sm.configs) > 1 {
 						t.Config = sm.configs[len(sm.configs)-1]

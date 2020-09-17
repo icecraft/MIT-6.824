@@ -5,7 +5,6 @@ package shardmaster
 //
 
 import (
-	"fmt"
 	"sync"
 	"time"
 
