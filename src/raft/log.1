@@ -1,0 +1,2162 @@
+crash node: 2
+[1;31mdisconnect[0m [1;31m0[0m
+Make server: 0
+crash node: 1
+[1;31mdisconnect[0m [1;31m1[0m
+Make server: 1
+crash node: 2
+[1;31mdisconnect[0m [1;31m2[0m
+Make server: 2
+crash node: 3
+[1;31mdisconnect[0m [1;31m3[0m
+Make server: 3
+crash node: 4
+[1;31mdisconnect[0m [1;31m4[0m
+Make server: 4
+[1;32mconnect[0m [1;32m0[0m
+[1;32mconnect[0m [1;32m1[0m
+[1;32mconnect[0m [1;32m2[0m
+[1;32mconnect[0m [1;32m3[0m
+[1;32mconnect[0m [1;32m4[0m
+will elect for leader: 1, state: 2, @1600334037730
+[0;31mbecandidate[0m: 1 1600334037730
+[1;33m4[0m recv request vote from 1, term: 1, args: &{1 1 0 0}, mlogIndex:0, mlogTerm:-1, @1600334037733
+4 voted for 1 @1600334037733
+[1;33m3[0m recv request vote from 1, term: 1, args: &{1 1 0 0}, mlogIndex:0, mlogTerm:-1, @1600334037734
+3 voted for 1 @1600334037734
+[1;33m0[0m recv request vote from 1, term: 1, args: &{1 1 0 0}, mlogIndex:0, mlogTerm:-1, @1600334037736
+0 voted for 1 @1600334037736
+[1;31mbeleaderId[0m: 1, term: 1, @1600334037740
+[1;33m2[0m recv request vote from 1, term: 1, args: &{1 1 0 0}, mlogIndex:0, mlogTerm:-1, @1600334037751
+2 voted for 1 @1600334037751
+node: 3, leader:1, term:1, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334037753
+node: 3 recv msg: &{1 1 -2 -2 [] -2 [] false}
+node: 3, leader: 1, index: -2, reply: &{1 false -2} @1600334037753
+node: 4, leader:1, term:1, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334037756
+node: 4 recv msg: &{1 1 -2 -2 [] -2 [] false}
+node: 4, leader: 1, index: -2, reply: &{1 false -2} @1600334037756
+node: 2, leader:1, term:1, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334037763
+node: 2 recv msg: &{1 1 -2 -2 [] -2 [] false}
+node: 2, leader: 1, index: -2, reply: &{1 false -2} @1600334037763
+node: [1;31m1[0m, Start: 2977, term: 1, index: 1 @1600334037763
+node: 0, leader:1, term:1, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334037763
+node: 0 recv msg: &{1 1 -2 -2 [] -2 [] false}
+node: 0, leader: 1, index: -2, reply: &{1 false -2} @1600334037763
+node: 2, leader:1, term:1, prevLogIndex:0, prevLogTerm:0, log:[{2977 1 1 []}] @1600334037842
+node: 2 will append log, leaderId: 1, leaderTerm: 1, first_log: {2977 1 1 []}, last_log: {2977 1 1 []}, log length: 1, @1600334037842
+node: 2, log length: 2, log: [{<nil> 0 0 []} {2977 1 1 []}]
+node: 2, leader: 1, index: 0, reply: &{1 true 1} @1600334037842
+leader: 1, recieve appendMsg reply from 2, {1 true 1}, matchIndex: 1, nextIndex: 2
+node: 0, leader:1, term:1, prevLogIndex:0, prevLogTerm:0, log:[{2977 1 1 []}] @1600334037853
+node: 0 will append log, leaderId: 1, leaderTerm: 1, first_log: {2977 1 1 []}, last_log: {2977 1 1 []}, log length: 1, @1600334037853
+node: 0, log length: 2, log: [{<nil> 0 0 []} {2977 1 1 []}]
+node: 0, leader: 1, index: 0, reply: &{1 true 1} @1600334037853
+leader: 1, recieve appendMsg reply from 0, {1 true 1}, matchIndex: 1, nextIndex: 2
+node: 3, leader:1, term:1, prevLogIndex:0, prevLogTerm:0, log:[{2977 1 1 []}] @1600334037862
+node: 3 will append log, leaderId: 1, leaderTerm: 1, first_log: {2977 1 1 []}, last_log: {2977 1 1 []}, log length: 1, @1600334037862
+node: 3, log length: 2, log: [{<nil> 0 0 []} {2977 1 1 []}]
+node: 3, leader: 1, index: 0, reply: &{1 true 1} @1600334037862
+leader: 1, recieve appendMsg reply from 3, {1 true 1}, matchIndex: 1, nextIndex: 2
+node: 4, leader:1, term:1, prevLogIndex:0, prevLogTerm:0, log:[{2977 1 1 []}] @1600334037867
+node: 4 will append log, leaderId: 1, leaderTerm: 1, first_log: {2977 1 1 []}, last_log: {2977 1 1 []}, log length: 1, @1600334037867
+node: 4, log length: 2, log: [{<nil> 0 0 []} {2977 1 1 []}]
+node: 4, leader: 1, index: 0, reply: &{1 true 1} @1600334037867
+leader: 1, recieve appendMsg reply from 4, {1 true 1}, matchIndex: 1, nextIndex: 2
+node: 0, leader:1, term:1, prevLogIndex:1, prevLogTerm:1, log:[] @1600334037943
+node: 0, log length: 2, log: [{<nil> 0 0 []} {2977 1 1 []}]
+node: 0, leader: 1, index: 1, reply: &{1 true 1} @1600334037943
+leader: 1, recieve appendMsg reply from 0, {1 true 1}, matchIndex: 1, nextIndex: 2
+node: 4, leader:1, term:1, prevLogIndex:1, prevLogTerm:1, log:[] @1600334037948
+node: 4, log length: 2, log: [{<nil> 0 0 []} {2977 1 1 []}]
+node: 4, leader: 1, index: 1, reply: &{1 true 1} @1600334037948
+leader: 1, recieve appendMsg reply from 4, {1 true 1}, matchIndex: 1, nextIndex: 2
+node: 2, leader:1, term:1, prevLogIndex:1, prevLogTerm:1, log:[] @1600334037949
+node: 2, log length: 2, log: [{<nil> 0 0 []} {2977 1 1 []}]
+node: 2, leader: 1, index: 1, reply: &{1 true 1} @1600334037949
+leader: 1, recieve appendMsg reply from 2, {1 true 1}, matchIndex: 1, nextIndex: 2
+node: 1, cIndex: 0, newIndex:1, matchIndex: [1 0 1 1 1]
+[1] Notified to apply @1600334037951
+me: 1, apply index:0, commit:1
+[1] sends {1 2977 false [] 0 0} on applyCh, term: 1 @1600334037951
+node: [1;31m1[0m, Start: 2979, term: 1, index: 2 @1600334037952
+node: 3, leader:1, term:1, prevLogIndex:1, prevLogTerm:1, log:[] @1600334037959
+node: 3, log length: 2, log: [{<nil> 0 0 []} {2977 1 1 []}]
+node: 3, leader: 1, index: 1, reply: &{1 true 1} @1600334037959
+leader: 1, recieve appendMsg reply from 3, {1 true 1}, matchIndex: 1, nextIndex: 2
+[1;31mdisconnect[0m [1;31m1[0m
+node: [1;31m1[0m, Start: 2984, term: 1, index: 3 @1600334037967
+node: [1;31m1[0m, Start: 2989, term: 1, index: 4 @1600334037973
+node: [1;31m1[0m, Start: 2994, term: 1, index: 5 @1600334037982
+node: [1;31m1[0m, Start: 2999, term: 1, index: 6 @1600334037989
+node: [1;31m1[0m, Start: 3004, term: 1, index: 7 @1600334037989
+will elect for leader: 0, state: 2, @1600334038170
+[0;31mbecandidate[0m: 0 1600334038171
+[1;33m3[0m recv request vote from 0, term: 2, args: &{2 0 1 1}, mlogIndex:1, mlogTerm:1, @1600334038181
+3 voted for 0 @1600334038181
+[1;33m2[0m recv request vote from 0, term: 2, args: &{2 0 1 1}, mlogIndex:1, mlogTerm:1, @1600334038182
+2 voted for 0 @1600334038182
+[1;33m4[0m recv request vote from 0, term: 2, args: &{2 0 1 1}, mlogIndex:1, mlogTerm:1, @1600334038190
+4 voted for 0 @1600334038190
+[1;31mbeleaderId[0m: 0, term: 2, @1600334038193
+node: 2, leader:0, term:2, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334038196
+node: 2 recv msg: &{2 0 -2 -2 [] -2 [] false}
+node: 2, leader: 0, index: -2, reply: &{2 false -2} @1600334038196
+node: 4, leader:0, term:2, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334038199
+node: 4 recv msg: &{2 0 -2 -2 [] -2 [] false}
+node: 4, leader: 0, index: -2, reply: &{2 false -2} @1600334038199
+node: 3, leader:0, term:2, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334038202
+node: 3 recv msg: &{2 0 -2 -2 [] -2 [] false}
+node: 3, leader: 0, index: -2, reply: &{2 false -2} @1600334038202
+node: [1;31m0[0m, Start: 3008, term: 2, index: 2 @1600334038235
+node: [1;31m1[0m, Start: 3009, term: 1, index: 8 @1600334038235
+[1;31mdisconnect[0m [1;31m0[0m
+node: [1;31m0[0m, Start: 3013, term: 2, index: 3 @1600334038238
+node: [1;31m1[0m, Start: 3014, term: 1, index: 9 @1600334038238
+node: [1;31m0[0m, Start: 3018, term: 2, index: 4 @1600334038238
+node: [1;31m1[0m, Start: 3019, term: 1, index: 10 @1600334038238
+node: [1;31m0[0m, Start: 3023, term: 2, index: 5 @1600334038245
+node: [1;31m1[0m, Start: 3024, term: 1, index: 11 @1600334038245
+will elect for leader: 4, state: 2, @1600334038528
+[0;31mbecandidate[0m: 4 1600334038529
+[1;33m2[0m recv request vote from 4, term: 3, args: &{3 4 1 1}, mlogIndex:1, mlogTerm:1, @1600334038529
+2 voted for 4 @1600334038529
+will elect for leader: 3, state: 2, @1600334038696
+[0;31mbecandidate[0m: 3 1600334038696
+[1;33m4[0m recv request vote from 3, term: 3, args: &{3 3 1 1}, mlogIndex:1, mlogTerm:1, @1600334038697
+node 4 reject voted for 3, my_state: 1, votefor: 4, log_index: 1 @1600334038697
+[1;33m2[0m recv request vote from 3, term: 3, args: &{3 3 1 1}, mlogIndex:1, mlogTerm:1, @1600334038716
+node 2 reject voted for 3, my_state: 2, votefor: 4, log_index: 1 @1600334038716
+will elect for leader: 4, state: 1, @1600334038773
+[0;31mbecandidate[0m: 4 1600334038773
+[1;33m2[0m recv request vote from 4, term: 4, args: &{4 4 1 1}, mlogIndex:1, mlogTerm:1, @1600334038788
+2 voted for 4 @1600334038788
+[1;33m3[0m recv request vote from 4, term: 4, args: &{4 4 1 1}, mlogIndex:1, mlogTerm:1, @1600334038789
+node: 3 convert to follower @1600334038789
+3 voted for 4 @1600334038789
+will elect for leader: 2, state: 2, @1600334039178
+[0;31mbecandidate[0m: 2 1600334039178
+[1;33m4[0m recv request vote from 2, term: 5, args: &{5 2 1 1}, mlogIndex:1, mlogTerm:1, @1600334039183
+node: 4 convert to follower @1600334039183
+4 voted for 2 @1600334039183
+[1;33m3[0m recv request vote from 2, term: 5, args: &{5 2 1 1}, mlogIndex:1, mlogTerm:1, @1600334039200
+3 voted for 2 @1600334039200
+[1;31mbeleaderId[0m: 2, term: 5, @1600334039210
+node: [1;31m2[0m, Start: 3130, term: 5, index: 2 @1600334039210
+node: [1;31m2[0m, Start: 3135, term: 5, index: 3 @1600334039215
+[1;31mdisconnect[0m [1;31m2[0m
+[1;32mconnect[0m [1;32m0[0m
+node: [1;31m2[0m, Start: 3140, term: 5, index: 4 @1600334039221
+node: 3, leader:2, term:5, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334039223
+node: 3 recv msg: &{5 2 -2 -2 [] -2 [] false}
+node: 3, leader: 2, index: -2, reply: &{5 false -2} @1600334039223
+node: [1;31m2[0m, Start: 3145, term: 5, index: 5 @1600334039232
+node: 4, leader:2, term:5, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334039234
+node: 4 recv msg: &{5 2 -2 -2 [] -2 [] false}
+node: 4, leader: 2, index: -2, reply: &{5 false -2} @1600334039234
+node: [1;31m2[0m, Start: 3150, term: 5, index: 6 @1600334039239
+node: [1;31m2[0m, Start: 3155, term: 5, index: 7 @1600334039253
+node: [1;31m2[0m, Start: 3160, term: 5, index: 8 @1600334039261
+node: 3, leader:0, term:2, prevLogIndex:1, prevLogTerm:1, log:[{3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []}] @1600334039295
+node: 3, leader: 0, index: 1, reply: &{5 false 0} @1600334039295
+0 converted from leader to follower @1600334039295 when send msg
+leader: 0, recieve appendMsg reply from 3, {5 false 0}, matchIndex: 0, nextIndex: 2
+node: 4, leader:0, term:2, prevLogIndex:1, prevLogTerm:1, log:[{3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []}] @1600334039297
+node: 4, leader: 0, index: 1, reply: &{5 false 0} @1600334039297
+will elect for leader: 3, state: 2, @1600334039508
+[0;31mbecandidate[0m: 3 1600334039508
+[1;33m4[0m recv request vote from 3, term: 6, args: &{6 3 1 1}, mlogIndex:1, mlogTerm:1, @1600334039517
+4 voted for 3 @1600334039517
+node: [1;31m2[0m, Start: 3165, term: 5, index: 9 @1600334039522
+[1;33m0[0m recv request vote from 3, term: 6, args: &{6 3 1 1}, mlogIndex:5, mlogTerm:2, @1600334039529
+node 0 reject voted for 3, my_state: 2, votefor: -1, log_index: 5 @1600334039529
+node: [1;31m2[0m, Start: 3170, term: 5, index: 10 @1600334039534
+node: [1;31m2[0m, Start: 3175, term: 5, index: 11 @1600334039541
+node: [1;31m2[0m, Start: 3180, term: 5, index: 12 @1600334039543
+node: [1;31m2[0m, Start: 3185, term: 5, index: 13 @1600334039548
+node: [1;31m2[0m, Start: 3190, term: 5, index: 14 @1600334039548
+node: [1;31m2[0m, Start: 3195, term: 5, index: 15 @1600334039561
+node: [1;31m2[0m, Start: 3200, term: 5, index: 16 @1600334039568
+will elect for leader: 0, state: 2, @1600334039702
+[0;31mbecandidate[0m: 0 1600334039702
+[1;33m4[0m recv request vote from 0, term: 7, args: &{7 0 5 2}, mlogIndex:1, mlogTerm:1, @1600334039704
+4 voted for 0 @1600334039704
+[1;33m3[0m recv request vote from 0, term: 7, args: &{7 0 5 2}, mlogIndex:1, mlogTerm:1, @1600334039728
+node: 3 convert to follower @1600334039728
+3 voted for 0 @1600334039729
+[1;31mbeleaderId[0m: 0, term: 7, @1600334039734
+node: 3, leader:0, term:7, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334039744
+node: 3 recv msg: &{7 0 -2 -2 [] -2 [] false}
+node: 3, leader: 0, index: -2, reply: &{7 false -2} @1600334039744
+node: 4, leader:0, term:7, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334039763
+node: 4 recv msg: &{7 0 -2 -2 [] -2 [] false}
+node: 4, leader: 0, index: -2, reply: &{7 false -2} @1600334039763
+node: 3, leader:0, term:7, prevLogIndex:5, prevLogTerm:2, log:[] @1600334039840
+me: 3 will not append log from node:0
+node: 3 refuse to append, args:{term: 7, llogIdx: 5, llogTerm:2}, llogIdx:1, llogTerm: 1, Hint: 0
+node: 3, leader: 0, index: 5, reply: &{7 false 0} @1600334039840
+leader: 0, recieve appendMsg reply from 3, {7 false 0}, matchIndex: 0, nextIndex: 1
+node: 4, leader:0, term:7, prevLogIndex:5, prevLogTerm:2, log:[] @1600334039856
+me: 4 will not append log from node:0
+node: 4 refuse to append, args:{term: 7, llogIdx: 5, llogTerm:2}, llogIdx:1, llogTerm: 1, Hint: 0
+node: 4, leader: 0, index: 5, reply: &{7 false 0} @1600334039856
+leader: 0, recieve appendMsg reply from 4, {7 false 0}, matchIndex: 0, nextIndex: 1
+node: [1;31m0[0m, Start: 3203, term: 7, index: 6 @1600334040031
+node: 4, leader:0, term:7, prevLogIndex:0, prevLogTerm:0, log:[{2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []}] @1600334040048
+node: 4 will append log, leaderId: 0, leaderTerm: 7, first_log: {2977 1 1 []}, last_log: {3203 7 6 []}, log length: 6, @1600334040048
+node: 4, log length: 7, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []}]
+node: 4, leader: 0, index: 0, reply: &{7 true 6} @1600334040048
+leader: 0, recieve appendMsg reply from 4, {7 true 6}, matchIndex: 6, nextIndex: 7
+node: 3, leader:0, term:7, prevLogIndex:0, prevLogTerm:0, log:[{2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []}] @1600334040057
+node: 3 will append log, leaderId: 0, leaderTerm: 7, first_log: {2977 1 1 []}, last_log: {3203 7 6 []}, log length: 6, @1600334040058
+node: 3, log length: 7, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []}]
+node: 3, leader: 0, index: 0, reply: &{7 true 6} @1600334040057
+leader: 0, recieve appendMsg reply from 3, {7 true 6}, matchIndex: 6, nextIndex: 7
+node: 4, leader:0, term:7, prevLogIndex:6, prevLogTerm:7, log:[] @1600334040144
+node: 4, log length: 7, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []}]
+node: 4, leader: 0, index: 6, reply: &{7 true 6} @1600334040144
+leader: 0, recieve appendMsg reply from 4, {7 true 6}, matchIndex: 6, nextIndex: 7
+node: 0, cIndex: 0, newIndex:6, matchIndex: [0 0 0 6 6]
+[0] Notified to apply @1600334040145
+me: 0, apply index:0, commit:6
+[0] sends {1 2977 false [] 0 0} on applyCh, term: 7 @1600334040145
+me: 0, apply index:1, commit:6
+[0] sends {2 3008 false [] 0 0} on applyCh, term: 7 @1600334040145
+me: 0, apply index:2, commit:6
+[0] sends {3 3013 false [] 0 0} on applyCh, term: 7 @1600334040145
+me: 0, apply index:3, commit:6
+[0] sends {4 3018 false [] 0 0} on applyCh, term: 7 @1600334040145
+me: 0, apply index:4, commit:6
+[0] sends {5 3023 false [] 0 0} on applyCh, term: 7 @1600334040145
+me: 0, apply index:5, commit:6
+[0] sends {6 3203 false [] 0 0} on applyCh, term: 7 @1600334040146
+node: 3, leader:0, term:7, prevLogIndex:6, prevLogTerm:7, log:[] @1600334040243
+node: 3, log length: 7, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []}]
+current cindex: 0, new cindex: 6
+node: 3, leader: 0, index: 6, reply: &{7 true 6} @1600334040243
+[3] Notified to apply @1600334040243
+me: 3, apply index:0, commit:6
+[3] sends {1 2977 false [] 0 0} on applyCh, term: 7 @1600334040244
+me: 3, apply index:1, commit:6
+[3] sends {2 3008 false [] 0 0} on applyCh, term: 7 @1600334040244
+me: 3, apply index:2, commit:6
+[3] sends {3 3013 false [] 0 0} on applyCh, term: 7 @1600334040244
+leader: 0, recieve appendMsg reply from 3, {7 true 6}, matchIndex: 6, nextIndex: 7
+me: 3, apply index:3, commit:6
+[3] sends {4 3018 false [] 0 0} on applyCh, term: 7 @1600334040244
+me: 3, apply index:4, commit:6
+[3] sends {5 3023 false [] 0 0} on applyCh, term: 7 @1600334040244
+me: 3, apply index:5, commit:6
+[3] sends {6 3203 false [] 0 0} on applyCh, term: 7 @1600334040244
+node: 4, leader:0, term:7, prevLogIndex:6, prevLogTerm:7, log:[] @1600334040253
+node: 4, log length: 7, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []}]
+current cindex: 0, new cindex: 6
+node: 4, leader: 0, index: 6, reply: &{7 true 6} @1600334040253
+[4] Notified to apply @1600334040253
+me: 4, apply index:0, commit:6
+[4] sends {1 2977 false [] 0 0} on applyCh, term: 7 @1600334040253
+leader: 0, recieve appendMsg reply from 4, {7 true 6}, matchIndex: 6, nextIndex: 7
+me: 4, apply index:1, commit:6
+[4] sends {2 3008 false [] 0 0} on applyCh, term: 7 @1600334040253
+me: 4, apply index:2, commit:6
+[4] sends {3 3013 false [] 0 0} on applyCh, term: 7 @1600334040254
+me: 4, apply index:3, commit:6
+[4] sends {4 3018 false [] 0 0} on applyCh, term: 7 @1600334040254
+me: 4, apply index:4, commit:6
+[4] sends {5 3023 false [] 0 0} on applyCh, term: 7 @1600334040254
+me: 4, apply index:5, commit:6
+[4] sends {6 3203 false [] 0 0} on applyCh, term: 7 @1600334040254
+node: 3, leader:0, term:7, prevLogIndex:6, prevLogTerm:7, log:[] @1600334040348
+node: 3, log length: 7, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []}]
+node: 3, leader: 0, index: 6, reply: &{7 true 6} @1600334040348
+leader: 0, recieve appendMsg reply from 3, {7 true 6}, matchIndex: 6, nextIndex: 7
+will elect for leader: 4, state: 2, @1600334040406
+[0;31mbecandidate[0m: 4 1600334040406
+[1;33m0[0m recv request vote from 4, term: 8, args: &{8 4 6 7}, mlogIndex:6, mlogTerm:7, @1600334040408
+node: 0 convert to follower @1600334040409
+0 voted for 4 @1600334040409
+will stop heartbeat thread: 0
+will elect for leader: 4, state: 1, @1600334040559
+[0;31mbecandidate[0m: 4 1600334040559
+[1;33m3[0m recv request vote from 4, term: 9, args: &{9 4 6 7}, mlogIndex:6, mlogTerm:7, @1600334040577
+3 voted for 4 @1600334040578
+[1;33m0[0m recv request vote from 4, term: 9, args: &{9 4 6 7}, mlogIndex:6, mlogTerm:7, @1600334040581
+0 voted for 4 @1600334040581
+[1;31mbeleaderId[0m: 4, term: 9, @1600334040581
+node: 3, leader:4, term:9, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334040589
+node: 3 recv msg: &{9 4 -2 -2 [] -2 [] false}
+node: 3, leader: 4, index: -2, reply: &{9 false -2} @1600334040589
+node: 0, leader:4, term:9, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334040599
+node: 0 recv msg: &{9 4 -2 -2 [] -2 [] false}
+node: 0, leader: 4, index: -2, reply: &{9 false -2} @1600334040599
+node: 3, leader:4, term:9, prevLogIndex:6, prevLogTerm:7, log:[] @1600334040697
+node: 3, log length: 7, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []}]
+node: 3, leader: 4, index: 6, reply: &{9 true 6} @1600334040697
+leader: 4, recieve appendMsg reply from 3, {9 true 6}, matchIndex: 6, nextIndex: 7
+node: 0, leader:4, term:9, prevLogIndex:6, prevLogTerm:7, log:[] @1600334040700
+node: 0, log length: 7, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []}]
+node: 0, leader: 4, index: 6, reply: &{9 true 6} @1600334040700
+leader: 4, recieve appendMsg reply from 0, {9 true 6}, matchIndex: 6, nextIndex: 7
+node: [1;31m4[0m, Start: 3217, term: 9, index: 7 @1600334040720
+node: 3, leader:4, term:9, prevLogIndex:6, prevLogTerm:7, log:[{3217 9 7 []}] @1600334040790
+node: 3 will append log, leaderId: 4, leaderTerm: 9, first_log: {3217 9 7 []}, last_log: {3217 9 7 []}, log length: 1, @1600334040790
+node: 3, log length: 8, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []}]
+node: 3, leader: 4, index: 6, reply: &{9 true 7} @1600334040790
+leader: 4, recieve appendMsg reply from 3, {9 true 7}, matchIndex: 7, nextIndex: 8
+node: 3, leader:4, term:9, prevLogIndex:7, prevLogTerm:9, log:[] @1600334040896
+node: 3, log length: 8, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []}]
+node: 3, leader: 4, index: 7, reply: &{9 true 7} @1600334040896
+leader: 4, recieve appendMsg reply from 3, {9 true 7}, matchIndex: 7, nextIndex: 8
+node: 0, leader:4, term:9, prevLogIndex:6, prevLogTerm:7, log:[{3217 9 7 []}] @1600334040908
+node: 0 will append log, leaderId: 4, leaderTerm: 9, first_log: {3217 9 7 []}, last_log: {3217 9 7 []}, log length: 1, @1600334040908
+node: 0, log length: 8, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []}]
+node: 0, leader: 4, index: 6, reply: &{9 true 7} @1600334040908
+leader: 4, recieve appendMsg reply from 0, {9 true 7}, matchIndex: 7, nextIndex: 8
+node: 0, leader:4, term:9, prevLogIndex:7, prevLogTerm:9, log:[] @1600334040990
+node: 0, log length: 8, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []}]
+node: 0, leader: 4, index: 7, reply: &{9 true 7} @1600334040990
+leader: 4, recieve appendMsg reply from 0, {9 true 7}, matchIndex: 7, nextIndex: 8
+node: 4, cIndex: 6, newIndex:7, matchIndex: [7 0 0 7 0]
+[4] Notified to apply @1600334040992
+me: 4, apply index:6, commit:7
+[4] sends {7 3217 false [] 0 0} on applyCh, term: 9 @1600334040992
+node: 3, leader:4, term:9, prevLogIndex:7, prevLogTerm:9, log:[] @1600334041006
+node: 3, log length: 8, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []}]
+node: 3, leader: 4, index: 7, reply: &{9 true 7} @1600334041006
+leader: 4, recieve appendMsg reply from 3, {9 true 7}, matchIndex: 7, nextIndex: 8
+node: 0, leader:4, term:9, prevLogIndex:7, prevLogTerm:9, log:[] @1600334041089
+node: 0, log length: 8, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []}]
+current cindex: 6, new cindex: 7
+node: 0, leader: 4, index: 7, reply: &{9 true 7} @1600334041089
+[0] Notified to apply @1600334041089
+me: 0, apply index:6, commit:7
+[0] sends {7 3217 false [] 0 0} on applyCh, term: 9 @1600334041089
+leader: 4, recieve appendMsg reply from 0, {9 true 7}, matchIndex: 7, nextIndex: 8
+[1;31mdisconnect[0m [1;31m4[0m
+[1;32mconnect[0m [1;32m2[0m
+node: [1;31m4[0m, Start: 3222, term: 9, index: 8 @1600334041101
+node: [1;31m4[0m, Start: 3227, term: 9, index: 9 @1600334041112
+node: 3, leader:2, term:5, prevLogIndex:1, prevLogTerm:1, log:[{3130 5 2 []} {3135 5 3 []} {3140 5 4 []} {3145 5 5 []} {3150 5 6 []} {3155 5 7 []} {3160 5 8 []} {3165 5 9 []} {3170 5 10 []} {3175 5 11 []} {3180 5 12 []} {3185 5 13 []} {3190 5 14 []} {3195 5 15 []} {3200 5 16 []}] @1600334041122
+node: 3, leader: 2, index: 1, reply: &{9 false 0} @1600334041122
+2 converted from leader to follower @1600334041122 when send msg
+leader: 2, recieve appendMsg reply from 3, {9 false 0}, matchIndex: 0, nextIndex: 2
+node: [1;31m4[0m, Start: 3232, term: 9, index: 10 @1600334041122
+node: 0, leader:2, term:5, prevLogIndex:1, prevLogTerm:1, log:[{3130 5 2 []} {3135 5 3 []} {3140 5 4 []} {3145 5 5 []} {3150 5 6 []} {3155 5 7 []} {3160 5 8 []} {3165 5 9 []} {3170 5 10 []} {3175 5 11 []} {3180 5 12 []} {3185 5 13 []} {3190 5 14 []} {3195 5 15 []} {3200 5 16 []}] @1600334041127
+node: 0, leader: 2, index: 1, reply: &{9 false 0} @1600334041127
+leader: 2, recieve appendMsg reply from 0, {9 false 0}, matchIndex: 0, nextIndex: 1
+node: [1;31m4[0m, Start: 3237, term: 9, index: 11 @1600334041132
+node: [1;31m4[0m, Start: 3242, term: 9, index: 12 @1600334041139
+node: [1;31m4[0m, Start: 3247, term: 9, index: 13 @1600334041142
+node: [1;31m4[0m, Start: 3252, term: 9, index: 14 @1600334041144
+node: [1;31m4[0m, Start: 3257, term: 9, index: 15 @1600334041146
+node: [1;31m4[0m, Start: 3262, term: 9, index: 16 @1600334041152
+node: [1;31m4[0m, Start: 3267, term: 9, index: 17 @1600334041161
+node: [1;31m4[0m, Start: 3272, term: 9, index: 18 @1600334041168
+node: [1;31m4[0m, Start: 3277, term: 9, index: 19 @1600334041176
+node: [1;31m4[0m, Start: 3282, term: 9, index: 20 @1600334041185
+node: [1;31m4[0m, Start: 3287, term: 9, index: 21 @1600334041187
+node: [1;31m4[0m, Start: 3292, term: 9, index: 22 @1600334041195
+node: [1;31m4[0m, Start: 3297, term: 9, index: 23 @1600334041196
+node: [1;31m4[0m, Start: 3302, term: 9, index: 24 @1600334041206
+node: [1;31m4[0m, Start: 3307, term: 9, index: 25 @1600334041214
+node: [1;31m4[0m, Start: 3312, term: 9, index: 26 @1600334041224
+node: [1;31m4[0m, Start: 3317, term: 9, index: 27 @1600334041226
+node: [1;31m4[0m, Start: 3322, term: 9, index: 28 @1600334041236
+will elect for leader: 3, state: 2, @1600334041241
+[0;31mbecandidate[0m: 3 1600334041241
+node: [1;31m4[0m, Start: 3327, term: 9, index: 29 @1600334041248
+node: [1;31m4[0m, Start: 3332, term: 9, index: 30 @1600334041252
+node: [1;31m4[0m, Start: 3337, term: 9, index: 31 @1600334041257
+[1;33m0[0m recv request vote from 3, term: 10, args: &{10 3 7 9}, mlogIndex:7, mlogTerm:9, @1600334041257
+0 voted for 3 @1600334041257
+[1;33m2[0m recv request vote from 3, term: 10, args: &{10 3 7 9}, mlogIndex:16, mlogTerm:5, @1600334041258
+2 voted for 3 @1600334041258
+[1;31mbeleaderId[0m: 3, term: 10, @1600334041263
+node: [1;31m3[0m, Start: 3341, term: 10, index: 8 @1600334041269
+node: [1;31m4[0m, Start: 3342, term: 9, index: 32 @1600334041269
+[1;31mdisconnect[0m [1;31m3[0m
+node: [1;31m3[0m, Start: 3346, term: 10, index: 9 @1600334041281
+node: 2, leader:3, term:10, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334041281
+node: 2 recv msg: &{10 3 -2 -2 [] -2 [] false}
+node: [1;31m4[0m, Start: 3347, term: 9, index: 33 @1600334041281
+node: 2, leader: 3, index: -2, reply: &{10 false -2} @1600334041281
+[1;32mconnect[0m [1;32m3[0m
+node: [1;31m3[0m, Start: 3351, term: 10, index: 10 @1600334041291
+node: [1;31m4[0m, Start: 3352, term: 9, index: 34 @1600334041291
+[1;31mdisconnect[0m [1;31m3[0m
+node: [1;31m3[0m, Start: 3356, term: 10, index: 11 @1600334041298
+node: [1;31m4[0m, Start: 3357, term: 9, index: 35 @1600334041299
+node: [1;31m3[0m, Start: 3361, term: 10, index: 12 @1600334041302
+node: [1;31m4[0m, Start: 3362, term: 9, index: 36 @1600334041303
+[1;32mconnect[0m [1;32m1[0m
+node: [1;31m3[0m, Start: 3366, term: 10, index: 13 @1600334041315
+node: [1;31m4[0m, Start: 3367, term: 9, index: 37 @1600334041316
+node: [1;31m3[0m, Start: 3371, term: 10, index: 14 @1600334041326
+node: [1;31m4[0m, Start: 3372, term: 9, index: 38 @1600334041326
+node: [1;31m3[0m, Start: 3376, term: 10, index: 15 @1600334041328
+node: [1;31m4[0m, Start: 3377, term: 9, index: 39 @1600334041329
+node: [1;31m3[0m, Start: 3381, term: 10, index: 16 @1600334041339
+node: [1;31m4[0m, Start: 3382, term: 9, index: 40 @1600334041339
+node: 0, leader:1, term:1, prevLogIndex:1, prevLogTerm:1, log:[{2979 1 2 []} {2984 1 3 []} {2989 1 4 []} {2994 1 5 []} {2999 1 6 []} {3004 1 7 []} {3009 1 8 []} {3014 1 9 []} {3019 1 10 []} {3024 1 11 []}] @1600334041357
+node: 0, leader: 1, index: 1, reply: &{10 false 0} @1600334041357
+1 converted from leader to follower @1600334041357 when send msg
+leader: 1, recieve appendMsg reply from 0, {10 false 0}, matchIndex: 1, nextIndex: 2
+node: [1;31m3[0m, Start: 3386, term: 10, index: 17 @1600334041366
+node: [1;31m4[0m, Start: 3387, term: 9, index: 41 @1600334041366
+node: [1;31m3[0m, Start: 3391, term: 10, index: 18 @1600334041377
+node: [1;31m4[0m, Start: 3392, term: 9, index: 42 @1600334041377
+node: [1;31m3[0m, Start: 3396, term: 10, index: 19 @1600334041390
+node: [1;31m3[0m, Start: 3401, term: 10, index: 20 @1600334041402
+node: [1;31m3[0m, Start: 3406, term: 10, index: 21 @1600334041402
+node: [1;31m3[0m, Start: 3411, term: 10, index: 22 @1600334041407
+node: [1;31m3[0m, Start: 3416, term: 10, index: 23 @1600334041415
+node: [1;31m3[0m, Start: 3421, term: 10, index: 24 @1600334041428
+node: [1;31m3[0m, Start: 3426, term: 10, index: 25 @1600334041439
+node: [1;31m3[0m, Start: 3431, term: 10, index: 26 @1600334041448
+node: [1;31m3[0m, Start: 3436, term: 10, index: 27 @1600334041458
+node: [1;31m3[0m, Start: 3441, term: 10, index: 28 @1600334041459
+node: [1;31m3[0m, Start: 3446, term: 10, index: 29 @1600334041467
+node: [1;31m3[0m, Start: 3451, term: 10, index: 30 @1600334041479
+node: [1;31m3[0m, Start: 3456, term: 10, index: 31 @1600334041484
+node: [1;31m3[0m, Start: 3461, term: 10, index: 32 @1600334041484
+node: [1;31m3[0m, Start: 3466, term: 10, index: 33 @1600334041487
+node: [1;31m3[0m, Start: 3471, term: 10, index: 34 @1600334041493
+node: [1;31m3[0m, Start: 3476, term: 10, index: 35 @1600334041499
+node: [1;31m3[0m, Start: 3481, term: 10, index: 36 @1600334041502
+node: [1;31m3[0m, Start: 3486, term: 10, index: 37 @1600334041509
+node: [1;31m3[0m, Start: 3491, term: 10, index: 38 @1600334041514
+node: [1;31m3[0m, Start: 3496, term: 10, index: 39 @1600334041524
+node: [1;31m3[0m, Start: 3501, term: 10, index: 40 @1600334041530
+will elect for leader: 2, state: 2, @1600334041572
+[0;31mbecandidate[0m: 2 1600334041572
+[1;33m1[0m recv request vote from 2, term: 11, args: &{11 2 16 5}, mlogIndex:11, mlogTerm:1, @1600334041575
+1 voted for 2 @1600334041575
+[1;33m0[0m recv request vote from 2, term: 11, args: &{11 2 16 5}, mlogIndex:7, mlogTerm:9, @1600334041579
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 7 @1600334041579
+will elect for leader: 0, state: 2, @1600334041640
+[0;31mbecandidate[0m: 0 1600334041640
+[1;33m2[0m recv request vote from 0, term: 12, args: &{12 0 7 9}, mlogIndex:16, mlogTerm:5, @1600334041654
+node: 2 convert to follower @1600334041654
+2 voted for 0 @1600334041654
+[1;33m1[0m recv request vote from 0, term: 12, args: &{12 0 7 9}, mlogIndex:11, mlogTerm:1, @1600334041659
+1 voted for 0 @1600334041660
+[1;31mbeleaderId[0m: 0, term: 12, @1600334041661
+node: 2, leader:0, term:12, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334041661
+node: 2 recv msg: &{12 0 -2 -2 [] -2 [] false}
+node: 2, leader: 0, index: -2, reply: &{12 false -2} @1600334041661
+node: 1, leader:0, term:12, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334041667
+node: 1 recv msg: &{12 0 -2 -2 [] -2 [] false}
+node: 1, leader: 0, index: -2, reply: &{12 false -2} @1600334041667
+node: [1;31m0[0m, Start: 3503, term: 12, index: 8 @1600334041722
+node: [1;31m0[0m, Start: 3508, term: 12, index: 9 @1600334041731
+node: [1;31m0[0m, Start: 3513, term: 12, index: 10 @1600334041733
+node: [1;31m0[0m, Start: 3518, term: 12, index: 11 @1600334041735
+[1;31mdisconnect[0m [1;31m0[0m
+[1;32mconnect[0m [1;32m4[0m
+node: [1;31m0[0m, Start: 3523, term: 12, index: 12 @1600334041743
+node: [1;31m0[0m, Start: 3528, term: 12, index: 13 @1600334041755
+node: [1;31m0[0m, Start: 3533, term: 12, index: 14 @1600334041766
+node: [1;31m0[0m, Start: 3538, term: 12, index: 15 @1600334041777
+node: [1;31m0[0m, Start: 3543, term: 12, index: 16 @1600334041779
+node: [1;31m0[0m, Start: 3548, term: 12, index: 17 @1600334041781
+node: [1;31m0[0m, Start: 3553, term: 12, index: 18 @1600334041789
+node: 2, leader:4, term:9, prevLogIndex:6, prevLogTerm:7, log:[{3217 9 7 []} {3222 9 8 []} {3227 9 9 []} {3232 9 10 []} {3237 9 11 []} {3242 9 12 []} {3247 9 13 []} {3252 9 14 []} {3257 9 15 []} {3262 9 16 []} {3267 9 17 []} {3272 9 18 []} {3277 9 19 []} {3282 9 20 []} {3287 9 21 []} {3292 9 22 []} {3297 9 23 []} {3302 9 24 []} {3307 9 25 []} {3312 9 26 []} {3317 9 27 []} {3322 9 28 []} {3327 9 29 []} {3332 9 30 []} {3337 9 31 []} {3342 9 32 []} {3347 9 33 []} {3352 9 34 []} {3357 9 35 []} {3362 9 36 []} {3367 9 37 []} {3372 9 38 []} {3377 9 39 []} {3382 9 40 []} {3387 9 41 []} {3392 9 42 []}] @1600334041797
+node: 2, leader: 4, index: 6, reply: &{12 false 0} @1600334041797
+4 converted from leader to follower @1600334041797 when send msg
+leader: 4, recieve appendMsg reply from 2, {12 false 0}, matchIndex: 0, nextIndex: 7
+node: [1;31m0[0m, Start: 3558, term: 12, index: 19 @1600334041797
+node: [1;31m0[0m, Start: 3563, term: 12, index: 20 @1600334041808
+node: 1, leader:4, term:9, prevLogIndex:6, prevLogTerm:7, log:[{3217 9 7 []} {3222 9 8 []} {3227 9 9 []} {3232 9 10 []} {3237 9 11 []} {3242 9 12 []} {3247 9 13 []} {3252 9 14 []} {3257 9 15 []} {3262 9 16 []} {3267 9 17 []} {3272 9 18 []} {3277 9 19 []} {3282 9 20 []} {3287 9 21 []} {3292 9 22 []} {3297 9 23 []} {3302 9 24 []} {3307 9 25 []} {3312 9 26 []} {3317 9 27 []} {3322 9 28 []} {3327 9 29 []} {3332 9 30 []} {3337 9 31 []} {3342 9 32 []} {3347 9 33 []} {3352 9 34 []} {3357 9 35 []} {3362 9 36 []} {3367 9 37 []} {3372 9 38 []} {3377 9 39 []} {3382 9 40 []} {3387 9 41 []} {3392 9 42 []}] @1600334041808
+node: 1, leader: 4, index: 6, reply: &{12 false 0} @1600334041808
+leader: 4, recieve appendMsg reply from 1, {12 false 0}, matchIndex: 0, nextIndex: 1
+node: [1;31m0[0m, Start: 3568, term: 12, index: 21 @1600334041817
+node: [1;31m0[0m, Start: 3573, term: 12, index: 22 @1600334041820
+node: [1;31m0[0m, Start: 3578, term: 12, index: 23 @1600334041823
+node: [1;31m0[0m, Start: 3583, term: 12, index: 24 @1600334041834
+node: [1;31m0[0m, Start: 3588, term: 12, index: 25 @1600334041844
+node: [1;31m0[0m, Start: 3593, term: 12, index: 26 @1600334041852
+node: [1;31m0[0m, Start: 3598, term: 12, index: 27 @1600334041855
+node: [1;31m0[0m, Start: 3603, term: 12, index: 28 @1600334041867
+node: [1;31m0[0m, Start: 3608, term: 12, index: 29 @1600334041876
+node: [1;31m0[0m, Start: 3613, term: 12, index: 30 @1600334041882
+node: [1;31m0[0m, Start: 3618, term: 12, index: 31 @1600334041891
+node: [1;31m0[0m, Start: 3623, term: 12, index: 32 @1600334041896
+node: [1;31m0[0m, Start: 3628, term: 12, index: 33 @1600334041901
+node: [1;31m0[0m, Start: 3633, term: 12, index: 34 @1600334041911
+node: [1;31m0[0m, Start: 3638, term: 12, index: 35 @1600334041919
+node: [1;31m0[0m, Start: 3643, term: 12, index: 36 @1600334041927
+will elect for leader: 1, state: 2, @1600334041990
+[0;31mbecandidate[0m: 1 1600334041990
+[1;33m4[0m recv request vote from 1, term: 13, args: &{13 1 11 1}, mlogIndex:42, mlogTerm:9, @1600334041996
+node 4 reject voted for 1, my_state: 2, votefor: -1, log_index: 42 @1600334041996
+[1;33m2[0m recv request vote from 1, term: 13, args: &{13 1 11 1}, mlogIndex:16, mlogTerm:5, @1600334042009
+node 2 reject voted for 1, my_state: 2, votefor: -1, log_index: 16 @1600334042009
+will elect for leader: 4, state: 2, @1600334042148
+[0;31mbecandidate[0m: 4 1600334042148
+[1;33m2[0m recv request vote from 4, term: 14, args: &{14 4 42 9}, mlogIndex:16, mlogTerm:5, @1600334042153
+2 voted for 4 @1600334042153
+[1;33m1[0m recv request vote from 4, term: 14, args: &{14 4 42 9}, mlogIndex:11, mlogTerm:1, @1600334042169
+node: 1 convert to follower @1600334042169
+1 voted for 4 @1600334042169
+[1;31mbeleaderId[0m: 4, term: 14, @1600334042181
+node: 2, leader:4, term:14, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334042194
+node: 2 recv msg: &{14 4 -2 -2 [] -2 [] false}
+node: 2, leader: 4, index: -2, reply: &{14 false -2} @1600334042194
+node: 1, leader:4, term:14, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334042199
+node: 1 recv msg: &{14 4 -2 -2 [] -2 [] false}
+node: 1, leader: 4, index: -2, reply: &{14 false -2} @1600334042199
+node: 2, leader:4, term:14, prevLogIndex:42, prevLogTerm:9, log:[] @1600334042294
+me: 2 will not append log from node:4
+node: 2 refuse to append, args:{term: 14, llogIdx: 42, llogTerm:9}, llogIdx:16, llogTerm: 5, Hint: 1
+node: 2, leader: 4, index: 42, reply: &{14 false 1} @1600334042295
+leader: 4, recieve appendMsg reply from 2, {14 false 1}, matchIndex: 0, nextIndex: 2
+node: 1, leader:4, term:14, prevLogIndex:42, prevLogTerm:9, log:[] @1600334042295
+me: 1 will not append log from node:4
+node: 1 refuse to append, args:{term: 14, llogIdx: 42, llogTerm:9}, llogIdx:11, llogTerm: 1, Hint: 0
+node: 1, leader: 4, index: 42, reply: &{14 false 0} @1600334042295
+leader: 4, recieve appendMsg reply from 1, {14 false 0}, matchIndex: 0, nextIndex: 1
+node: [1;31m4[0m, Start: 3652, term: 14, index: 43 @1600334042296
+node: [1;31m4[0m, Start: 3657, term: 14, index: 44 @1600334042304
+[1;31mdisconnect[0m [1;31m4[0m
+node: [1;31m4[0m, Start: 3662, term: 14, index: 45 @1600334042306
+node: [1;31m4[0m, Start: 3667, term: 14, index: 46 @1600334042469
+node: [1;31m4[0m, Start: 3672, term: 14, index: 47 @1600334042470
+node: [1;31m4[0m, Start: 3677, term: 14, index: 48 @1600334042475
+node: [1;31m4[0m, Start: 3682, term: 14, index: 49 @1600334042485
+node: [1;31m4[0m, Start: 3687, term: 14, index: 50 @1600334042496
+[1;32mconnect[0m [1;32m4[0m
+node: [1;31m4[0m, Start: 3692, term: 14, index: 51 @1600334042503
+[1;31mdisconnect[0m [1;31m4[0m
+[1;32mconnect[0m [1;32m3[0m
+node: [1;31m4[0m, Start: 3697, term: 14, index: 52 @1600334042505
+node: [1;31m4[0m, Start: 3702, term: 14, index: 53 @1600334042516
+node: [1;31m4[0m, Start: 3707, term: 14, index: 54 @1600334042522
+node: 1, leader:3, term:10, prevLogIndex:7, prevLogTerm:9, log:[{3341 10 8 []} {3346 10 9 []} {3351 10 10 []} {3356 10 11 []} {3361 10 12 []} {3366 10 13 []} {3371 10 14 []} {3376 10 15 []} {3381 10 16 []} {3386 10 17 []} {3391 10 18 []} {3396 10 19 []} {3401 10 20 []} {3406 10 21 []} {3411 10 22 []} {3416 10 23 []} {3421 10 24 []} {3426 10 25 []} {3431 10 26 []} {3436 10 27 []} {3441 10 28 []} {3446 10 29 []} {3451 10 30 []} {3456 10 31 []} {3461 10 32 []} {3466 10 33 []} {3471 10 34 []} {3476 10 35 []} {3481 10 36 []} {3486 10 37 []} {3491 10 38 []} {3496 10 39 []} {3501 10 40 []}] @1600334042573
+node: 1, leader: 3, index: 7, reply: &{14 false 0} @1600334042580
+3 converted from leader to follower @1600334042581 when send msg
+leader: 3, recieve appendMsg reply from 1, {14 false 0}, matchIndex: 0, nextIndex: 8
+node: 2, leader:3, term:10, prevLogIndex:7, prevLogTerm:9, log:[{3341 10 8 []} {3346 10 9 []} {3351 10 10 []} {3356 10 11 []} {3361 10 12 []} {3366 10 13 []} {3371 10 14 []} {3376 10 15 []} {3381 10 16 []} {3386 10 17 []} {3391 10 18 []} {3396 10 19 []} {3401 10 20 []} {3406 10 21 []} {3411 10 22 []} {3416 10 23 []} {3421 10 24 []} {3426 10 25 []} {3431 10 26 []} {3436 10 27 []} {3441 10 28 []} {3446 10 29 []} {3451 10 30 []} {3456 10 31 []} {3461 10 32 []} {3466 10 33 []} {3471 10 34 []} {3476 10 35 []} {3481 10 36 []} {3486 10 37 []} {3491 10 38 []} {3496 10 39 []} {3501 10 40 []}] @1600334042582
+node: 2, leader: 3, index: 7, reply: &{14 false 0} @1600334042583
+leader: 3, recieve appendMsg reply from 2, {14 false 0}, matchIndex: 0, nextIndex: 1
+will elect for leader: 2, state: 2, @1600334042619
+[0;31mbecandidate[0m: 2 1600334042619
+[1;33m3[0m recv request vote from 2, term: 15, args: &{15 2 16 5}, mlogIndex:40, mlogTerm:10, @1600334042631
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 40 @1600334042631
+will elect for leader: 1, state: 2, @1600334042830
+[0;31mbecandidate[0m: 1 1600334042830
+[1;33m3[0m recv request vote from 1, term: 15, args: &{15 1 11 1}, mlogIndex:40, mlogTerm:10, @1600334042834
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 40 @1600334042834
+will elect for leader: 3, state: 2, @1600334042911
+[0;31mbecandidate[0m: 3 1600334042911
+[1;33m1[0m recv request vote from 3, term: 16, args: &{16 3 40 10}, mlogIndex:11, mlogTerm:1, @1600334042926
+node: 1 convert to follower @1600334042927
+1 voted for 3 @1600334042927
+[1;33m2[0m recv request vote from 3, term: 16, args: &{16 3 40 10}, mlogIndex:16, mlogTerm:5, @1600334042933
+node: 2 convert to follower @1600334042933
+2 voted for 3 @1600334042933
+[1;31mbeleaderId[0m: 3, term: 16, @1600334042942
+node: 2, leader:3, term:16, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334042949
+node: 1, leader:3, term:16, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334042949
+node: 2 recv msg: &{16 3 -2 -2 [] -2 [] false}
+node: 1 recv msg: &{16 3 -2 -2 [] -2 [] false}
+node: 1, leader: 3, index: -2, reply: &{16 false -2} @1600334042949
+node: 2, leader: 3, index: -2, reply: &{16 false -2} @1600334042949
+node: 1, leader:3, term:16, prevLogIndex:40, prevLogTerm:10, log:[] @1600334043063
+me: 1 will not append log from node:3
+node: 1 refuse to append, args:{term: 16, llogIdx: 40, llogTerm:10}, llogIdx:11, llogTerm: 1, Hint: 0
+node: 1, leader: 3, index: 40, reply: &{16 false 0} @1600334043063
+leader: 3, recieve appendMsg reply from 1, {16 false 0}, matchIndex: 0, nextIndex: 1
+node: 2, leader:3, term:16, prevLogIndex:40, prevLogTerm:10, log:[] @1600334043070
+me: 2 will not append log from node:3
+node: 2 refuse to append, args:{term: 16, llogIdx: 40, llogTerm:10}, llogIdx:16, llogTerm: 5, Hint: 1
+node: 2, leader: 3, index: 40, reply: &{16 false 1} @1600334043070
+leader: 3, recieve appendMsg reply from 2, {16 false 1}, matchIndex: 0, nextIndex: 2
+node: 1, leader:3, term:16, prevLogIndex:0, prevLogTerm:0, log:[{2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []} {3341 10 8 []} {3346 10 9 []} {3351 10 10 []} {3356 10 11 []} {3361 10 12 []} {3366 10 13 []} {3371 10 14 []} {3376 10 15 []} {3381 10 16 []} {3386 10 17 []} {3391 10 18 []} {3396 10 19 []} {3401 10 20 []} {3406 10 21 []} {3411 10 22 []} {3416 10 23 []} {3421 10 24 []} {3426 10 25 []} {3431 10 26 []} {3436 10 27 []} {3441 10 28 []} {3446 10 29 []} {3451 10 30 []} {3456 10 31 []} {3461 10 32 []} {3466 10 33 []} {3471 10 34 []} {3476 10 35 []} {3481 10 36 []} {3486 10 37 []} {3491 10 38 []} {3496 10 39 []} {3501 10 40 []}] @1600334043158
+node: 1 will append log, leaderId: 3, leaderTerm: 16, first_log: {2977 1 1 []}, last_log: {3501 10 40 []}, log length: 40, @1600334043158
+node: 1, log length: 41, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []} {3341 10 8 []} {3346 10 9 []} {3351 10 10 []} {3356 10 11 []} {3361 10 12 []} {3366 10 13 []} {3371 10 14 []} {3376 10 15 []} {3381 10 16 []} {3386 10 17 []} {3391 10 18 []} {3396 10 19 []} {3401 10 20 []} {3406 10 21 []} {3411 10 22 []} {3416 10 23 []} {3421 10 24 []} {3426 10 25 []} {3431 10 26 []} {3436 10 27 []} {3441 10 28 []} {3446 10 29 []} {3451 10 30 []} {3456 10 31 []} {3461 10 32 []} {3466 10 33 []} {3471 10 34 []} {3476 10 35 []} {3481 10 36 []} {3486 10 37 []} {3491 10 38 []} {3496 10 39 []} {3501 10 40 []}]
+current cindex: 1, new cindex: 6
+node: 1, leader: 3, index: 0, reply: &{16 true 40} @1600334043158
+leader: 3, recieve appendMsg reply from 1, {16 true 40}, matchIndex: 40, nextIndex: 41
+[1] Notified to apply @1600334043158
+me: 1, apply index:1, commit:6
+[1] sends {2 3008 false [] 0 0} on applyCh, term: 16 @1600334043158
+me: 1, apply index:2, commit:6
+[1] sends {3 3013 false [] 0 0} on applyCh, term: 16 @1600334043158
+me: 1, apply index:3, commit:6
+[1] sends {4 3018 false [] 0 0} on applyCh, term: 16 @1600334043158
+me: 1, apply index:4, commit:6
+[1] sends {5 3023 false [] 0 0} on applyCh, term: 16 @1600334043158
+me: 1, apply index:5, commit:6
+[1] sends {6 3203 false [] 0 0} on applyCh, term: 16 @1600334043158
+node: 2, leader:3, term:16, prevLogIndex:1, prevLogTerm:1, log:[{3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []} {3341 10 8 []} {3346 10 9 []} {3351 10 10 []} {3356 10 11 []} {3361 10 12 []} {3366 10 13 []} {3371 10 14 []} {3376 10 15 []} {3381 10 16 []} {3386 10 17 []} {3391 10 18 []} {3396 10 19 []} {3401 10 20 []} {3406 10 21 []} {3411 10 22 []} {3416 10 23 []} {3421 10 24 []} {3426 10 25 []} {3431 10 26 []} {3436 10 27 []} {3441 10 28 []} {3446 10 29 []} {3451 10 30 []} {3456 10 31 []} {3461 10 32 []} {3466 10 33 []} {3471 10 34 []} {3476 10 35 []} {3481 10 36 []} {3486 10 37 []} {3491 10 38 []} {3496 10 39 []} {3501 10 40 []}] @1600334043168
+node: 2 will append log, leaderId: 3, leaderTerm: 16, first_log: {3008 2 2 []}, last_log: {3501 10 40 []}, log length: 39, @1600334043174
+node: 2, log length: 41, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []} {3341 10 8 []} {3346 10 9 []} {3351 10 10 []} {3356 10 11 []} {3361 10 12 []} {3366 10 13 []} {3371 10 14 []} {3376 10 15 []} {3381 10 16 []} {3386 10 17 []} {3391 10 18 []} {3396 10 19 []} {3401 10 20 []} {3406 10 21 []} {3411 10 22 []} {3416 10 23 []} {3421 10 24 []} {3426 10 25 []} {3431 10 26 []} {3436 10 27 []} {3441 10 28 []} {3446 10 29 []} {3451 10 30 []} {3456 10 31 []} {3461 10 32 []} {3466 10 33 []} {3471 10 34 []} {3476 10 35 []} {3481 10 36 []} {3486 10 37 []} {3491 10 38 []} {3496 10 39 []} {3501 10 40 []}]
+current cindex: 0, new cindex: 6
+node: 2, leader: 3, index: 1, reply: &{16 true 40} @1600334043174
+leader: 3, recieve appendMsg reply from 2, {16 true 40}, matchIndex: 40, nextIndex: 41
+[2] Notified to apply @1600334043174
+me: 2, apply index:0, commit:6
+[2] sends {1 2977 false [] 0 0} on applyCh, term: 16 @1600334043174
+me: 2, apply index:1, commit:6
+[2] sends {2 3008 false [] 0 0} on applyCh, term: 16 @1600334043174
+me: 2, apply index:2, commit:6
+[2] sends {3 3013 false [] 0 0} on applyCh, term: 16 @1600334043174
+me: 2, apply index:3, commit:6
+[2] sends {4 3018 false [] 0 0} on applyCh, term: 16 @1600334043175
+me: 2, apply index:4, commit:6
+[2] sends {5 3023 false [] 0 0} on applyCh, term: 16 @1600334043175
+me: 2, apply index:5, commit:6
+[2] sends {6 3203 false [] 0 0} on applyCh, term: 16 @1600334043175
+node: [1;31m3[0m, Start: 3771, term: 16, index: 41 @1600334043235
+[1;31mdisconnect[0m [1;31m3[0m
+[1;32mconnect[0m [1;32m0[0m
+node: [1;31m3[0m, Start: 3776, term: 16, index: 42 @1600334043237
+node: [1;31m3[0m, Start: 3781, term: 16, index: 43 @1600334043242
+node: [1;31m3[0m, Start: 3786, term: 16, index: 44 @1600334043246
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: [1;31m3[0m, Start: 3791, term: 16, index: 45 @1600334043254
+node: [1;31m3[0m, Start: 3796, term: 16, index: 46 @1600334043265
+node: 2, leader:0, term:12, prevLogIndex:7, prevLogTerm:9, log:[{3503 12 8 []} {3508 12 9 []} {3513 12 10 []} {3518 12 11 []} {3523 12 12 []} {3528 12 13 []} {3533 12 14 []} {3538 12 15 []} {3543 12 16 []} {3548 12 17 []} {3553 12 18 []} {3558 12 19 []} {3563 12 20 []} {3568 12 21 []} {3573 12 22 []} {3578 12 23 []} {3583 12 24 []} {3588 12 25 []} {3593 12 26 []} {3598 12 27 []} {3603 12 28 []} {3608 12 29 []} {3613 12 30 []} {3618 12 31 []} {3623 12 32 []} {3628 12 33 []} {3633 12 34 []} {3638 12 35 []} {3643 12 36 []}] @1600334043268
+node: 2, leader: 0, index: 7, reply: &{16 false 0} @1600334043268
+0 converted from leader to follower @1600334043268 when send msg
+leader: 0, recieve appendMsg reply from 2, {16 false 0}, matchIndex: 0, nextIndex: 8
+node: [1;31m3[0m, Start: 3801, term: 16, index: 47 @1600334043269
+node: 1, leader:0, term:12, prevLogIndex:7, prevLogTerm:9, log:[{3503 12 8 []} {3508 12 9 []} {3513 12 10 []} {3518 12 11 []} {3523 12 12 []} {3528 12 13 []} {3533 12 14 []} {3538 12 15 []} {3543 12 16 []} {3548 12 17 []} {3553 12 18 []} {3558 12 19 []} {3563 12 20 []} {3568 12 21 []} {3573 12 22 []} {3578 12 23 []} {3583 12 24 []} {3588 12 25 []} {3593 12 26 []} {3598 12 27 []} {3603 12 28 []} {3608 12 29 []} {3613 12 30 []} {3618 12 31 []} {3623 12 32 []} {3628 12 33 []} {3633 12 34 []} {3638 12 35 []} {3643 12 36 []}] @1600334043272
+node: 1, leader: 0, index: 7, reply: &{16 false 0} @1600334043272
+leader: 0, recieve appendMsg reply from 1, {16 false 0}, matchIndex: 0, nextIndex: 1
+node: [1;31m3[0m, Start: 3806, term: 16, index: 48 @1600334043274
+node: [1;31m3[0m, Start: 3811, term: 16, index: 49 @1600334043281
+node: [1;31m3[0m, Start: 3816, term: 16, index: 50 @1600334043293
+node: [1;31m3[0m, Start: 3821, term: 16, index: 51 @1600334043298
+node: [1;31m3[0m, Start: 3826, term: 16, index: 52 @1600334043303
+node: [1;31m3[0m, Start: 3831, term: 16, index: 53 @1600334043307
+node: [1;31m3[0m, Start: 3836, term: 16, index: 54 @1600334043311
+node: [1;31m3[0m, Start: 3841, term: 16, index: 55 @1600334043316
+node: [1;31m3[0m, Start: 3846, term: 16, index: 56 @1600334043316
+node: [1;31m3[0m, Start: 3851, term: 16, index: 57 @1600334043320
+node: [1;31m3[0m, Start: 3856, term: 16, index: 58 @1600334043330
+node: [1;31m3[0m, Start: 3861, term: 16, index: 59 @1600334043339
+node: [1;31m3[0m, Start: 3866, term: 16, index: 60 @1600334043341
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 2, @1600334043671
+[0;31mbecandidate[0m: 0 1600334043671
+[1;33m1[0m recv request vote from 0, term: 17, args: &{17 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334043697
+1 voted for 0 @1600334043697
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 2, state: 2, @1600334043807
+[0;31mbecandidate[0m: 2 1600334043807
+[1;33m1[0m recv request vote from 2, term: 17, args: &{17 2 40 10}, mlogIndex:40, mlogTerm:10, @1600334043807
+node 1 reject voted for 2, my_state: 2, votefor: 0, log_index: 40 @1600334043807
+[1;33m0[0m recv request vote from 2, term: 17, args: &{17 2 40 10}, mlogIndex:36, mlogTerm:12, @1600334043820
+node 0 reject voted for 2, my_state: 1, votefor: 0, log_index: 36 @1600334043820
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 2, state: 1, @1600334044053
+[0;31mbecandidate[0m: 2 1600334044053
+[1;33m1[0m recv request vote from 2, term: 18, args: &{18 2 40 10}, mlogIndex:40, mlogTerm:10, @1600334044074
+1 voted for 2 @1600334044074
+[1;33m0[0m recv request vote from 2, term: 18, args: &{18 2 40 10}, mlogIndex:36, mlogTerm:12, @1600334044076
+node: 0 convert to follower @1600334044076
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 36 @1600334044077
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 2, @1600334044378
+[0;31mbecandidate[0m: 0 1600334044378
+[1;33m1[0m recv request vote from 0, term: 19, args: &{19 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334044383
+1 voted for 0 @1600334044383
+[1;33m2[0m recv request vote from 0, term: 19, args: &{19 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334044387
+node: 2 convert to follower @1600334044387
+2 voted for 0 @1600334044387
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 1, @1600334044534
+[0;31mbecandidate[0m: 0 1600334044534
+[1;33m1[0m recv request vote from 0, term: 20, args: &{20 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334044543
+1 voted for 0 @1600334044543
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+[1;33m2[0m recv request vote from 0, term: 20, args: &{20 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334044554
+2 voted for 0 @1600334044555
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 1, state: 2, @1600334045108
+[0;31mbecandidate[0m: 1 1600334045108
+[1;33m0[0m recv request vote from 1, term: 21, args: &{21 1 40 10}, mlogIndex:36, mlogTerm:12, @1600334045132
+node: 0 convert to follower @1600334045132
+node 0 reject voted for 1, my_state: 2, votefor: -1, log_index: 36 @1600334045132
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 2, state: 2, @1600334045404
+[0;31mbecandidate[0m: 2 1600334045405
+[1;33m0[0m recv request vote from 2, term: 21, args: &{21 2 40 10}, mlogIndex:36, mlogTerm:12, @1600334045423
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 36 @1600334045423
+[1;33m1[0m recv request vote from 2, term: 21, args: &{21 2 40 10}, mlogIndex:40, mlogTerm:10, @1600334045428
+node 1 reject voted for 2, my_state: 1, votefor: 1, log_index: 40 @1600334045428
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 1, state: 1, @1600334045555
+[0;31mbecandidate[0m: 1 1600334045556
+[1;33m2[0m recv request vote from 1, term: 22, args: &{22 1 40 10}, mlogIndex:40, mlogTerm:10, @1600334045570
+node: 2 convert to follower @1600334045570
+2 voted for 1 @1600334045570
+[1;33m0[0m recv request vote from 1, term: 22, args: &{22 1 40 10}, mlogIndex:36, mlogTerm:12, @1600334045576
+node 0 reject voted for 1, my_state: 2, votefor: -1, log_index: 36 @1600334045576
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 2, @1600334045806
+[0;31mbecandidate[0m: 0 1600334045806
+[1;33m1[0m recv request vote from 0, term: 23, args: &{23 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334045810
+node: 1 convert to follower @1600334045810
+1 voted for 0 @1600334045810
+[1;33m2[0m recv request vote from 0, term: 23, args: &{23 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334045820
+2 voted for 0 @1600334045820
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 1, @1600334046259
+[0;31mbecandidate[0m: 0 1600334046259
+[1;33m1[0m recv request vote from 0, term: 24, args: &{24 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334046261
+1 voted for 0 @1600334046261
+[1;33m2[0m recv request vote from 0, term: 24, args: &{24 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334046271
+2 voted for 0 @1600334046271
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 1, state: 2, @1600334046553
+[0;31mbecandidate[0m: 1 1600334046553
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 2, state: 2, @1600334046562
+[0;31mbecandidate[0m: 2 1600334046562
+[1;33m0[0m recv request vote from 1, term: 25, args: &{25 1 40 10}, mlogIndex:36, mlogTerm:12, @1600334046567
+node: 0 convert to follower @1600334046567
+node 0 reject voted for 1, my_state: 2, votefor: -1, log_index: 36 @1600334046567
+[1;33m0[0m recv request vote from 2, term: 25, args: &{25 2 40 10}, mlogIndex:36, mlogTerm:12, @1600334046571
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 36 @1600334046571
+[1;33m2[0m recv request vote from 1, term: 25, args: &{25 1 40 10}, mlogIndex:40, mlogTerm:10, @1600334046573
+node 2 reject voted for 1, my_state: 1, votefor: 2, log_index: 40 @1600334046573
+[1;33m1[0m recv request vote from 2, term: 25, args: &{25 2 40 10}, mlogIndex:40, mlogTerm:10, @1600334046588
+node 1 reject voted for 2, my_state: 1, votefor: 1, log_index: 40 @1600334046588
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 2, state: 1, @1600334046944
+[0;31mbecandidate[0m: 2 1600334046944
+[1;33m1[0m recv request vote from 2, term: 26, args: &{26 2 40 10}, mlogIndex:40, mlogTerm:10, @1600334046947
+node: 1 convert to follower @1600334046947
+1 voted for 2 @1600334046947
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+[1;33m0[0m recv request vote from 2, term: 26, args: &{26 2 40 10}, mlogIndex:36, mlogTerm:12, @1600334046971
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 36 @1600334046971
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 2, @1600334047068
+[0;31mbecandidate[0m: 0 1600334047068
+[1;33m1[0m recv request vote from 0, term: 27, args: &{27 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334047079
+1 voted for 0 @1600334047079
+[1;33m2[0m recv request vote from 0, term: 27, args: &{27 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334047088
+node: 2 convert to follower @1600334047088
+2 voted for 0 @1600334047088
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 2, state: 2, @1600334047321
+[0;31mbecandidate[0m: 2 1600334047321
+[1;33m0[0m recv request vote from 2, term: 28, args: &{28 2 40 10}, mlogIndex:36, mlogTerm:12, @1600334047322
+node: 0 convert to follower @1600334047322
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 36 @1600334047322
+[1;33m1[0m recv request vote from 2, term: 28, args: &{28 2 40 10}, mlogIndex:40, mlogTerm:10, @1600334047333
+1 voted for 2 @1600334047333
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 2, @1600334047532
+[0;31mbecandidate[0m: 0 1600334047532
+[1;33m2[0m recv request vote from 0, term: 29, args: &{29 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334047543
+node: 2 convert to follower @1600334047543
+2 voted for 0 @1600334047543
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 1, state: 2, @1600334047715
+[0;31mbecandidate[0m: 1 1600334047715
+[1;33m0[0m recv request vote from 1, term: 29, args: &{29 1 40 10}, mlogIndex:36, mlogTerm:12, @1600334047718
+node 0 reject voted for 1, my_state: 1, votefor: 0, log_index: 36 @1600334047718
+[1;33m2[0m recv request vote from 1, term: 29, args: &{29 1 40 10}, mlogIndex:40, mlogTerm:10, @1600334047725
+node 2 reject voted for 1, my_state: 2, votefor: 0, log_index: 40 @1600334047725
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 1, @1600334047900
+[0;31mbecandidate[0m: 0 1600334047900
+[1;33m1[0m recv request vote from 0, term: 30, args: &{30 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334047907
+node: 1 convert to follower @1600334047907
+1 voted for 0 @1600334047907
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 2, state: 2, @1600334048035
+[0;31mbecandidate[0m: 2 1600334048036
+[1;33m0[0m recv request vote from 2, term: 30, args: &{30 2 40 10}, mlogIndex:36, mlogTerm:12, @1600334048040
+node 0 reject voted for 2, my_state: 1, votefor: 0, log_index: 36 @1600334048040
+[1;33m1[0m recv request vote from 2, term: 30, args: &{30 2 40 10}, mlogIndex:40, mlogTerm:10, @1600334048044
+node 1 reject voted for 2, my_state: 2, votefor: 0, log_index: 40 @1600334048044
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 1, @1600334048368
+[0;31mbecandidate[0m: 0 1600334048368
+[1;33m2[0m recv request vote from 0, term: 31, args: &{31 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334048394
+node: 2 convert to follower @1600334048394
+[1;33m1[0m recv request vote from 0, term: 31, args: &{31 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334048394
+2 voted for 0 @1600334048395
+1 voted for 0 @1600334048395
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 2, state: 2, @1600334048709
+[0;31mbecandidate[0m: 2 1600334048709
+[1;33m1[0m recv request vote from 2, term: 32, args: &{32 2 40 10}, mlogIndex:40, mlogTerm:10, @1600334048719
+1 voted for 2 @1600334048719
+[1;33m0[0m recv request vote from 2, term: 32, args: &{32 2 40 10}, mlogIndex:36, mlogTerm:12, @1600334048722
+node: 0 convert to follower @1600334048722
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 36 @1600334048722
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 2, state: 1, @1600334048954
+[0;31mbecandidate[0m: 2 1600334048954
+[1;33m0[0m recv request vote from 2, term: 33, args: &{33 2 40 10}, mlogIndex:36, mlogTerm:12, @1600334048968
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 36 @1600334048968
+[1;33m1[0m recv request vote from 2, term: 33, args: &{33 2 40 10}, mlogIndex:40, mlogTerm:10, @1600334048974
+1 voted for 2 @1600334048974
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 2, @1600334049093
+[0;31mbecandidate[0m: 0 1600334049093
+[1;33m1[0m recv request vote from 0, term: 34, args: &{34 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334049118
+[1;33m2[0m recv request vote from 0, term: 34, args: &{34 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334049118
+node: 2 convert to follower @1600334049118
+1 voted for 0 @1600334049118
+2 voted for 0 @1600334049119
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 1, @1600334049273
+[0;31mbecandidate[0m: 0 1600334049273
+[1;33m2[0m recv request vote from 0, term: 35, args: &{35 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334049277
+2 voted for 0 @1600334049277
+[1;33m1[0m recv request vote from 0, term: 35, args: &{35 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334049283
+1 voted for 0 @1600334049283
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+will elect for leader: 0, state: 1, @1600334049620
+[0;31mbecandidate[0m: 0 1600334049620
+[1;33m1[0m recv request vote from 0, term: 36, args: &{36 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334049626
+1 voted for 0 @1600334049626
+[1;33m2[0m recv request vote from 0, term: 36, args: &{36 0 36 12}, mlogIndex:40, mlogTerm:10, @1600334049634
+2 voted for 0 @1600334049634
+[1;31mbeleaderId[0m: 0, term: 36, @1600334049641
+node: 2, leader:0, term:36, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334049653
+node: 2 recv msg: &{36 0 -2 -2 [] -2 [] false}
+node: 2, leader: 0, index: -2, reply: &{36 false -2} @1600334049653
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 1, leader:0, term:36, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334049655
+node: 1 recv msg: &{36 0 -2 -2 [] -2 [] false}
+node: 1, leader: 0, index: -2, reply: &{36 false -2} @1600334049655
+node: 2, leader:0, term:36, prevLogIndex:36, prevLogTerm:12, log:[] @1600334049743
+me: 2 will not append log from node:0
+node: 2 refuse to append, args:{term: 36, llogIdx: 36, llogTerm:12}, llogIdx:36, llogTerm: 10, Hint: 7
+node: 2, leader: 0, index: 36, reply: &{36 false 7} @1600334049743
+node: [1;31m0[0m, Start: 4818, term: 36, index: 37 @1600334049747
+node: 1, leader:0, term:36, prevLogIndex:36, prevLogTerm:12, log:[] @1600334049748
+me: 1 will not append log from node:0
+node: 1 refuse to append, args:{term: 36, llogIdx: 36, llogTerm:12}, llogIdx:36, llogTerm: 10, Hint: 7
+node: 1, leader: 0, index: 36, reply: &{36 false 7} @1600334049748
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+[1;31mdisconnect[0m [1;31m0[0m
+node: [1;31m0[0m, Start: 4823, term: 36, index: 38 @1600334049786
+node: [1;31m0[0m, Start: 4828, term: 36, index: 39 @1600334049798
+[1;32mconnect[0m [1;32m3[0m
+node: [1;31m0[0m, Start: 4833, term: 36, index: 40 @1600334049810
+node: [1;31m0[0m, Start: 4838, term: 36, index: 41 @1600334049812
+node: [1;31m0[0m, Start: 4843, term: 36, index: 42 @1600334049817
+node: [1;31m0[0m, Start: 4848, term: 36, index: 43 @1600334049827
+node: [1;31m0[0m, Start: 4853, term: 36, index: 44 @1600334049840
+node: [1;31m0[0m, Start: 4858, term: 36, index: 45 @1600334049840
+node: [1;31m0[0m, Start: 4863, term: 36, index: 46 @1600334049841
+node: 1, leader:3, term:16, prevLogIndex:40, prevLogTerm:10, log:[{3771 16 41 []} {3776 16 42 []} {3781 16 43 []} {3786 16 44 []} {3791 16 45 []} {3796 16 46 []} {3801 16 47 []} {3806 16 48 []} {3811 16 49 []} {3816 16 50 []} {3821 16 51 []} {3826 16 52 []} {3831 16 53 []} {3836 16 54 []} {3841 16 55 []} {3846 16 56 []} {3851 16 57 []} {3856 16 58 []} {3861 16 59 []} {3866 16 60 []}] @1600334049849
+node: 1, leader: 3, index: 40, reply: &{36 false 0} @1600334049849
+node: [1;31m0[0m, Start: 4868, term: 36, index: 47 @1600334049851
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: [1;31m0[0m, Start: 4873, term: 36, index: 48 @1600334049862
+node: [1;31m0[0m, Start: 4878, term: 36, index: 49 @1600334049868
+node: [1;31m0[0m, Start: 4883, term: 36, index: 50 @1600334049881
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 2, leader:3, term:16, prevLogIndex:40, prevLogTerm:10, log:[{3771 16 41 []} {3776 16 42 []} {3781 16 43 []} {3786 16 44 []} {3791 16 45 []} {3796 16 46 []} {3801 16 47 []} {3806 16 48 []} {3811 16 49 []} {3816 16 50 []} {3821 16 51 []} {3826 16 52 []} {3831 16 53 []} {3836 16 54 []} {3841 16 55 []} {3846 16 56 []} {3851 16 57 []} {3856 16 58 []} {3861 16 59 []} {3866 16 60 []}] @1600334049960
+node: 2, leader: 3, index: 40, reply: &{36 false 0} @1600334049960
+node: 1, leader:3, term:16, prevLogIndex:40, prevLogTerm:10, log:[{3771 16 41 []} {3776 16 42 []} {3781 16 43 []} {3786 16 44 []} {3791 16 45 []} {3796 16 46 []} {3801 16 47 []} {3806 16 48 []} {3811 16 49 []} {3816 16 50 []} {3821 16 51 []} {3826 16 52 []} {3831 16 53 []} {3836 16 54 []} {3841 16 55 []} {3846 16 56 []} {3851 16 57 []} {3856 16 58 []} {3861 16 59 []} {3866 16 60 []}] @1600334049967
+node: 1, leader: 3, index: 40, reply: &{36 false 0} @1600334049967
+will elect for leader: 2, state: 2, @1600334050041
+[0;31mbecandidate[0m: 2 1600334050041
+node: 3, cIndex: 6, newIndex:40, matchIndex: [0 40 40 0 0]
+node: 1, leader:3, term:16, prevLogIndex:40, prevLogTerm:10, log:[{3771 16 41 []} {3776 16 42 []} {3781 16 43 []} {3786 16 44 []} {3791 16 45 []} {3796 16 46 []} {3801 16 47 []} {3806 16 48 []} {3811 16 49 []} {3816 16 50 []} {3821 16 51 []} {3826 16 52 []} {3831 16 53 []} {3836 16 54 []} {3841 16 55 []} {3846 16 56 []} {3851 16 57 []} {3856 16 58 []} {3861 16 59 []} {3866 16 60 []}] @1600334050058
+node: 1, leader: 3, index: 40, reply: &{36 false 0} @1600334050058
+3 converted from leader to follower @1600334050059 when send msg
+leader: 3, recieve appendMsg reply from 1, {36 false 0}, matchIndex: 40, nextIndex: 41
+[1;33m3[0m recv request vote from 2, term: 37, args: &{37 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334050063
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334050064
+node: 2, leader:3, term:16, prevLogIndex:40, prevLogTerm:10, log:[{3771 16 41 []} {3776 16 42 []} {3781 16 43 []} {3786 16 44 []} {3791 16 45 []} {3796 16 46 []} {3801 16 47 []} {3806 16 48 []} {3811 16 49 []} {3816 16 50 []} {3821 16 51 []} {3826 16 52 []} {3831 16 53 []} {3836 16 54 []} {3841 16 55 []} {3846 16 56 []} {3851 16 57 []} {3856 16 58 []} {3861 16 59 []} {3866 16 60 []}] @1600334050064
+node: 2, leader: 3, index: 40, reply: &{37 false 0} @1600334050064
+[1;33m1[0m recv request vote from 2, term: 37, args: &{37 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334050066
+1 voted for 2 @1600334050066
+leader: 0, recieve appendMsg reply from 2, {36 false 7}, matchIndex: 0, nextIndex: 8
+leader: 3, recieve appendMsg reply from 1, {36 false 0}, matchIndex: 40, nextIndex: 41
+will elect for leader: 1, state: 2, @1600334050288
+[0;31mbecandidate[0m: 1 1600334050288
+[1;33m2[0m recv request vote from 1, term: 38, args: &{38 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334050293
+node: 2 convert to follower @1600334050293
+2 voted for 1 @1600334050293
+[1;33m3[0m recv request vote from 1, term: 38, args: &{38 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334050296
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334050297
+leader: 3, recieve appendMsg reply from 2, {37 false 0}, matchIndex: 40, nextIndex: 41
+will elect for leader: 1, state: 1, @1600334050463
+[0;31mbecandidate[0m: 1 1600334050463
+[1;33m2[0m recv request vote from 1, term: 39, args: &{39 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334050465
+2 voted for 1 @1600334050465
+leader: 3, recieve appendMsg reply from 2, {36 false 0}, matchIndex: 40, nextIndex: 41
+[1;33m3[0m recv request vote from 1, term: 39, args: &{39 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334050473
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334050474
+will elect for leader: 3, state: 2, @1600334050498
+[0;31mbecandidate[0m: 3 1600334050498
+[1;33m2[0m recv request vote from 3, term: 40, args: &{40 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334050517
+2 voted for 3 @1600334050518
+will elect for leader: 1, state: 1, @1600334050624
+[0;31mbecandidate[0m: 1 1600334050625
+leader: 3, recieve appendMsg reply from 1, {36 false 0}, matchIndex: 40, nextIndex: 41
+[1;33m3[0m recv request vote from 1, term: 40, args: &{40 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334050640
+node 3 reject voted for 1, my_state: 1, votefor: 3, log_index: 60 @1600334050640
+will elect for leader: 3, state: 1, @1600334050737
+[0;31mbecandidate[0m: 3 1600334050737
+[1;33m1[0m recv request vote from 3, term: 41, args: &{41 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334050748
+node: 1 convert to follower @1600334050748
+1 voted for 3 @1600334050749
+will elect for leader: 2, state: 2, @1600334050806
+[0;31mbecandidate[0m: 2 1600334050806
+[1;33m1[0m recv request vote from 2, term: 41, args: &{41 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334050823
+node 1 reject voted for 2, my_state: 2, votefor: 3, log_index: 36 @1600334050823
+will elect for leader: 3, state: 1, @1600334051244
+[0;31mbecandidate[0m: 3 1600334051244
+[1;33m1[0m recv request vote from 3, term: 42, args: &{42 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334051253
+1 voted for 3 @1600334051254
+[1;33m2[0m recv request vote from 3, term: 42, args: &{42 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334051269
+node: 2 convert to follower @1600334051269
+2 voted for 3 @1600334051270
+will elect for leader: 3, state: 1, @1600334051447
+[0;31mbecandidate[0m: 3 1600334051447
+[1;33m1[0m recv request vote from 3, term: 43, args: &{43 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334051468
+1 voted for 3 @1600334051468
+leader: 0, recieve appendMsg reply from 1, {36 false 7}, matchIndex: 0, nextIndex: 8
+will elect for leader: 2, state: 2, @1600334052024
+[0;31mbecandidate[0m: 2 1600334052024
+[1;33m1[0m recv request vote from 2, term: 43, args: &{43 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334052037
+node 1 reject voted for 2, my_state: 2, votefor: 3, log_index: 36 @1600334052037
+[1;33m3[0m recv request vote from 2, term: 43, args: &{43 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334052046
+node 3 reject voted for 2, my_state: 1, votefor: 3, log_index: 60 @1600334052046
+will elect for leader: 2, state: 1, @1600334052269
+[0;31mbecandidate[0m: 2 1600334052269
+[1;33m3[0m recv request vote from 2, term: 44, args: &{44 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334052277
+node: 3 convert to follower @1600334052277
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334052277
+[1;33m1[0m recv request vote from 2, term: 44, args: &{44 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334052288
+1 voted for 2 @1600334052288
+will elect for leader: 1, state: 2, @1600334052510
+[0;31mbecandidate[0m: 1 1600334052510
+[1;33m3[0m recv request vote from 1, term: 45, args: &{45 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334052522
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334052522
+[1;33m2[0m recv request vote from 1, term: 45, args: &{45 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334052524
+node: 2 convert to follower @1600334052524
+2 voted for 1 @1600334052524
+will elect for leader: 3, state: 2, @1600334052772
+[0;31mbecandidate[0m: 3 1600334052772
+[1;33m1[0m recv request vote from 3, term: 46, args: &{46 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334052776
+node: 1 convert to follower @1600334052777
+1 voted for 3 @1600334052777
+[1;33m2[0m recv request vote from 3, term: 46, args: &{46 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334052786
+2 voted for 3 @1600334052787
+will elect for leader: 2, state: 2, @1600334053008
+[0;31mbecandidate[0m: 2 1600334053008
+[1;33m3[0m recv request vote from 2, term: 47, args: &{47 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334053022
+node: 3 convert to follower @1600334053022
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334053022
+[1;33m1[0m recv request vote from 2, term: 47, args: &{47 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334053030
+1 voted for 2 @1600334053030
+will elect for leader: 1, state: 2, @1600334053331
+[0;31mbecandidate[0m: 1 1600334053331
+[1;33m3[0m recv request vote from 1, term: 48, args: &{48 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334053349
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334053349
+will elect for leader: 2, state: 1, @1600334053465
+[0;31mbecandidate[0m: 2 1600334053465
+[1;33m3[0m recv request vote from 2, term: 48, args: &{48 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334053475
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334053475
+[1;33m1[0m recv request vote from 2, term: 48, args: &{48 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334053493
+node 1 reject voted for 2, my_state: 1, votefor: 1, log_index: 36 @1600334053493
+will elect for leader: 2, state: 1, @1600334053635
+[0;31mbecandidate[0m: 2 1600334053635
+[1;33m1[0m recv request vote from 2, term: 49, args: &{49 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334053637
+node: 1 convert to follower @1600334053637
+1 voted for 2 @1600334053638
+[1;33m3[0m recv request vote from 2, term: 49, args: &{49 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334053642
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334053642
+will elect for leader: 1, state: 2, @1600334053884
+[0;31mbecandidate[0m: 1 1600334053884
+[1;33m2[0m recv request vote from 1, term: 50, args: &{50 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334053888
+node: 2 convert to follower @1600334053889
+2 voted for 1 @1600334053889
+[1;33m3[0m recv request vote from 1, term: 50, args: &{50 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334053909
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334053909
+will elect for leader: 2, state: 2, @1600334054088
+[0;31mbecandidate[0m: 2 1600334054088
+[1;33m3[0m recv request vote from 2, term: 51, args: &{51 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334054105
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334054105
+[1;33m1[0m recv request vote from 2, term: 51, args: &{51 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334054114
+node: 1 convert to follower @1600334054114
+1 voted for 2 @1600334054115
+will elect for leader: 3, state: 2, @1600334054360
+[0;31mbecandidate[0m: 3 1600334054360
+[1;33m1[0m recv request vote from 3, term: 52, args: &{52 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334054365
+1 voted for 3 @1600334054365
+will elect for leader: 2, state: 1, @1600334054520
+[0;31mbecandidate[0m: 2 1600334054520
+[1;33m3[0m recv request vote from 2, term: 52, args: &{52 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334054537
+node 3 reject voted for 2, my_state: 1, votefor: 3, log_index: 60 @1600334054537
+[1;33m1[0m recv request vote from 2, term: 52, args: &{52 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334054544
+node 1 reject voted for 2, my_state: 2, votefor: 3, log_index: 36 @1600334054544
+will elect for leader: 1, state: 2, @1600334054724
+[0;31mbecandidate[0m: 1 1600334054724
+[1;33m2[0m recv request vote from 1, term: 53, args: &{53 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334054733
+node: 2 convert to follower @1600334054733
+2 voted for 1 @1600334054733
+[1;33m3[0m recv request vote from 1, term: 53, args: &{53 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334054746
+node: 3 convert to follower @1600334054746
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334054746
+will elect for leader: 2, state: 2, @1600334055042
+[0;31mbecandidate[0m: 2 1600334055042
+[1;33m3[0m recv request vote from 2, term: 54, args: &{54 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334055049
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334055049
+[1;33m1[0m recv request vote from 2, term: 54, args: &{54 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334055067
+node: 1 convert to follower @1600334055067
+1 voted for 2 @1600334055067
+will elect for leader: 3, state: 2, @1600334055295
+[0;31mbecandidate[0m: 3 1600334055295
+[1;33m2[0m recv request vote from 3, term: 55, args: &{55 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334055303
+node: 2 convert to follower @1600334055303
+2 voted for 3 @1600334055303
+will elect for leader: 1, state: 2, @1600334055346
+[0;31mbecandidate[0m: 1 1600334055346
+[1;33m3[0m recv request vote from 1, term: 55, args: &{55 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334055359
+node 3 reject voted for 1, my_state: 1, votefor: 3, log_index: 60 @1600334055359
+[1;33m2[0m recv request vote from 1, term: 55, args: &{55 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334055371
+node 2 reject voted for 1, my_state: 2, votefor: 3, log_index: 36 @1600334055371
+will elect for leader: 1, state: 1, @1600334055541
+[0;31mbecandidate[0m: 1 1600334055541
+[1;33m2[0m recv request vote from 1, term: 56, args: &{56 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334055541
+2 voted for 1 @1600334055542
+will elect for leader: 3, state: 1, @1600334055551
+[0;31mbecandidate[0m: 3 1600334055551
+[1;33m3[0m recv request vote from 1, term: 56, args: &{56 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334055556
+node 3 reject voted for 1, my_state: 1, votefor: 3, log_index: 60 @1600334055556
+[1;33m1[0m recv request vote from 3, term: 56, args: &{56 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334055559
+node 1 reject voted for 3, my_state: 1, votefor: 1, log_index: 36 @1600334055559
+[1;33m2[0m recv request vote from 3, term: 56, args: &{56 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334055564
+node 2 reject voted for 3, my_state: 2, votefor: 1, log_index: 36 @1600334055564
+will elect for leader: 1, state: 1, @1600334056025
+[0;31mbecandidate[0m: 1 1600334056025
+[1;33m3[0m recv request vote from 1, term: 57, args: &{57 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334056031
+node: 3 convert to follower @1600334056031
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334056032
+[1;33m2[0m recv request vote from 1, term: 57, args: &{57 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334056053
+2 voted for 1 @1600334056053
+will elect for leader: 3, state: 2, @1600334056325
+[0;31mbecandidate[0m: 3 1600334056325
+[1;33m2[0m recv request vote from 3, term: 58, args: &{58 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334056337
+2 voted for 3 @1600334056338
+[1;33m1[0m recv request vote from 3, term: 58, args: &{58 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334056343
+node: 1 convert to follower @1600334056344
+1 voted for 3 @1600334056344
+will elect for leader: 2, state: 2, @1600334056645
+[0;31mbecandidate[0m: 2 1600334056645
+[1;33m1[0m recv request vote from 2, term: 59, args: &{59 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334056656
+1 voted for 2 @1600334056656
+[1;33m3[0m recv request vote from 2, term: 59, args: &{59 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334056671
+node: 3 convert to follower @1600334056671
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334056671
+will elect for leader: 3, state: 2, @1600334057005
+will elect for leader: 1, state: 2, @1600334057005
+[0;31mbecandidate[0m: 1 1600334057005
+[0;31mbecandidate[0m: 3 1600334057005
+[1;33m2[0m recv request vote from 1, term: 60, args: &{60 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334057011
+node: 2 convert to follower @1600334057011
+2 voted for 1 @1600334057011
+[1;33m3[0m recv request vote from 1, term: 60, args: &{60 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334057017
+node 3 reject voted for 1, my_state: 1, votefor: 3, log_index: 60 @1600334057017
+[1;33m1[0m recv request vote from 3, term: 60, args: &{60 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334057019
+node 1 reject voted for 3, my_state: 1, votefor: 1, log_index: 36 @1600334057019
+[1;33m2[0m recv request vote from 3, term: 60, args: &{60 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334057031
+node 2 reject voted for 3, my_state: 2, votefor: 1, log_index: 36 @1600334057043
+will elect for leader: 1, state: 1, @1600334057259
+[0;31mbecandidate[0m: 1 1600334057259
+[1;33m2[0m recv request vote from 1, term: 61, args: &{61 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334057276
+2 voted for 1 @1600334057277
+[1;33m3[0m recv request vote from 1, term: 61, args: &{61 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334057280
+node: 3 convert to follower @1600334057280
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334057280
+will elect for leader: 3, state: 2, @1600334057465
+[0;31mbecandidate[0m: 3 1600334057466
+[1;33m2[0m recv request vote from 3, term: 62, args: &{62 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334057490
+2 voted for 3 @1600334057490
+will elect for leader: 1, state: 1, @1600334057490
+[0;31mbecandidate[0m: 1 1600334057490
+[1;33m3[0m recv request vote from 1, term: 62, args: &{62 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334057496
+node 3 reject voted for 1, my_state: 1, votefor: 3, log_index: 60 @1600334057496
+[1;33m2[0m recv request vote from 1, term: 62, args: &{62 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334057501
+node 2 reject voted for 1, my_state: 2, votefor: 3, log_index: 36 @1600334057502
+will elect for leader: 1, state: 1, @1600334057668
+[0;31mbecandidate[0m: 1 1600334057668
+[1;33m3[0m recv request vote from 1, term: 63, args: &{63 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334057676
+node: 3 convert to follower @1600334057677
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334057677
+[1;33m2[0m recv request vote from 1, term: 63, args: &{63 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334057679
+2 voted for 1 @1600334057680
+will elect for leader: 2, state: 2, @1600334058138
+[0;31mbecandidate[0m: 2 1600334058138
+[1;33m3[0m recv request vote from 2, term: 64, args: &{64 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334058158
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334058158
+[1;33m1[0m recv request vote from 2, term: 64, args: &{64 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334058159
+node: 1 convert to follower @1600334058159
+1 voted for 2 @1600334058159
+will elect for leader: 3, state: 2, @1600334058191
+[0;31mbecandidate[0m: 3 1600334058191
+[1;33m2[0m recv request vote from 3, term: 65, args: &{65 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334058199
+node: 2 convert to follower @1600334058199
+2 voted for 3 @1600334058199
+[1;33m1[0m recv request vote from 3, term: 65, args: &{65 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334058202
+1 voted for 3 @1600334058202
+will elect for leader: 1, state: 2, @1600334058406
+[0;31mbecandidate[0m: 1 1600334058407
+[1;33m3[0m recv request vote from 1, term: 66, args: &{66 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334058418
+node: 3 convert to follower @1600334058418
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334058418
+will elect for leader: 1, state: 1, @1600334058606
+[0;31mbecandidate[0m: 1 1600334058606
+[1;33m2[0m recv request vote from 1, term: 67, args: &{67 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334058608
+2 voted for 1 @1600334058609
+[1;33m3[0m recv request vote from 1, term: 67, args: &{67 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334058633
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334058634
+will elect for leader: 3, state: 2, @1600334058706
+[0;31mbecandidate[0m: 3 1600334058706
+[1;33m2[0m recv request vote from 3, term: 68, args: &{68 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334058713
+2 voted for 3 @1600334058713
+[1;33m1[0m recv request vote from 3, term: 68, args: &{68 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334058726
+node: 1 convert to follower @1600334058726
+1 voted for 3 @1600334058726
+will elect for leader: 2, state: 2, @1600334058995
+[0;31mbecandidate[0m: 2 1600334058995
+[1;33m1[0m recv request vote from 2, term: 69, args: &{69 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334059010
+1 voted for 2 @1600334059010
+will elect for leader: 3, state: 1, @1600334059187
+[0;31mbecandidate[0m: 3 1600334059187
+[1;33m1[0m recv request vote from 3, term: 69, args: &{69 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334059194
+node 1 reject voted for 3, my_state: 2, votefor: 2, log_index: 36 @1600334059194
+[1;33m2[0m recv request vote from 3, term: 69, args: &{69 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334059205
+node 2 reject voted for 3, my_state: 1, votefor: 2, log_index: 36 @1600334059205
+will elect for leader: 2, state: 1, @1600334059459
+[0;31mbecandidate[0m: 2 1600334059459
+[1;33m1[0m recv request vote from 2, term: 70, args: &{70 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334059465
+1 voted for 2 @1600334059466
+[1;33m3[0m recv request vote from 2, term: 70, args: &{70 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334059485
+node: 3 convert to follower @1600334059485
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334059485
+will elect for leader: 1, state: 2, @1600334059754
+[0;31mbecandidate[0m: 1 1600334059754
+[1;33m3[0m recv request vote from 1, term: 71, args: &{71 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334059770
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334059770
+[1;33m2[0m recv request vote from 1, term: 71, args: &{71 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334059777
+node: 2 convert to follower @1600334059777
+2 voted for 1 @1600334059777
+will elect for leader: 3, state: 2, @1600334059910
+[0;31mbecandidate[0m: 3 1600334059910
+[1;33m1[0m recv request vote from 3, term: 72, args: &{72 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334059911
+node: 1 convert to follower @1600334059911
+1 voted for 3 @1600334059911
+[1;33m2[0m recv request vote from 3, term: 72, args: &{72 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334059929
+2 voted for 3 @1600334059929
+will elect for leader: 3, state: 1, @1600334060168
+[0;31mbecandidate[0m: 3 1600334060168
+[1;33m2[0m recv request vote from 3, term: 73, args: &{73 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334060174
+2 voted for 3 @1600334060174
+will elect for leader: 1, state: 2, @1600334060387
+[0;31mbecandidate[0m: 1 1600334060387
+[1;33m2[0m recv request vote from 1, term: 73, args: &{73 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334060388
+node 2 reject voted for 1, my_state: 2, votefor: 3, log_index: 36 @1600334060388
+[1;33m3[0m recv request vote from 1, term: 73, args: &{73 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334060390
+node 3 reject voted for 1, my_state: 1, votefor: 3, log_index: 60 @1600334060390
+will elect for leader: 3, state: 1, @1600334060413
+[0;31mbecandidate[0m: 3 1600334060414
+[1;33m2[0m recv request vote from 3, term: 74, args: &{74 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334060434
+2 voted for 3 @1600334060434
+[1;33m1[0m recv request vote from 3, term: 74, args: &{74 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334060440
+node: 1 convert to follower @1600334060440
+1 voted for 3 @1600334060440
+will elect for leader: 2, state: 2, @1600334060756
+[0;31mbecandidate[0m: 2 1600334060756
+[1;33m1[0m recv request vote from 2, term: 75, args: &{75 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334060769
+1 voted for 2 @1600334060769
+will elect for leader: 2, state: 1, @1600334060997
+[0;31mbecandidate[0m: 2 1600334060998
+[1;33m1[0m recv request vote from 2, term: 76, args: &{76 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334061008
+1 voted for 2 @1600334061009
+will elect for leader: 3, state: 1, @1600334061110
+[0;31mbecandidate[0m: 3 1600334061110
+[1;33m1[0m recv request vote from 3, term: 75, args: &{75 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334061121
+1600334061121 1 reject vote for 3, node stale term: 76
+[1;33m2[0m recv request vote from 3, term: 75, args: &{75 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334061132
+1600334061132 2 reject vote for 3, node stale term: 76
+node: 3 convert to follower when send vote msg @1600334061132
+will elect for leader: 1, state: 2, @1600334061182
+[0;31mbecandidate[0m: 1 1600334061182
+[1;33m2[0m recv request vote from 1, term: 77, args: &{77 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334061199
+node: 2 convert to follower @1600334061199
+2 voted for 1 @1600334061199
+[1;33m3[0m recv request vote from 1, term: 77, args: &{77 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334061208
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334061208
+will elect for leader: 2, state: 2, @1600334061496
+[0;31mbecandidate[0m: 2 1600334061496
+[1;33m3[0m recv request vote from 2, term: 78, args: &{78 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334061497
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334061497
+will elect for leader: 3, state: 2, @1600334061511
+[0;31mbecandidate[0m: 3 1600334061512
+[1;33m1[0m recv request vote from 2, term: 78, args: &{78 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334061520
+node: 1 convert to follower @1600334061520
+1 voted for 2 @1600334061520
+[1;33m1[0m recv request vote from 3, term: 79, args: &{79 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334061522
+1 voted for 3 @1600334061522
+will elect for leader: 1, state: 2, @1600334061848
+[0;31mbecandidate[0m: 1 1600334061848
+[1;33m2[0m recv request vote from 1, term: 80, args: &{80 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334061862
+node: 2 convert to follower @1600334061863
+2 voted for 1 @1600334061863
+[1;33m3[0m recv request vote from 1, term: 80, args: &{80 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334061866
+node: 3 convert to follower @1600334061866
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 60 @1600334061866
+will elect for leader: 2, state: 2, @1600334062194
+[0;31mbecandidate[0m: 2 1600334062194
+[1;33m3[0m recv request vote from 2, term: 81, args: &{81 2 36 10}, mlogIndex:60, mlogTerm:16, @1600334062200
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 60 @1600334062200
+will elect for leader: 3, state: 2, @1600334062269
+[0;31mbecandidate[0m: 3 1600334062269
+will elect for leader: 1, state: 1, @1600334062282
+[0;31mbecandidate[0m: 1 1600334062282
+[1;33m1[0m recv request vote from 3, term: 82, args: &{82 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334062283
+node: 1 convert to follower @1600334062283
+[1;33m3[0m recv request vote from 1, term: 81, args: &{81 1 36 10}, mlogIndex:60, mlogTerm:16, @1600334062283
+1600334062283 3 reject vote for 1, node stale term: 82
+1 voted for 3 @1600334062283
+[1;33m2[0m recv request vote from 1, term: 81, args: &{81 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334062285
+node 2 reject voted for 1, my_state: 1, votefor: 2, log_index: 36 @1600334062285
+[1;33m2[0m recv request vote from 3, term: 82, args: &{82 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334062289
+node: 2 convert to follower @1600334062290
+2 voted for 3 @1600334062290
+will elect for leader: 3, state: 1, @1600334062501
+[0;31mbecandidate[0m: 3 1600334062501
+[1;33m1[0m recv request vote from 3, term: 83, args: &{83 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334062508
+1 voted for 3 @1600334062508
+[1;33m2[0m recv request vote from 3, term: 83, args: &{83 3 60 16}, mlogIndex:36, mlogTerm:10, @1600334062511
+2 voted for 3 @1600334062512
+[1;31mbeleaderId[0m: 3, term: 83, @1600334062522
+node: 2, leader:3, term:83, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334062523
+node: 2 recv msg: &{83 3 -2 -2 [] -2 [] false}
+node: 2, leader: 3, index: -2, reply: &{83 false -2} @1600334062523
+node: 1, leader:3, term:83, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334062549
+node: 1 recv msg: &{83 3 -2 -2 [] -2 [] false}
+node: 1, leader: 3, index: -2, reply: &{83 false -2} @1600334062549
+node: 2, leader:3, term:83, prevLogIndex:60, prevLogTerm:16, log:[] @1600334062644
+me: 2 will not append log from node:3
+node: 2 refuse to append, args:{term: 83, llogIdx: 60, llogTerm:16}, llogIdx:36, llogTerm: 10, Hint: 7
+node: 2, leader: 3, index: 60, reply: &{83 false 7} @1600334062644
+node: 1, leader:3, term:83, prevLogIndex:60, prevLogTerm:16, log:[] @1600334062649
+me: 1 will not append log from node:3
+node: 1 refuse to append, args:{term: 83, llogIdx: 60, llogTerm:16}, llogIdx:36, llogTerm: 10, Hint: 7
+node: 1, leader: 3, index: 60, reply: &{83 false 7} @1600334062649
+node: [1;31m3[0m, Start: 6936, term: 83, index: 61 @1600334062715
+node: [1;31m3[0m, Start: 6941, term: 83, index: 62 @1600334062719
+[1;31mdisconnect[0m [1;31m3[0m
+node: [1;31m3[0m, Start: 6946, term: 83, index: 63 @1600334062723
+[1;32mconnect[0m [1;32m4[0m
+node: [1;31m3[0m, Start: 6951, term: 83, index: 64 @1600334062726
+node: [1;31m3[0m, Start: 6956, term: 83, index: 65 @1600334062735
+node: [1;31m3[0m, Start: 6961, term: 83, index: 66 @1600334062746
+node: [1;31m3[0m, Start: 6966, term: 83, index: 67 @1600334062754
+node: [1;31m3[0m, Start: 6971, term: 83, index: 68 @1600334062761
+node: [1;31m3[0m, Start: 6976, term: 83, index: 69 @1600334062764
+node: [1;31m3[0m, Start: 6981, term: 83, index: 70 @1600334062772
+node: [1;31m3[0m, Start: 6986, term: 83, index: 71 @1600334062785
+node: 1, leader:4, term:14, prevLogIndex:0, prevLogTerm:0, log:[{2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []} {3222 9 8 []} {3227 9 9 []} {3232 9 10 []} {3237 9 11 []} {3242 9 12 []} {3247 9 13 []} {3252 9 14 []} {3257 9 15 []} {3262 9 16 []} {3267 9 17 []} {3272 9 18 []} {3277 9 19 []} {3282 9 20 []} {3287 9 21 []} {3292 9 22 []} {3297 9 23 []} {3302 9 24 []} {3307 9 25 []} {3312 9 26 []} {3317 9 27 []} {3322 9 28 []} {3327 9 29 []} {3332 9 30 []} {3337 9 31 []} {3342 9 32 []} {3347 9 33 []} {3352 9 34 []} {3357 9 35 []} {3362 9 36 []} {3367 9 37 []} {3372 9 38 []} {3377 9 39 []} {3382 9 40 []} {3387 9 41 []} {3392 9 42 []} {3652 14 43 []} {3657 14 44 []} {3662 14 45 []} {3667 14 46 []} {3672 14 47 []} {3677 14 48 []} {3682 14 49 []} {3687 14 50 []} {3692 14 51 []} {3697 14 52 []} {3702 14 53 []} {3707 14 54 []}] @1600334062792
+node: 1, leader: 4, index: 0, reply: &{83 false 0} @1600334062792
+node: [1;31m3[0m, Start: 6991, term: 83, index: 72 @1600334062795
+node: 2, leader:4, term:14, prevLogIndex:1, prevLogTerm:1, log:[{3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []} {3222 9 8 []} {3227 9 9 []} {3232 9 10 []} {3237 9 11 []} {3242 9 12 []} {3247 9 13 []} {3252 9 14 []} {3257 9 15 []} {3262 9 16 []} {3267 9 17 []} {3272 9 18 []} {3277 9 19 []} {3282 9 20 []} {3287 9 21 []} {3292 9 22 []} {3297 9 23 []} {3302 9 24 []} {3307 9 25 []} {3312 9 26 []} {3317 9 27 []} {3322 9 28 []} {3327 9 29 []} {3332 9 30 []} {3337 9 31 []} {3342 9 32 []} {3347 9 33 []} {3352 9 34 []} {3357 9 35 []} {3362 9 36 []} {3367 9 37 []} {3372 9 38 []} {3377 9 39 []} {3382 9 40 []} {3387 9 41 []} {3392 9 42 []} {3652 14 43 []} {3657 14 44 []} {3662 14 45 []} {3667 14 46 []} {3672 14 47 []} {3677 14 48 []} {3682 14 49 []} {3687 14 50 []} {3692 14 51 []} {3697 14 52 []} {3702 14 53 []} {3707 14 54 []}] @1600334062811
+node: 2, leader: 4, index: 1, reply: &{83 false 0} @1600334062811
+node: 2, leader:4, term:14, prevLogIndex:1, prevLogTerm:1, log:[{3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []} {3222 9 8 []} {3227 9 9 []} {3232 9 10 []} {3237 9 11 []} {3242 9 12 []} {3247 9 13 []} {3252 9 14 []} {3257 9 15 []} {3262 9 16 []} {3267 9 17 []} {3272 9 18 []} {3277 9 19 []} {3282 9 20 []} {3287 9 21 []} {3292 9 22 []} {3297 9 23 []} {3302 9 24 []} {3307 9 25 []} {3312 9 26 []} {3317 9 27 []} {3322 9 28 []} {3327 9 29 []} {3332 9 30 []} {3337 9 31 []} {3342 9 32 []} {3347 9 33 []} {3352 9 34 []} {3357 9 35 []} {3362 9 36 []} {3367 9 37 []} {3372 9 38 []} {3377 9 39 []} {3382 9 40 []} {3387 9 41 []} {3392 9 42 []} {3652 14 43 []} {3657 14 44 []} {3662 14 45 []} {3667 14 46 []} {3672 14 47 []} {3677 14 48 []} {3682 14 49 []} {3687 14 50 []} {3692 14 51 []} {3697 14 52 []} {3702 14 53 []} {3707 14 54 []}] @1600334062911
+node: 2, leader: 4, index: 1, reply: &{83 false 0} @1600334062911
+leader: 3, recieve appendMsg reply from 1, {83 false 7}, matchIndex: 0, nextIndex: 8
+node: 1, leader:4, term:14, prevLogIndex:0, prevLogTerm:0, log:[{2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []} {3222 9 8 []} {3227 9 9 []} {3232 9 10 []} {3237 9 11 []} {3242 9 12 []} {3247 9 13 []} {3252 9 14 []} {3257 9 15 []} {3262 9 16 []} {3267 9 17 []} {3272 9 18 []} {3277 9 19 []} {3282 9 20 []} {3287 9 21 []} {3292 9 22 []} {3297 9 23 []} {3302 9 24 []} {3307 9 25 []} {3312 9 26 []} {3317 9 27 []} {3322 9 28 []} {3327 9 29 []} {3332 9 30 []} {3337 9 31 []} {3342 9 32 []} {3347 9 33 []} {3352 9 34 []} {3357 9 35 []} {3362 9 36 []} {3367 9 37 []} {3372 9 38 []} {3377 9 39 []} {3382 9 40 []} {3387 9 41 []} {3392 9 42 []} {3652 14 43 []} {3657 14 44 []} {3662 14 45 []} {3667 14 46 []} {3672 14 47 []} {3677 14 48 []} {3682 14 49 []} {3687 14 50 []} {3692 14 51 []} {3697 14 52 []} {3702 14 53 []} {3707 14 54 []}] @1600334062991
+node: 1, leader: 4, index: 0, reply: &{83 false 0} @1600334062991
+node: 2, leader:4, term:14, prevLogIndex:1, prevLogTerm:1, log:[{3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []} {3222 9 8 []} {3227 9 9 []} {3232 9 10 []} {3237 9 11 []} {3242 9 12 []} {3247 9 13 []} {3252 9 14 []} {3257 9 15 []} {3262 9 16 []} {3267 9 17 []} {3272 9 18 []} {3277 9 19 []} {3282 9 20 []} {3287 9 21 []} {3292 9 22 []} {3297 9 23 []} {3302 9 24 []} {3307 9 25 []} {3312 9 26 []} {3317 9 27 []} {3322 9 28 []} {3327 9 29 []} {3332 9 30 []} {3337 9 31 []} {3342 9 32 []} {3347 9 33 []} {3352 9 34 []} {3357 9 35 []} {3362 9 36 []} {3367 9 37 []} {3372 9 38 []} {3377 9 39 []} {3382 9 40 []} {3387 9 41 []} {3392 9 42 []} {3652 14 43 []} {3657 14 44 []} {3662 14 45 []} {3667 14 46 []} {3672 14 47 []} {3677 14 48 []} {3682 14 49 []} {3687 14 50 []} {3692 14 51 []} {3697 14 52 []} {3702 14 53 []} {3707 14 54 []}] @1600334063001
+node: 2, leader: 4, index: 1, reply: &{83 false 0} @1600334063002
+4 converted from leader to follower @1600334063002 when send msg
+leader: 4, recieve appendMsg reply from 2, {83 false 0}, matchIndex: 0, nextIndex: 2
+leader: 4, recieve appendMsg reply from 2, {83 false 0}, matchIndex: 0, nextIndex: 1
+will elect for leader: 1, state: 2, @1600334063213
+[0;31mbecandidate[0m: 1 1600334063213
+[1;33m2[0m recv request vote from 1, term: 84, args: &{84 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334063215
+2 voted for 1 @1600334063216
+[1;33m4[0m recv request vote from 1, term: 84, args: &{84 1 36 10}, mlogIndex:54, mlogTerm:14, @1600334063225
+node 4 reject voted for 1, my_state: 2, votefor: -1, log_index: 54 @1600334063225
+leader: 4, recieve appendMsg reply from 1, {83 false 0}, matchIndex: 0, nextIndex: 1
+will elect for leader: 1, state: 1, @1600334063440
+[0;31mbecandidate[0m: 1 1600334063440
+[1;33m2[0m recv request vote from 1, term: 85, args: &{85 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334063464
+2 voted for 1 @1600334063464
+[1;33m4[0m recv request vote from 1, term: 85, args: &{85 1 36 10}, mlogIndex:54, mlogTerm:14, @1600334063466
+node 4 reject voted for 1, my_state: 2, votefor: -1, log_index: 54 @1600334063466
+will elect for leader: 4, state: 2, @1600334063549
+[0;31mbecandidate[0m: 4 1600334063549
+[1;33m1[0m recv request vote from 4, term: 86, args: &{86 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334063552
+node: 1 convert to follower @1600334063552
+1 voted for 4 @1600334063552
+[1;33m2[0m recv request vote from 4, term: 86, args: &{86 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334063579
+2 voted for 4 @1600334063579
+leader: 3, recieve appendMsg reply from 2, {83 false 7}, matchIndex: 0, nextIndex: 8
+will elect for leader: 2, state: 2, @1600334063805
+[0;31mbecandidate[0m: 2 1600334063805
+[1;33m1[0m recv request vote from 2, term: 87, args: &{87 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334063809
+1 voted for 2 @1600334063809
+[1;33m4[0m recv request vote from 2, term: 87, args: &{87 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334063819
+node: 4 convert to follower @1600334063819
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334063819
+will elect for leader: 1, state: 2, @1600334064110
+[0;31mbecandidate[0m: 1 1600334064110
+[1;33m4[0m recv request vote from 1, term: 88, args: &{88 1 36 10}, mlogIndex:54, mlogTerm:14, @1600334064130
+node 4 reject voted for 1, my_state: 2, votefor: -1, log_index: 54 @1600334064130
+[1;33m2[0m recv request vote from 1, term: 88, args: &{88 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334064134
+node: 2 convert to follower @1600334064134
+2 voted for 1 @1600334064135
+will elect for leader: 2, state: 2, @1600334064487
+[0;31mbecandidate[0m: 2 1600334064487
+[1;33m1[0m recv request vote from 2, term: 89, args: &{89 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334064500
+node: 1 convert to follower @1600334064500
+1 voted for 2 @1600334064501
+[1;33m4[0m recv request vote from 2, term: 89, args: &{89 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334064510
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334064510
+leader: 4, recieve appendMsg reply from 1, {83 false 0}, matchIndex: 0, nextIndex: 1
+will elect for leader: 4, state: 2, @1600334064654
+[0;31mbecandidate[0m: 4 1600334064654
+[1;33m1[0m recv request vote from 4, term: 90, args: &{90 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334064658
+1 voted for 4 @1600334064658
+[1;33m2[0m recv request vote from 4, term: 90, args: &{90 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334064662
+node: 2 convert to follower @1600334064662
+2 voted for 4 @1600334064662
+will elect for leader: 4, state: 1, @1600334065053
+[0;31mbecandidate[0m: 4 1600334065053
+[1;33m2[0m recv request vote from 4, term: 91, args: &{91 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334065074
+2 voted for 4 @1600334065075
+[1;33m1[0m recv request vote from 4, term: 91, args: &{91 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334065077
+1 voted for 4 @1600334065078
+will elect for leader: 2, state: 2, @1600334065323
+[0;31mbecandidate[0m: 2 1600334065323
+[1;33m1[0m recv request vote from 2, term: 92, args: &{92 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334065335
+1 voted for 2 @1600334065336
+[1;33m4[0m recv request vote from 2, term: 92, args: &{92 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334065345
+node: 4 convert to follower @1600334065345
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334065345
+will elect for leader: 4, state: 2, @1600334065761
+[0;31mbecandidate[0m: 4 1600334065761
+[1;33m2[0m recv request vote from 4, term: 93, args: &{93 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334065762
+node: 2 convert to follower @1600334065762
+2 voted for 4 @1600334065762
+[1;33m1[0m recv request vote from 4, term: 93, args: &{93 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334065766
+1 voted for 4 @1600334065767
+will elect for leader: 2, state: 2, @1600334066239
+[0;31mbecandidate[0m: 2 1600334066239
+[1;33m4[0m recv request vote from 2, term: 94, args: &{94 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334066243
+node: 4 convert to follower @1600334066244
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334066244
+[1;33m1[0m recv request vote from 2, term: 94, args: &{94 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334066245
+1 voted for 2 @1600334066245
+will elect for leader: 2, state: 1, @1600334066446
+[0;31mbecandidate[0m: 2 1600334066446
+[1;33m4[0m recv request vote from 2, term: 95, args: &{95 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334066452
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334066452
+[1;33m1[0m recv request vote from 2, term: 95, args: &{95 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334066455
+1 voted for 2 @1600334066455
+will elect for leader: 4, state: 2, @1600334066498
+[0;31mbecandidate[0m: 4 1600334066498
+[1;33m2[0m recv request vote from 4, term: 96, args: &{96 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334066516
+node: 2 convert to follower @1600334066516
+2 voted for 4 @1600334066516
+will elect for leader: 4, state: 1, @1600334066667
+[0;31mbecandidate[0m: 4 1600334066667
+[1;33m2[0m recv request vote from 4, term: 97, args: &{97 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334066678
+2 voted for 4 @1600334066678
+will elect for leader: 1, state: 2, @1600334066777
+[0;31mbecandidate[0m: 1 1600334066777
+[1;33m2[0m recv request vote from 1, term: 96, args: &{96 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334066786
+1600334066786 2 reject vote for 1, node stale term: 97
+[1;33m4[0m recv request vote from 1, term: 96, args: &{96 1 36 10}, mlogIndex:54, mlogTerm:14, @1600334066792
+1600334066792 4 reject vote for 1, node stale term: 97
+node: 1 convert to follower when send vote msg @1600334066792
+will elect for leader: 4, state: 1, @1600334067090
+[0;31mbecandidate[0m: 4 1600334067090
+[1;33m2[0m recv request vote from 4, term: 98, args: &{98 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334067099
+2 voted for 4 @1600334067099
+[1;33m1[0m recv request vote from 4, term: 98, args: &{98 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334067111
+1 voted for 4 @1600334067111
+will elect for leader: 1, state: 2, @1600334067326
+[0;31mbecandidate[0m: 1 1600334067326
+[1;33m2[0m recv request vote from 1, term: 99, args: &{99 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334067337
+2 voted for 1 @1600334067337
+[1;33m4[0m recv request vote from 1, term: 99, args: &{99 1 36 10}, mlogIndex:54, mlogTerm:14, @1600334067349
+node: 4 convert to follower @1600334067349
+node 4 reject voted for 1, my_state: 2, votefor: -1, log_index: 54 @1600334067349
+will elect for leader: 2, state: 2, @1600334067734
+[0;31mbecandidate[0m: 2 1600334067734
+[1;33m1[0m recv request vote from 2, term: 100, args: &{100 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334067745
+node: 1 convert to follower @1600334067745
+1 voted for 2 @1600334067745
+[1;33m4[0m recv request vote from 2, term: 100, args: &{100 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334067753
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334067755
+will elect for leader: 4, state: 2, @1600334068026
+[0;31mbecandidate[0m: 4 1600334068026
+[1;33m2[0m recv request vote from 4, term: 101, args: &{101 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334068043
+node: 2 convert to follower @1600334068043
+2 voted for 4 @1600334068043
+will elect for leader: 1, state: 2, @1600334068216
+[0;31mbecandidate[0m: 1 1600334068216
+[1;33m4[0m recv request vote from 1, term: 101, args: &{101 1 36 10}, mlogIndex:54, mlogTerm:14, @1600334068223
+node 4 reject voted for 1, my_state: 1, votefor: 4, log_index: 54 @1600334068223
+will elect for leader: 2, state: 2, @1600334068459
+[0;31mbecandidate[0m: 2 1600334068459
+[1;33m4[0m recv request vote from 2, term: 102, args: &{102 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334068476
+node: 4 convert to follower @1600334068476
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334068476
+[1;33m1[0m recv request vote from 2, term: 102, args: &{102 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334068477
+node: 1 convert to follower @1600334068477
+1 voted for 2 @1600334068477
+will elect for leader: 2, state: 1, @1600334068644
+[0;31mbecandidate[0m: 2 1600334068644
+[1;33m1[0m recv request vote from 2, term: 103, args: &{103 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334068666
+1 voted for 2 @1600334068666
+will elect for leader: 2, state: 1, @1600334069060
+[0;31mbecandidate[0m: 2 1600334069060
+will elect for leader: 1, state: 2, @1600334069069
+[0;31mbecandidate[0m: 1 1600334069069
+[1;33m2[0m recv request vote from 1, term: 104, args: &{104 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334069069
+node 2 reject voted for 1, my_state: 1, votefor: 2, log_index: 36 @1600334069069
+[1;33m4[0m recv request vote from 2, term: 104, args: &{104 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334069077
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334069077
+[1;33m1[0m recv request vote from 2, term: 104, args: &{104 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334069079
+node 1 reject voted for 2, my_state: 1, votefor: 1, log_index: 36 @1600334069079
+[1;33m4[0m recv request vote from 1, term: 104, args: &{104 1 36 10}, mlogIndex:54, mlogTerm:14, @1600334069082
+node 4 reject voted for 1, my_state: 2, votefor: -1, log_index: 54 @1600334069082
+will elect for leader: 4, state: 2, @1600334069354
+[0;31mbecandidate[0m: 4 1600334069354
+[1;33m1[0m recv request vote from 4, term: 105, args: &{105 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334069361
+node: 1 convert to follower @1600334069361
+1 voted for 4 @1600334069361
+[1;33m2[0m recv request vote from 4, term: 105, args: &{105 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334069376
+node: 2 convert to follower @1600334069376
+2 voted for 4 @1600334069376
+will elect for leader: 1, state: 2, @1600334069629
+[0;31mbecandidate[0m: 1 1600334069629
+[1;33m2[0m recv request vote from 1, term: 106, args: &{106 1 36 10}, mlogIndex:36, mlogTerm:10, @1600334069629
+2 voted for 1 @1600334069630
+[1;33m4[0m recv request vote from 1, term: 106, args: &{106 1 36 10}, mlogIndex:54, mlogTerm:14, @1600334069637
+node: 4 convert to follower @1600334069637
+node 4 reject voted for 1, my_state: 2, votefor: -1, log_index: 54 @1600334069637
+[1;32mconnect[0m [1;32m0[0m
+[1;32mconnect[0m [1;32m3[0m
+node: 4, leader:3, term:83, prevLogIndex:60, prevLogTerm:16, log:[{6936 83 61 []} {6941 83 62 []} {6946 83 63 []} {6951 83 64 []} {6956 83 65 []} {6961 83 66 []} {6966 83 67 []} {6971 83 68 []} {6976 83 69 []} {6981 83 70 []} {6986 83 71 []} {6991 83 72 []}] @1600334069926
+node: 4, leader: 3, index: 60, reply: &{106 false 0} @1600334069927
+node: 1, leader:3, term:83, prevLogIndex:7, prevLogTerm:9, log:[{3341 10 8 []} {3346 10 9 []} {3351 10 10 []} {3356 10 11 []} {3361 10 12 []} {3366 10 13 []} {3371 10 14 []} {3376 10 15 []} {3381 10 16 []} {3386 10 17 []} {3391 10 18 []} {3396 10 19 []} {3401 10 20 []} {3406 10 21 []} {3411 10 22 []} {3416 10 23 []} {3421 10 24 []} {3426 10 25 []} {3431 10 26 []} {3436 10 27 []} {3441 10 28 []} {3446 10 29 []} {3451 10 30 []} {3456 10 31 []} {3461 10 32 []} {3466 10 33 []} {3471 10 34 []} {3476 10 35 []} {3481 10 36 []} {3486 10 37 []} {3491 10 38 []} {3496 10 39 []} {3501 10 40 []} {3771 16 41 []} {3776 16 42 []} {3781 16 43 []} {3786 16 44 []} {3791 16 45 []} {3796 16 46 []} {3801 16 47 []} {3806 16 48 []} {3811 16 49 []} {3816 16 50 []} {3821 16 51 []} {3826 16 52 []} {3831 16 53 []} {3836 16 54 []} {3841 16 55 []} {3846 16 56 []} {3851 16 57 []} {3856 16 58 []} {3861 16 59 []} {3866 16 60 []} {6936 83 61 []} {6941 83 62 []} {6946 83 63 []} {6951 83 64 []} {6956 83 65 []} {6961 83 66 []} {6966 83 67 []} {6971 83 68 []} {6976 83 69 []} {6981 83 70 []} {6986 83 71 []} {6991 83 72 []}] @1600334069940
+node: 1, leader: 3, index: 7, reply: &{106 false 0} @1600334069940
+3 converted from leader to follower @1600334069941 when send msg
+leader: 3, recieve appendMsg reply from 1, {106 false 0}, matchIndex: 0, nextIndex: 8
+node: 0, leader:3, term:83, prevLogIndex:60, prevLogTerm:16, log:[{6936 83 61 []} {6941 83 62 []} {6946 83 63 []} {6951 83 64 []} {6956 83 65 []} {6961 83 66 []} {6966 83 67 []} {6971 83 68 []} {6976 83 69 []} {6981 83 70 []} {6986 83 71 []} {6991 83 72 []}] @1600334069947
+node: 0 Got args.Term: 83, my term: 36
+node: 0 convert to follower @1600334069948
+will stop heartbeat thread: 0
+node: 0, leader: 3, index: 60, reply: &{36 false -2} @1600334069947
+node: 4, leader:0, term:36, prevLogIndex:36, prevLogTerm:12, log:[{4818 36 37 []} {4823 36 38 []} {4828 36 39 []} {4833 36 40 []} {4838 36 41 []} {4843 36 42 []} {4848 36 43 []} {4853 36 44 []} {4858 36 45 []} {4863 36 46 []} {4868 36 47 []} {4873 36 48 []} {4878 36 49 []} {4883 36 50 []}] @1600334069951
+node: 4, leader: 0, index: 36, reply: &{106 false 0} @1600334069951
+0 converted from leader to follower @1600334069952 when send msg
+leader: 0, recieve appendMsg reply from 4, {106 false 0}, matchIndex: 0, nextIndex: 37
+node: 1, leader:0, term:36, prevLogIndex:7, prevLogTerm:9, log:[{3503 12 8 []} {3508 12 9 []} {3513 12 10 []} {3518 12 11 []} {3523 12 12 []} {3528 12 13 []} {3533 12 14 []} {3538 12 15 []} {3543 12 16 []} {3548 12 17 []} {3553 12 18 []} {3558 12 19 []} {3563 12 20 []} {3568 12 21 []} {3573 12 22 []} {3578 12 23 []} {3583 12 24 []} {3588 12 25 []} {3593 12 26 []} {3598 12 27 []} {3603 12 28 []} {3608 12 29 []} {3613 12 30 []} {3618 12 31 []} {3623 12 32 []} {3628 12 33 []} {3633 12 34 []} {3638 12 35 []} {3643 12 36 []} {4818 36 37 []} {4823 36 38 []} {4828 36 39 []} {4833 36 40 []} {4838 36 41 []} {4843 36 42 []} {4848 36 43 []} {4853 36 44 []} {4858 36 45 []} {4863 36 46 []} {4868 36 47 []} {4873 36 48 []} {4878 36 49 []} {4883 36 50 []}] @1600334069952
+node: 1, leader: 0, index: 7, reply: &{106 false 0} @1600334069952
+will elect for leader: 4, state: 2, @1600334069990
+[0;31mbecandidate[0m: 4 1600334069990
+[1;33m3[0m recv request vote from 4, term: 107, args: &{107 4 54 14}, mlogIndex:72, mlogTerm:83, @1600334069992
+node 3 reject voted for 4, my_state: 2, votefor: -1, log_index: 72 @1600334069993
+[1;33m1[0m recv request vote from 4, term: 107, args: &{107 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334070004
+node: 1 convert to follower @1600334070004
+1 voted for 4 @1600334070004
+[1;33m0[0m recv request vote from 4, term: 107, args: &{107 4 54 14}, mlogIndex:50, mlogTerm:36, @1600334070009
+node 0 reject voted for 4, my_state: 2, votefor: -1, log_index: 50 @1600334070009
+leader: 0, recieve appendMsg reply from 1, {106 false 0}, matchIndex: 0, nextIndex: 8
+will elect for leader: 1, state: 2, @1600334070239
+[0;31mbecandidate[0m: 1 1600334070239
+[1;33m4[0m recv request vote from 1, term: 108, args: &{108 1 36 10}, mlogIndex:54, mlogTerm:14, @1600334070243
+node: 4 convert to follower @1600334070243
+node 4 reject voted for 1, my_state: 2, votefor: -1, log_index: 54 @1600334070244
+[1;33m0[0m recv request vote from 1, term: 108, args: &{108 1 36 10}, mlogIndex:50, mlogTerm:36, @1600334070249
+node 0 reject voted for 1, my_state: 2, votefor: -1, log_index: 50 @1600334070249
+[1;33m3[0m recv request vote from 1, term: 108, args: &{108 1 36 10}, mlogIndex:72, mlogTerm:83, @1600334070263
+node 3 reject voted for 1, my_state: 2, votefor: -1, log_index: 72 @1600334070264
+will elect for leader: 3, state: 2, @1600334070315
+[0;31mbecandidate[0m: 3 1600334070315
+[1;33m0[0m recv request vote from 3, term: 109, args: &{109 3 72 83}, mlogIndex:50, mlogTerm:36, @1600334070320
+0 voted for 3 @1600334070321
+will elect for leader: 2, state: 2, @1600334070322
+[0;31mbecandidate[0m: 2 1600334070322
+[1;33m4[0m recv request vote from 3, term: 109, args: &{109 3 72 83}, mlogIndex:54, mlogTerm:14, @1600334070323
+4 voted for 3 @1600334070323
+[1;31mbeleaderId[0m: 3, term: 109, @1600334070326
+node: 4, leader:3, term:109, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334070328
+node: 4 recv msg: &{109 3 -2 -2 [] -2 [] false}
+node: 4, leader: 3, index: -2, reply: &{109 false -2} @1600334070328
+[1;33m3[0m recv request vote from 2, term: 107, args: &{107 2 36 10}, mlogIndex:72, mlogTerm:83, @1600334070331
+1600334070331 3 reject vote for 2, node stale term: 109
+node: 2, leader:3, term:109, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334070332
+node: 2 convert to follower @1600334070332
+node: 2, leader: 3, index: -2, reply: &{107 false -2} @1600334070332
+[1;33m4[0m recv request vote from 2, term: 107, args: &{107 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334070334
+1600334070334 4 reject vote for 2, node stale term: 109
+[1;33m2[0m recv request vote from 3, term: 109, args: &{109 3 72 83}, mlogIndex:36, mlogTerm:10, @1600334070334
+2 voted for 3 @1600334070334
+[1;33m1[0m recv request vote from 2, term: 107, args: &{107 2 36 10}, mlogIndex:36, mlogTerm:10, @1600334070335
+1600334070335 1 reject vote for 2, node stale term: 108
+[1;33m0[0m recv request vote from 2, term: 107, args: &{107 2 36 10}, mlogIndex:50, mlogTerm:36, @1600334070338
+1600334070338 0 reject vote for 2, node stale term: 109
+node: 0, leader:3, term:109, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334070341
+node: 0 recv msg: &{109 3 -2 -2 [] -2 [] false}
+node: 1, leader:3, term:109, prevLogIndex:-2, prevLogTerm:-2, log:[] @1600334070341
+node: 1 convert to follower @1600334070341
+node: 0, leader: 3, index: -2, reply: &{109 false -2} @1600334070341
+node: 1, leader: 3, index: -2, reply: &{108 false -2} @1600334070341
+node: [1;31m3[0m, Start: 7978, term: 109, index: 73 @1600334070376
+node: 2, leader:3, term:109, prevLogIndex:72, prevLogTerm:83, log:[{7978 109 73 []}] @1600334070439
+node: 2 recv msg: &{109 3 72 83 [{7978 109 73 []}] 6 [] false}
+node: 2, leader: 3, index: 72, reply: &{109 false -2} @1600334070439
+node: 4, leader:3, term:109, prevLogIndex:72, prevLogTerm:83, log:[{7978 109 73 []}] @1600334070441
+me: 4 will not append log from node:3
+node: 4 refuse to append, args:{term: 109, llogIdx: 72, llogTerm:83}, llogIdx:54, llogTerm: 14, Hint: 42
+node: 4, leader: 3, index: 72, reply: &{109 false 42} @1600334070441
+node: 1, leader:3, term:109, prevLogIndex:72, prevLogTerm:83, log:[{7978 109 73 []}] @1600334070453
+me: 1 will not append log from node:3
+node: 1 refuse to append, args:{term: 109, llogIdx: 72, llogTerm:83}, llogIdx:36, llogTerm: 10, Hint: 7
+node: 1, leader: 3, index: 72, reply: &{109 false 7} @1600334070453
+leader: 3, recieve appendMsg reply from 1, {109 false 7}, matchIndex: 0, nextIndex: 8
+will elect for leader: 0, state: 2, @1600334070524
+[0;31mbecandidate[0m: 0 1600334070524
+[1;33m3[0m recv request vote from 0, term: 110, args: &{110 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334070533
+node: 3 convert to follower @1600334070533
+node: 2, leader:3, term:109, prevLogIndex:72, prevLogTerm:83, log:[{7978 109 73 []}] @1600334070533
+me: 2 will not append log from node:3
+node: 2 refuse to append, args:{term: 109, llogIdx: 72, llogTerm:83}, llogIdx:36, llogTerm: 10, Hint: 7
+node: 2, leader: 3, index: 72, reply: &{109 false 7} @1600334070533
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334070533
+will stop heartbeat thread: 3
+leader: 3, recieve appendMsg reply from 2, {109 false 7}, matchIndex: 0, nextIndex: 73
+[1;33m2[0m recv request vote from 0, term: 110, args: &{110 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334070539
+2 voted for 0 @1600334070539
+node: 4, leader:3, term:109, prevLogIndex:72, prevLogTerm:83, log:[{7978 109 73 []}] @1600334070543
+me: 4 will not append log from node:3
+node: 4 refuse to append, args:{term: 109, llogIdx: 72, llogTerm:83}, llogIdx:54, llogTerm: 14, Hint: 42
+node: 4, leader: 3, index: 72, reply: &{109 false 42} @1600334070543
+node: 1, leader:3, term:109, prevLogIndex:7, prevLogTerm:9, log:[{3341 10 8 []} {3346 10 9 []} {3351 10 10 []} {3356 10 11 []} {3361 10 12 []} {3366 10 13 []} {3371 10 14 []} {3376 10 15 []} {3381 10 16 []} {3386 10 17 []} {3391 10 18 []} {3396 10 19 []} {3401 10 20 []} {3406 10 21 []} {3411 10 22 []} {3416 10 23 []} {3421 10 24 []} {3426 10 25 []} {3431 10 26 []} {3436 10 27 []} {3441 10 28 []} {3446 10 29 []} {3451 10 30 []} {3456 10 31 []} {3461 10 32 []} {3466 10 33 []} {3471 10 34 []} {3476 10 35 []} {3481 10 36 []} {3486 10 37 []} {3491 10 38 []} {3496 10 39 []} {3501 10 40 []} {3771 16 41 []} {3776 16 42 []} {3781 16 43 []} {3786 16 44 []} {3791 16 45 []} {3796 16 46 []} {3801 16 47 []} {3806 16 48 []} {3811 16 49 []} {3816 16 50 []} {3821 16 51 []} {3826 16 52 []} {3831 16 53 []} {3836 16 54 []} {3841 16 55 []} {3846 16 56 []} {3851 16 57 []} {3856 16 58 []} {3861 16 59 []} {3866 16 60 []} {6936 83 61 []} {6941 83 62 []} {6946 83 63 []} {6951 83 64 []} {6956 83 65 []} {6961 83 66 []} {6966 83 67 []} {6971 83 68 []} {6976 83 69 []} {6981 83 70 []} {6986 83 71 []} {6991 83 72 []} {7978 109 73 []}] @1600334070543
+node: 1 will append log, leaderId: 3, leaderTerm: 109, first_log: {3341 10 8 []}, last_log: {7978 109 73 []}, log length: 66, @1600334070544
+node: 1, log length: 74, log: [{<nil> 0 0 []} {2977 1 1 []} {3008 2 2 []} {3013 2 3 []} {3018 2 4 []} {3023 2 5 []} {3203 7 6 []} {3217 9 7 []} {3341 10 8 []} {3346 10 9 []} {3351 10 10 []} {3356 10 11 []} {3361 10 12 []} {3366 10 13 []} {3371 10 14 []} {3376 10 15 []} {3381 10 16 []} {3386 10 17 []} {3391 10 18 []} {3396 10 19 []} {3401 10 20 []} {3406 10 21 []} {3411 10 22 []} {3416 10 23 []} {3421 10 24 []} {3426 10 25 []} {3431 10 26 []} {3436 10 27 []} {3441 10 28 []} {3446 10 29 []} {3451 10 30 []} {3456 10 31 []} {3461 10 32 []} {3466 10 33 []} {3471 10 34 []} {3476 10 35 []} {3481 10 36 []} {3486 10 37 []} {3491 10 38 []} {3496 10 39 []} {3501 10 40 []} {3771 16 41 []} {3776 16 42 []} {3781 16 43 []} {3786 16 44 []} {3791 16 45 []} {3796 16 46 []} {3801 16 47 []} {3806 16 48 []} {3811 16 49 []} {3816 16 50 []} {3821 16 51 []} {3826 16 52 []} {3831 16 53 []} {3836 16 54 []} {3841 16 55 []} {3846 16 56 []} {3851 16 57 []} {3856 16 58 []} {3861 16 59 []} {3866 16 60 []} {6936 83 61 []} {6941 83 62 []} {6946 83 63 []} {6951 83 64 []} {6956 83 65 []} {6961 83 66 []} {6966 83 67 []} {6971 83 68 []} {6976 83 69 []} {6981 83 70 []} {6986 83 71 []} {6991 83 72 []} {7978 109 73 []}]
+node: 1, leader: 3, index: 7, reply: &{109 true 73} @1600334070543
+[1;33m1[0m recv request vote from 0, term: 110, args: &{110 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334070549
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334070550
+leader: 3, recieve appendMsg reply from 4, {106 false 0}, matchIndex: 0, nextIndex: 73
+will elect for leader: 0, state: 1, @1600334070706
+[0;31mbecandidate[0m: 0 1600334070706
+[1;33m4[0m recv request vote from 0, term: 111, args: &{111 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334070709
+4 voted for 0 @1600334070710
+[1;33m2[0m recv request vote from 0, term: 111, args: &{111 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334070727
+2 voted for 0 @1600334070728
+[1;33m1[0m recv request vote from 0, term: 111, args: &{111 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334070729
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334070729
+[1;33m3[0m recv request vote from 0, term: 111, args: &{111 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334070731
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334070731
+leader: 3, recieve appendMsg reply from 4, {109 false 42}, matchIndex: 0, nextIndex: 73
+will elect for leader: 3, state: 2, @1600334070843
+[0;31mbecandidate[0m: 3 1600334070843
+[1;33m1[0m recv request vote from 3, term: 112, args: &{112 3 73 109}, mlogIndex:73, mlogTerm:109, @1600334070844
+1 voted for 3 @1600334070844
+[1;33m4[0m recv request vote from 3, term: 112, args: &{112 3 73 109}, mlogIndex:54, mlogTerm:14, @1600334070847
+4 voted for 3 @1600334070847
+leader: 3, recieve appendMsg reply from 1, {109 true 73}, matchIndex: 0, nextIndex: 8
+[1;33m2[0m recv request vote from 3, term: 112, args: &{112 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334070869
+2 voted for 3 @1600334070869
+leader: 3, recieve appendMsg reply from 4, {109 false 42}, matchIndex: 0, nextIndex: 73
+leader: 3, recieve appendMsg reply from 2, {109 false -2}, matchIndex: 0, nextIndex: 73
+leader: 3, recieve appendMsg reply from 0, {36 false -2}, matchIndex: 0, nextIndex: 73
+will elect for leader: 4, state: 2, @1600334071266
+[0;31mbecandidate[0m: 4 1600334071266
+[1;33m0[0m recv request vote from 4, term: 113, args: &{113 4 54 14}, mlogIndex:50, mlogTerm:36, @1600334071271
+node: 0 convert to follower @1600334071271
+node 0 reject voted for 4, my_state: 2, votefor: -1, log_index: 50 @1600334071271
+[1;33m2[0m recv request vote from 4, term: 113, args: &{113 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334071280
+2 voted for 4 @1600334071280
+[1;33m1[0m recv request vote from 4, term: 113, args: &{113 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334071283
+node 1 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334071283
+[1;33m3[0m recv request vote from 4, term: 113, args: &{113 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334071289
+node: 3 convert to follower @1600334071289
+node 3 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334071289
+will elect for leader: 3, state: 2, @1600334071484
+[0;31mbecandidate[0m: 3 1600334071484
+[1;33m2[0m recv request vote from 3, term: 114, args: &{114 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334071492
+2 voted for 3 @1600334071492
+[1;33m4[0m recv request vote from 3, term: 114, args: &{114 3 73 109}, mlogIndex:54, mlogTerm:14, @1600334071503
+node: 4 convert to follower @1600334071504
+[1;33m0[0m recv request vote from 3, term: 114, args: &{114 3 73 109}, mlogIndex:50, mlogTerm:36, @1600334071504
+[1;33m1[0m recv request vote from 3, term: 114, args: &{114 3 73 109}, mlogIndex:73, mlogTerm:109, @1600334071503
+4 voted for 3 @1600334071504
+0 voted for 3 @1600334071504
+1 voted for 3 @1600334071504
+will elect for leader: 0, state: 2, @1600334071814
+[0;31mbecandidate[0m: 0 1600334071814
+[1;33m3[0m recv request vote from 0, term: 115, args: &{115 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334071814
+node: 3 convert to follower @1600334071815
+[1;33m1[0m recv request vote from 0, term: 115, args: &{115 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334071815
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334071815
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334071815
+[1;33m2[0m recv request vote from 0, term: 115, args: &{115 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334071829
+2 voted for 0 @1600334071829
+will elect for leader: 1, state: 2, @1600334072043
+[0;31mbecandidate[0m: 1 1600334072043
+will elect for leader: 2, state: 2, @1600334072044
+[0;31mbecandidate[0m: 2 1600334072044
+[1;33m3[0m recv request vote from 1, term: 116, args: &{116 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334072045
+3 voted for 1 @1600334072046
+[1;33m0[0m recv request vote from 1, term: 116, args: &{116 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334072050
+node: 0 convert to follower @1600334072050
+[1;33m4[0m recv request vote from 1, term: 116, args: &{116 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334072050
+0 voted for 1 @1600334072050
+4 voted for 1 @1600334072050
+[1;33m4[0m recv request vote from 2, term: 116, args: &{116 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334072055
+node 4 reject voted for 2, my_state: 2, votefor: 1, log_index: 54 @1600334072055
+[1;33m0[0m recv request vote from 2, term: 116, args: &{116 2 36 10}, mlogIndex:50, mlogTerm:36, @1600334072062
+node 0 reject voted for 2, my_state: 2, votefor: 1, log_index: 50 @1600334072062
+[1;33m2[0m recv request vote from 1, term: 116, args: &{116 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334072062
+node 2 reject voted for 1, my_state: 1, votefor: 2, log_index: 36 @1600334072062
+[1;33m1[0m recv request vote from 2, term: 116, args: &{116 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334072066
+node 1 reject voted for 2, my_state: 1, votefor: 1, log_index: 73 @1600334072066
+will elect for leader: 0, state: 2, @1600334072270
+[0;31mbecandidate[0m: 0 1600334072270
+[1;33m2[0m recv request vote from 0, term: 117, args: &{117 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334072273
+node: 2 convert to follower @1600334072273
+2 voted for 0 @1600334072273
+[1;33m4[0m recv request vote from 0, term: 117, args: &{117 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334072275
+4 voted for 0 @1600334072276
+will elect for leader: 1, state: 1, @1600334072283
+[0;31mbecandidate[0m: 1 1600334072283
+[1;33m3[0m recv request vote from 1, term: 117, args: &{117 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334072285
+3 voted for 1 @1600334072285
+[1;33m3[0m recv request vote from 0, term: 117, args: &{117 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334072289
+node 3 reject voted for 0, my_state: 2, votefor: 1, log_index: 73 @1600334072289
+[1;33m0[0m recv request vote from 1, term: 117, args: &{117 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334072292
+node 0 reject voted for 1, my_state: 1, votefor: 0, log_index: 50 @1600334072292
+[1;33m4[0m recv request vote from 1, term: 117, args: &{117 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334072293
+node 4 reject voted for 1, my_state: 2, votefor: 0, log_index: 54 @1600334072293
+[1;33m2[0m recv request vote from 1, term: 117, args: &{117 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334072298
+node 2 reject voted for 1, my_state: 2, votefor: 0, log_index: 36 @1600334072298
+will elect for leader: 2, state: 2, @1600334072498
+[0;31mbecandidate[0m: 2 1600334072498
+[1;33m0[0m recv request vote from 2, term: 118, args: &{118 2 36 10}, mlogIndex:50, mlogTerm:36, @1600334072504
+node: 0 convert to follower @1600334072504
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 50 @1600334072504
+[1;33m4[0m recv request vote from 2, term: 118, args: &{118 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334072507
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334072507
+[1;33m1[0m recv request vote from 2, term: 118, args: &{118 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334072510
+node: 1 convert to follower @1600334072510
+node 1 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334072511
+[1;33m3[0m recv request vote from 2, term: 118, args: &{118 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334072517
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334072517
+will elect for leader: 3, state: 2, @1600334072604
+[0;31mbecandidate[0m: 3 1600334072604
+[1;33m1[0m recv request vote from 3, term: 119, args: &{119 3 73 109}, mlogIndex:73, mlogTerm:109, @1600334072605
+1 voted for 3 @1600334072605
+[1;33m4[0m recv request vote from 3, term: 119, args: &{119 3 73 109}, mlogIndex:54, mlogTerm:14, @1600334072608
+4 voted for 3 @1600334072608
+[1;33m2[0m recv request vote from 3, term: 119, args: &{119 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334072623
+node: 2 convert to follower @1600334072623
+2 voted for 3 @1600334072624
+will elect for leader: 2, state: 2, @1600334072894
+[0;31mbecandidate[0m: 2 1600334072894
+[1;33m1[0m recv request vote from 2, term: 120, args: &{120 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334072905
+node 1 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334072905
+[1;33m0[0m recv request vote from 2, term: 120, args: &{120 2 36 10}, mlogIndex:50, mlogTerm:36, @1600334072908
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 50 @1600334072908
+[1;33m4[0m recv request vote from 2, term: 120, args: &{120 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334072908
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334072908
+[1;33m3[0m recv request vote from 2, term: 120, args: &{120 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334072919
+node: 3 convert to follower @1600334072919
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334072919
+will elect for leader: 4, state: 2, @1600334072949
+[0;31mbecandidate[0m: 4 1600334072949
+[1;33m2[0m recv request vote from 4, term: 121, args: &{121 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334072949
+node: 2 convert to follower @1600334072949
+2 voted for 4 @1600334072949
+[1;33m0[0m recv request vote from 4, term: 121, args: &{121 4 54 14}, mlogIndex:50, mlogTerm:36, @1600334072959
+node 0 reject voted for 4, my_state: 2, votefor: -1, log_index: 50 @1600334072959
+[1;33m3[0m recv request vote from 4, term: 121, args: &{121 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334072963
+node 3 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334072963
+[1;33m1[0m recv request vote from 4, term: 121, args: &{121 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334072974
+node 1 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334072974
+will elect for leader: 0, state: 2, @1600334073058
+[0;31mbecandidate[0m: 0 1600334073058
+[1;33m3[0m recv request vote from 0, term: 122, args: &{122 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334073059
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334073059
+[1;33m1[0m recv request vote from 0, term: 122, args: &{122 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334073061
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334073062
+[1;33m2[0m recv request vote from 0, term: 122, args: &{122 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334073067
+2 voted for 0 @1600334073067
+[1;33m4[0m recv request vote from 0, term: 122, args: &{122 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334073080
+node: 4 convert to follower @1600334073080
+4 voted for 0 @1600334073080
+will elect for leader: 1, state: 2, @1600334073094
+[0;31mbecandidate[0m: 1 1600334073094
+[1;33m2[0m recv request vote from 1, term: 123, args: &{123 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334073105
+2 voted for 1 @1600334073106
+[1;33m0[0m recv request vote from 1, term: 123, args: &{123 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334073117
+node: 0 convert to follower @1600334073117
+0 voted for 1 @1600334073118
+[1;33m3[0m recv request vote from 1, term: 123, args: &{123 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334073120
+3 voted for 1 @1600334073121
+will elect for leader: 2, state: 2, @1600334073275
+[0;31mbecandidate[0m: 2 1600334073275
+[1;33m1[0m recv request vote from 2, term: 124, args: &{124 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334073283
+node: 1 convert to follower @1600334073283
+node 1 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334073283
+[1;33m4[0m recv request vote from 2, term: 124, args: &{124 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334073285
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334073285
+[1;33m3[0m recv request vote from 2, term: 124, args: &{124 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334073296
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334073296
+[1;33m0[0m recv request vote from 2, term: 124, args: &{124 2 36 10}, mlogIndex:50, mlogTerm:36, @1600334073300
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 50 @1600334073300
+will elect for leader: 2, state: 1, @1600334073444
+[0;31mbecandidate[0m: 2 1600334073444
+[1;33m0[0m recv request vote from 2, term: 125, args: &{125 2 36 10}, mlogIndex:50, mlogTerm:36, @1600334073460
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 50 @1600334073460
+[1;33m4[0m recv request vote from 2, term: 125, args: &{125 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334073463
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334073463
+[1;33m3[0m recv request vote from 2, term: 125, args: &{125 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334073463
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334073463
+will elect for leader: 0, state: 2, @1600334073585
+[0;31mbecandidate[0m: 0 1600334073585
+[1;33m2[0m recv request vote from 0, term: 126, args: &{126 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334073594
+node: 2 convert to follower @1600334073594
+2 voted for 0 @1600334073594
+[1;33m1[0m recv request vote from 0, term: 126, args: &{126 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334073603
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334073604
+[1;33m3[0m recv request vote from 0, term: 126, args: &{126 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334073606
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334073607
+[1;33m4[0m recv request vote from 0, term: 126, args: &{126 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334073608
+4 voted for 0 @1600334073609
+will elect for leader: 3, state: 2, @1600334073729
+[0;31mbecandidate[0m: 3 1600334073729
+will elect for leader: 1, state: 2, @1600334073734
+[0;31mbecandidate[0m: 1 1600334073734
+[1;33m0[0m recv request vote from 3, term: 127, args: &{127 3 73 109}, mlogIndex:50, mlogTerm:36, @1600334073735
+node: 0 convert to follower @1600334073735
+[1;33m2[0m recv request vote from 1, term: 127, args: &{127 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334073735
+0 voted for 3 @1600334073735
+2 voted for 1 @1600334073736
+[1;33m4[0m recv request vote from 3, term: 127, args: &{127 3 73 109}, mlogIndex:54, mlogTerm:14, @1600334073737
+4 voted for 3 @1600334073738
+[1;33m4[0m recv request vote from 1, term: 127, args: &{127 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334073750
+node 4 reject voted for 1, my_state: 2, votefor: 3, log_index: 54 @1600334073750
+[1;33m2[0m recv request vote from 3, term: 127, args: &{127 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334073750
+node 2 reject voted for 3, my_state: 2, votefor: 1, log_index: 36 @1600334073750
+[1;33m0[0m recv request vote from 1, term: 127, args: &{127 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334073757
+node 0 reject voted for 1, my_state: 2, votefor: 3, log_index: 50 @1600334073757
+[1;33m1[0m recv request vote from 3, term: 127, args: &{127 3 73 109}, mlogIndex:73, mlogTerm:109, @1600334073757
+node 1 reject voted for 3, my_state: 1, votefor: 1, log_index: 73 @1600334073757
+[1;33m3[0m recv request vote from 1, term: 127, args: &{127 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334073760
+node 3 reject voted for 1, my_state: 1, votefor: 3, log_index: 73 @1600334073760
+will elect for leader: 4, state: 2, @1600334074001
+[0;31mbecandidate[0m: 4 1600334074001
+[1;33m3[0m recv request vote from 4, term: 128, args: &{128 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334074004
+node: 3 convert to follower @1600334074004
+node 3 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334074004
+[1;33m0[0m recv request vote from 4, term: 128, args: &{128 4 54 14}, mlogIndex:50, mlogTerm:36, @1600334074007
+node 0 reject voted for 4, my_state: 2, votefor: -1, log_index: 50 @1600334074007
+[1;33m2[0m recv request vote from 4, term: 128, args: &{128 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334074008
+2 voted for 4 @1600334074008
+[1;33m1[0m recv request vote from 4, term: 128, args: &{128 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334074010
+node: 1 convert to follower @1600334074010
+node 1 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334074011
+will elect for leader: 4, state: 1, @1600334074186
+[0;31mbecandidate[0m: 4 1600334074186
+[1;33m0[0m recv request vote from 4, term: 129, args: &{129 4 54 14}, mlogIndex:50, mlogTerm:36, @1600334074198
+node 0 reject voted for 4, my_state: 2, votefor: -1, log_index: 50 @1600334074198
+[1;33m3[0m recv request vote from 4, term: 129, args: &{129 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334074199
+node 3 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334074199
+[1;33m1[0m recv request vote from 4, term: 129, args: &{129 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334074202
+node 1 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334074202
+[1;33m2[0m recv request vote from 4, term: 129, args: &{129 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334074212
+2 voted for 4 @1600334074212
+will elect for leader: 0, state: 2, @1600334074238
+[0;31mbecandidate[0m: 0 1600334074238
+[1;33m4[0m recv request vote from 0, term: 130, args: &{130 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334074238
+node: 4 convert to follower @1600334074238
+[1;33m2[0m recv request vote from 0, term: 130, args: &{130 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334074238
+4 voted for 0 @1600334074239
+2 voted for 0 @1600334074239
+[1;33m1[0m recv request vote from 0, term: 130, args: &{130 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334074241
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334074241
+[1;33m3[0m recv request vote from 0, term: 130, args: &{130 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334074249
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334074249
+will elect for leader: 3, state: 2, @1600334074255
+[0;31mbecandidate[0m: 3 1600334074255
+[1;33m0[0m recv request vote from 3, term: 131, args: &{131 3 73 109}, mlogIndex:50, mlogTerm:36, @1600334074264
+node: 0 convert to follower @1600334074264
+0 voted for 3 @1600334074264
+[1;33m2[0m recv request vote from 3, term: 131, args: &{131 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334074276
+2 voted for 3 @1600334074276
+[1;33m1[0m recv request vote from 3, term: 131, args: &{131 3 73 109}, mlogIndex:73, mlogTerm:109, @1600334074278
+1 voted for 3 @1600334074278
+will elect for leader: 0, state: 2, @1600334074486
+[0;31mbecandidate[0m: 0 1600334074486
+[1;33m1[0m recv request vote from 0, term: 132, args: &{132 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334074491
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334074491
+[1;33m3[0m recv request vote from 0, term: 132, args: &{132 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334074495
+node: 3 convert to follower @1600334074495
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334074495
+[1;33m2[0m recv request vote from 0, term: 132, args: &{132 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334074498
+2 voted for 0 @1600334074498
+[1;33m4[0m recv request vote from 0, term: 132, args: &{132 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334074509
+4 voted for 0 @1600334074509
+will elect for leader: 1, state: 2, @1600334074833
+[0;31mbecandidate[0m: 1 1600334074833
+[1;33m3[0m recv request vote from 1, term: 133, args: &{133 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334074838
+3 voted for 1 @1600334074839
+[1;33m0[0m recv request vote from 1, term: 133, args: &{133 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334074846
+node: 0 convert to follower @1600334074846
+0 voted for 1 @1600334074846
+[1;33m4[0m recv request vote from 1, term: 133, args: &{133 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334074847
+4 voted for 1 @1600334074847
+[1;33m2[0m recv request vote from 1, term: 133, args: &{133 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334074860
+2 voted for 1 @1600334074860
+will elect for leader: 4, state: 2, @1600334075075
+[0;31mbecandidate[0m: 4 1600334075075
+[1;33m2[0m recv request vote from 4, term: 134, args: &{134 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334075077
+2 voted for 4 @1600334075077
+will elect for leader: 3, state: 2, @1600334075085
+[0;31mbecandidate[0m: 3 1600334075085
+[1;33m0[0m recv request vote from 4, term: 134, args: &{134 4 54 14}, mlogIndex:50, mlogTerm:36, @1600334075089
+node 0 reject voted for 4, my_state: 2, votefor: -1, log_index: 50 @1600334075089
+[1;33m1[0m recv request vote from 3, term: 134, args: &{134 3 73 109}, mlogIndex:73, mlogTerm:109, @1600334075089
+node: 1 convert to follower @1600334075089
+1 voted for 3 @1600334075089
+[1;33m3[0m recv request vote from 4, term: 134, args: &{134 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334075099
+node 3 reject voted for 4, my_state: 1, votefor: 3, log_index: 73 @1600334075099
+[1;33m2[0m recv request vote from 3, term: 134, args: &{134 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334075099
+node 2 reject voted for 3, my_state: 2, votefor: 4, log_index: 36 @1600334075099
+[1;33m1[0m recv request vote from 4, term: 134, args: &{134 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334075099
+node 1 reject voted for 4, my_state: 2, votefor: 3, log_index: 73 @1600334075099
+[1;33m0[0m recv request vote from 3, term: 134, args: &{134 3 73 109}, mlogIndex:50, mlogTerm:36, @1600334075101
+0 voted for 3 @1600334075101
+[1;33m4[0m recv request vote from 3, term: 134, args: &{134 3 73 109}, mlogIndex:54, mlogTerm:14, @1600334075106
+node 4 reject voted for 3, my_state: 1, votefor: 4, log_index: 54 @1600334075106
+will elect for leader: 2, state: 2, @1600334075307
+[0;31mbecandidate[0m: 2 1600334075307
+[1;33m1[0m recv request vote from 2, term: 135, args: &{135 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334075318
+node 1 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334075318
+[1;33m4[0m recv request vote from 2, term: 135, args: &{135 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334075325
+node: 4 convert to follower @1600334075325
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334075325
+will elect for leader: 3, state: 1, @1600334075329
+[0;31mbecandidate[0m: 3 1600334075329
+[1;33m0[0m recv request vote from 2, term: 135, args: &{135 2 36 10}, mlogIndex:50, mlogTerm:36, @1600334075329
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 50 @1600334075329
+[1;33m3[0m recv request vote from 2, term: 135, args: &{135 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334075329
+node 3 reject voted for 2, my_state: 1, votefor: 3, log_index: 73 @1600334075330
+[1;33m4[0m recv request vote from 3, term: 135, args: &{135 3 73 109}, mlogIndex:54, mlogTerm:14, @1600334075334
+4 voted for 3 @1600334075334
+[1;33m1[0m recv request vote from 3, term: 135, args: &{135 3 73 109}, mlogIndex:73, mlogTerm:109, @1600334075351
+1 voted for 3 @1600334075351
+[1;33m2[0m recv request vote from 3, term: 135, args: &{135 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334075352
+node 2 reject voted for 3, my_state: 1, votefor: 2, log_index: 36 @1600334075352
+will elect for leader: 0, state: 2, @1600334075549
+[0;31mbecandidate[0m: 0 1600334075549
+[1;33m4[0m recv request vote from 0, term: 136, args: &{136 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334075555
+4 voted for 0 @1600334075556
+[1;33m2[0m recv request vote from 0, term: 136, args: &{136 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334075557
+node: 2 convert to follower @1600334075558
+[1;33m1[0m recv request vote from 0, term: 136, args: &{136 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334075558
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334075558
+2 voted for 0 @1600334075558
+[1;33m3[0m recv request vote from 0, term: 136, args: &{136 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334075568
+node: 3 convert to follower @1600334075568
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334075568
+will elect for leader: 0, state: 1, @1600334075754
+[0;31mbecandidate[0m: 0 1600334075754
+[1;33m1[0m recv request vote from 0, term: 137, args: &{137 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334075758
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334075758
+[1;33m4[0m recv request vote from 0, term: 137, args: &{137 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334075759
+4 voted for 0 @1600334075759
+[1;33m3[0m recv request vote from 0, term: 137, args: &{137 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334075778
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334075779
+[1;33m2[0m recv request vote from 0, term: 137, args: &{137 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334075780
+2 voted for 0 @1600334075780
+will elect for leader: 1, state: 2, @1600334075839
+[0;31mbecandidate[0m: 1 1600334075839
+[1;33m2[0m recv request vote from 1, term: 138, args: &{138 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334075843
+2 voted for 1 @1600334075843
+[1;33m3[0m recv request vote from 1, term: 138, args: &{138 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334075850
+3 voted for 1 @1600334075850
+[1;33m4[0m recv request vote from 1, term: 138, args: &{138 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334075852
+4 voted for 1 @1600334075852
+will elect for leader: 2, state: 2, @1600334076132
+[0;31mbecandidate[0m: 2 1600334076132
+[1;33m4[0m recv request vote from 2, term: 139, args: &{139 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334076141
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334076141
+[1;33m3[0m recv request vote from 2, term: 139, args: &{139 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334076146
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334076146
+[1;33m0[0m recv request vote from 2, term: 139, args: &{139 2 36 10}, mlogIndex:50, mlogTerm:36, @1600334076146
+node: 0 convert to follower @1600334076146
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 50 @1600334076146
+[1;33m1[0m recv request vote from 2, term: 139, args: &{139 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334076156
+node: 1 convert to follower @1600334076156
+node 1 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334076156
+will elect for leader: 3, state: 2, @1600334076269
+[0;31mbecandidate[0m: 3 1600334076269
+[1;33m4[0m recv request vote from 3, term: 140, args: &{140 3 73 109}, mlogIndex:54, mlogTerm:14, @1600334076277
+4 voted for 3 @1600334076277
+[1;33m2[0m recv request vote from 3, term: 140, args: &{140 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334076282
+node: 2 convert to follower @1600334076282
+2 voted for 3 @1600334076282
+[1;33m1[0m recv request vote from 3, term: 140, args: &{140 3 73 109}, mlogIndex:73, mlogTerm:109, @1600334076287
+1 voted for 3 @1600334076287
+[1;33m0[0m recv request vote from 3, term: 140, args: &{140 3 73 109}, mlogIndex:50, mlogTerm:36, @1600334076297
+0 voted for 3 @1600334076297
+will elect for leader: 3, state: 1, @1600334076491
+[0;31mbecandidate[0m: 3 1600334076492
+[1;33m4[0m recv request vote from 3, term: 141, args: &{141 3 73 109}, mlogIndex:54, mlogTerm:14, @1600334076500
+4 voted for 3 @1600334076500
+[1;33m0[0m recv request vote from 3, term: 141, args: &{141 3 73 109}, mlogIndex:50, mlogTerm:36, @1600334076504
+0 voted for 3 @1600334076505
+[1;33m2[0m recv request vote from 3, term: 141, args: &{141 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334076510
+2 voted for 3 @1600334076511
+[1;33m1[0m recv request vote from 3, term: 141, args: &{141 3 73 109}, mlogIndex:73, mlogTerm:109, @1600334076511
+1 voted for 3 @1600334076512
+will elect for leader: 2, state: 2, @1600334076679
+[0;31mbecandidate[0m: 2 1600334076679
+[1;33m0[0m recv request vote from 2, term: 142, args: &{142 2 36 10}, mlogIndex:50, mlogTerm:36, @1600334076694
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 50 @1600334076694
+[1;33m3[0m recv request vote from 2, term: 142, args: &{142 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334076697
+node: 3 convert to follower @1600334076697
+[1;33m1[0m recv request vote from 2, term: 142, args: &{142 2 36 10}, mlogIndex:73, mlogTerm:109, @1600334076697
+node 3 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334076697
+node 1 reject voted for 2, my_state: 2, votefor: -1, log_index: 73 @1600334076697
+[1;33m4[0m recv request vote from 2, term: 142, args: &{142 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334076699
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334076699
+will elect for leader: 4, state: 2, @1600334076965
+[0;31mbecandidate[0m: 4 1600334076965
+[1;33m0[0m recv request vote from 4, term: 143, args: &{143 4 54 14}, mlogIndex:50, mlogTerm:36, @1600334076967
+node 0 reject voted for 4, my_state: 2, votefor: -1, log_index: 50 @1600334076967
+[1;33m1[0m recv request vote from 4, term: 143, args: &{143 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334076973
+node 1 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334076973
+[1;33m3[0m recv request vote from 4, term: 143, args: &{143 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334076976
+node 3 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334076976
+will elect for leader: 0, state: 2, @1600334077197
+[0;31mbecandidate[0m: 0 1600334077197
+[1;33m1[0m recv request vote from 0, term: 144, args: &{144 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334077198
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334077198
+[1;33m4[0m recv request vote from 0, term: 144, args: &{144 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334077206
+node: 4 convert to follower @1600334077206
+4 voted for 0 @1600334077207
+[1;33m2[0m recv request vote from 0, term: 144, args: &{144 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334077218
+node: 2 convert to follower @1600334077218
+2 voted for 0 @1600334077218
+[1;33m3[0m recv request vote from 0, term: 144, args: &{144 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334077224
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334077224
+will elect for leader: 1, state: 2, @1600334077243
+[0;31mbecandidate[0m: 1 1600334077243
+[1;33m3[0m recv request vote from 1, term: 145, args: &{145 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334077246
+3 voted for 1 @1600334077246
+[1;33m4[0m recv request vote from 1, term: 145, args: &{145 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334077247
+4 voted for 1 @1600334077247
+[1;33m2[0m recv request vote from 1, term: 145, args: &{145 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334077264
+2 voted for 1 @1600334077264
+[1;33m0[0m recv request vote from 1, term: 145, args: &{145 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334077269
+node: 0 convert to follower @1600334077269
+0 voted for 1 @1600334077269
+will elect for leader: 4, state: 2, @1600334077464
+[0;31mbecandidate[0m: 4 1600334077465
+[1;33m0[0m recv request vote from 4, term: 146, args: &{146 4 54 14}, mlogIndex:50, mlogTerm:36, @1600334077470
+node 0 reject voted for 4, my_state: 2, votefor: -1, log_index: 50 @1600334077470
+[1;33m2[0m recv request vote from 4, term: 146, args: &{146 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334077476
+2 voted for 4 @1600334077476
+[1;33m1[0m recv request vote from 4, term: 146, args: &{146 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334077485
+node: 1 convert to follower @1600334077485
+node 1 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334077485
+[1;33m3[0m recv request vote from 4, term: 146, args: &{146 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334077491
+node 3 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334077491
+will elect for leader: 0, state: 2, @1600334077610
+[0;31mbecandidate[0m: 0 1600334077610
+[1;33m3[0m recv request vote from 0, term: 147, args: &{147 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334077623
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334077623
+[1;33m2[0m recv request vote from 0, term: 147, args: &{147 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334077626
+2 voted for 0 @1600334077626
+[1;33m4[0m recv request vote from 0, term: 147, args: &{147 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334077633
+node: 4 convert to follower @1600334077633
+4 voted for 0 @1600334077633
+will elect for leader: 0, state: 1, @1600334077827
+[0;31mbecandidate[0m: 0 1600334077828
+[1;33m4[0m recv request vote from 0, term: 148, args: &{148 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334077838
+4 voted for 0 @1600334077839
+[1;33m2[0m recv request vote from 0, term: 148, args: &{148 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334077846
+2 voted for 0 @1600334077846
+[1;33m3[0m recv request vote from 0, term: 148, args: &{148 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334077853
+[1;33m1[0m recv request vote from 0, term: 148, args: &{148 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334077853
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334077854
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334077854
+will elect for leader: 1, state: 2, @1600334077945
+[0;31mbecandidate[0m: 1 1600334077946
+[1;33m2[0m recv request vote from 1, term: 149, args: &{149 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334077963
+2 voted for 1 @1600334077963
+[1;33m3[0m recv request vote from 1, term: 149, args: &{149 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334077971
+3 voted for 1 @1600334077971
+[1;33m0[0m recv request vote from 1, term: 149, args: &{149 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334077973
+node: 0 convert to follower @1600334077973
+0 voted for 1 @1600334077974
+will elect for leader: 4, state: 2, @1600334078245
+[0;31mbecandidate[0m: 4 1600334078245
+[1;33m1[0m recv request vote from 4, term: 149, args: &{149 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334078246
+node 1 reject voted for 4, my_state: 1, votefor: 1, log_index: 73 @1600334078246
+will elect for leader: 3, state: 2, @1600334078264
+[0;31mbecandidate[0m: 3 1600334078264
+[1;33m0[0m recv request vote from 4, term: 149, args: &{149 4 54 14}, mlogIndex:50, mlogTerm:36, @1600334078267
+node 0 reject voted for 4, my_state: 2, votefor: 1, log_index: 50 @1600334078267
+[1;33m4[0m recv request vote from 3, term: 150, args: &{150 3 73 109}, mlogIndex:54, mlogTerm:14, @1600334078270
+node: 4 convert to follower @1600334078270
+[1;33m3[0m recv request vote from 4, term: 149, args: &{149 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334078271
+1600334078271 3 reject vote for 4, node stale term: 150
+4 voted for 3 @1600334078271
+[1;33m2[0m recv request vote from 4, term: 149, args: &{149 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334078272
+node 2 reject voted for 4, my_state: 2, votefor: 1, log_index: 36 @1600334078272
+will elect for leader: 0, state: 2, @1600334078277
+[0;31mbecandidate[0m: 0 1600334078277
+[1;33m2[0m recv request vote from 0, term: 150, args: &{150 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334078277
+2 voted for 0 @1600334078277
+[1;33m2[0m recv request vote from 3, term: 150, args: &{150 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334078281
+node 2 reject voted for 3, my_state: 2, votefor: 0, log_index: 36 @1600334078281
+[1;33m0[0m recv request vote from 3, term: 150, args: &{150 3 73 109}, mlogIndex:50, mlogTerm:36, @1600334078284
+node 0 reject voted for 3, my_state: 1, votefor: 0, log_index: 50 @1600334078284
+[1;33m1[0m recv request vote from 0, term: 150, args: &{150 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334078286
+node: 1 convert to follower @1600334078287
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334078287
+will elect for leader: 0, state: 1, @1600334078542
+[0;31mbecandidate[0m: 0 1600334078542
+[1;33m4[0m recv request vote from 0, term: 151, args: &{151 0 50 36}, mlogIndex:54, mlogTerm:14, @1600334078555
+4 voted for 0 @1600334078555
+[1;33m1[0m recv request vote from 0, term: 151, args: &{151 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334078560
+node 1 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334078561
+[1;33m2[0m recv request vote from 0, term: 151, args: &{151 0 50 36}, mlogIndex:36, mlogTerm:10, @1600334078566
+2 voted for 0 @1600334078566
+[1;33m3[0m recv request vote from 0, term: 151, args: &{151 0 50 36}, mlogIndex:73, mlogTerm:109, @1600334078569
+node: 3 convert to follower @1600334078569
+node 3 reject voted for 0, my_state: 2, votefor: -1, log_index: 73 @1600334078569
+will elect for leader: 1, state: 2, @1600334078651
+[0;31mbecandidate[0m: 1 1600334078651
+[1;33m2[0m recv request vote from 1, term: 152, args: &{152 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334078661
+2 voted for 1 @1600334078661
+[1;33m0[0m recv request vote from 1, term: 152, args: &{152 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334078662
+node: 0 convert to follower @1600334078662
+0 voted for 1 @1600334078663
+[1;33m3[0m recv request vote from 1, term: 152, args: &{152 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334078665
+3 voted for 1 @1600334078666
+[1;33m4[0m recv request vote from 1, term: 152, args: &{152 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334078666
+4 voted for 1 @1600334078666
+will elect for leader: 2, state: 2, @1600334078842
+[0;31mbecandidate[0m: 2 1600334078843
+[1;33m4[0m recv request vote from 2, term: 153, args: &{153 2 36 10}, mlogIndex:54, mlogTerm:14, @1600334078845
+node 4 reject voted for 2, my_state: 2, votefor: -1, log_index: 54 @1600334078845
+[1;33m0[0m recv request vote from 2, term: 153, args: &{153 2 36 10}, mlogIndex:50, mlogTerm:36, @1600334078860
+node 0 reject voted for 2, my_state: 2, votefor: -1, log_index: 50 @1600334078860
+will elect for leader: 1, state: 1, @1600334078929
+[0;31mbecandidate[0m: 1 1600334078929
+[1;33m2[0m recv request vote from 1, term: 153, args: &{153 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334078930
+node 2 reject voted for 1, my_state: 1, votefor: 2, log_index: 36 @1600334078930
+[1;33m4[0m recv request vote from 1, term: 153, args: &{153 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334078941
+4 voted for 1 @1600334078941
+[1;33m0[0m recv request vote from 1, term: 153, args: &{153 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334078954
+0 voted for 1 @1600334078954
+will elect for leader: 3, state: 2, @1600334078997
+[0;31mbecandidate[0m: 3 1600334078997
+[1;33m0[0m recv request vote from 3, term: 153, args: &{153 3 73 109}, mlogIndex:50, mlogTerm:36, @1600334079004
+node 0 reject voted for 3, my_state: 2, votefor: 1, log_index: 50 @1600334079004
+[1;33m2[0m recv request vote from 3, term: 153, args: &{153 3 73 109}, mlogIndex:36, mlogTerm:10, @1600334079005
+node 2 reject voted for 3, my_state: 1, votefor: 2, log_index: 36 @1600334079005
+[1;33m4[0m recv request vote from 3, term: 153, args: &{153 3 73 109}, mlogIndex:54, mlogTerm:14, @1600334079008
+node 4 reject voted for 3, my_state: 2, votefor: 1, log_index: 54 @1600334079008
+[1;33m1[0m recv request vote from 3, term: 153, args: &{153 3 73 109}, mlogIndex:73, mlogTerm:109, @1600334079008
+node 1 reject voted for 3, my_state: 1, votefor: 1, log_index: 73 @1600334079008
+will elect for leader: 4, state: 2, @1600334079135
+[0;31mbecandidate[0m: 4 1600334079135
+[1;33m1[0m recv request vote from 4, term: 154, args: &{154 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334079154
+node: 1 convert to follower @1600334079154
+node 1 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334079154
+[1;33m0[0m recv request vote from 4, term: 154, args: &{154 4 54 14}, mlogIndex:50, mlogTerm:36, @1600334079158
+node 0 reject voted for 4, my_state: 2, votefor: -1, log_index: 50 @1600334079158
+[1;33m3[0m recv request vote from 4, term: 154, args: &{154 4 54 14}, mlogIndex:73, mlogTerm:109, @1600334079160
+node: 3 convert to follower @1600334079160
+node 3 reject voted for 4, my_state: 2, votefor: -1, log_index: 73 @1600334079160
+[1;33m2[0m recv request vote from 4, term: 154, args: &{154 4 54 14}, mlogIndex:36, mlogTerm:10, @1600334079161
+node: 2 convert to follower @1600334079161
+2 voted for 4 @1600334079161
+will elect for leader: 1, state: 2, @1600334079461
+[0;31mbecandidate[0m: 1 1600334079461
+[1;33m4[0m recv request vote from 1, term: 155, args: &{155 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334079467
+node: 4 convert to follower @1600334079467
+4 voted for 1 @1600334079467
+[1;33m0[0m recv request vote from 1, term: 155, args: &{155 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334079470
+0 voted for 1 @1600334079470
+[1;33m3[0m recv request vote from 1, term: 155, args: &{155 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334079471
+3 voted for 1 @1600334079471
+[1;33m2[0m recv request vote from 1, term: 155, args: &{155 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334079480
+2 voted for 1 @1600334079481
+will elect for leader: 1, state: 1, @1600334079665
+[0;31mbecandidate[0m: 1 1600334079665
+[1;33m0[0m recv request vote from 1, term: 156, args: &{156 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334079671
+0 voted for 1 @1600334079671
+[1;33m4[0m recv request vote from 1, term: 156, args: &{156 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334079672
+4 voted for 1 @1600334079672
+[1;33m3[0m recv request vote from 1, term: 156, args: &{156 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334079676
+3 voted for 1 @1600334079676
+[1;33m2[0m recv request vote from 1, term: 156, args: &{156 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334079679
+2 voted for 1 @1600334079679
+will elect for leader: 1, state: 1, @1600334079840
+[0;31mbecandidate[0m: 1 1600334079840
+[1;33m4[0m recv request vote from 1, term: 157, args: &{157 1 73 109}, mlogIndex:54, mlogTerm:14, @1600334079844
+4 voted for 1 @1600334079844
+[1;33m2[0m recv request vote from 1, term: 157, args: &{157 1 73 109}, mlogIndex:36, mlogTerm:10, @1600334079848
+2 voted for 1 @1600334079848
+[1;33m3[0m recv request vote from 1, term: 157, args: &{157 1 73 109}, mlogIndex:73, mlogTerm:109, @1600334079849
+3 voted for 1 @1600334079849
+[1;33m0[0m recv request vote from 1, term: 157, args: &{157 1 73 109}, mlogIndex:50, mlogTerm:36, @1600334079865
+0 voted for 1 @1600334079865
+expecedServers: 5, logs: map[0:7 1:6 2:6 3:6 4:7]

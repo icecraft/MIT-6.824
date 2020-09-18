@@ -114,7 +114,7 @@ func doBeCandidate(rf *Raft) {
 			args1 := args
 			// Dlog("%d send request vote to %d, term: %d @%d\n", rf.me, peerIndex, rf.Term, MicroSecondNow())
 			res := rf.sendRequestVote(peerIndex, &args1, &reply)
-			// Dlog("%d get reply from %d @%d, res is %s\n", rf.me, peerIndex, MicroSecondNow(), Yellow(reply.VoteGranted))
+			Dlog("%d get reply from %d @%d, res is %s\n", rf.me, peerIndex, MicroSecondNow(), Yellow(reply.VoteGranted))
 
 			if res {
 				rf.mu.Lock()

@@ -2,6 +2,7 @@ package shardmaster
 
 import (
 	"fmt"
+	"sort"
 	"sync/atomic"
 	"time"
 
@@ -315,35 +316,35 @@ func (sm *ShardMaster) reblance(config *Config) {
 		}
 	}
 
+	sortedGidShards := make([]int, 0)
+	for i, _ := range gidShards {
+		sortedGidShards = append(sortedGidShards, i)
+	}
+	sort.Ints(sortedGidShards)
+
 	// 从已经拥有很多 shards 的 gids 手中抢取份额
 	M := NShards / N
 	MM := NShards % N
 
-	fmt.Printf("me: %d, bef :%v, mm: %d\n", sm.me, config.Shards, MM)
+	// fmt.Printf("me: %d, bef :%v\n", sm.me, config.Shards)
 
 	if NShards%N != 0 {
-		for key, _ := range gidShards {
-
+		for _, key := range sortedGidShards {
 			if len(gidShards[key]) > M && MM > 0 {
-				fmt.Printf("key: %v, len: %v, mm: %d, %v\n ", key, len(gidShards[key]), MM, gidShards[key][M+1:])
 				for _, v := range gidShards[key][M+1:] {
 					config.Shards[v] = INIT_GID
 				}
 				gidShards[key] = gidShards[key][:M+1]
 				MM--
 			} else if len(gidShards[key]) > M {
-				for key, _ := range gidShards {
-					if len(gidShards[key]) > M {
-						for _, v := range gidShards[key][M:] {
-							config.Shards[v] = INIT_GID
-						}
-						gidShards[key] = gidShards[key][:M]
-					}
+				for _, v := range gidShards[key][M:] {
+					config.Shards[v] = INIT_GID
 				}
+				gidShards[key] = gidShards[key][:M]
 			}
 		}
 	} else {
-		for key, _ := range gidShards {
+		for _, key := range sortedGidShards {
 			if len(gidShards[key]) > M {
 				for _, v := range gidShards[key][M:] {
 					config.Shards[v] = INIT_GID
@@ -360,9 +361,8 @@ func (sm *ShardMaster) reblance(config *Config) {
 			freeShards = append(freeShards, i)
 		}
 	}
-
-	// fmt.Printf("%v %v %v %d\n", gidShards, freeShards, config.Shards, M)
-	for key, _ := range gidShards {
+	sort.Ints(freeShards)
+	for _, key := range sortedGidShards {
 		keyL := len(gidShards[key])
 		if M > keyL {
 			for _, v := range freeShards[:M-keyL] {
@@ -373,7 +373,7 @@ func (sm *ShardMaster) reblance(config *Config) {
 		}
 	}
 
-	fmt.Printf("me: %d, aft, %v\n", sm.me, config.Shards)
+	// fmt.Printf("me: %d, aft, %v\n", sm.me, config.Shards)
 }
 
 //
