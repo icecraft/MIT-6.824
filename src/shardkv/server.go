@@ -1,13 +1,10 @@
 package shardkv
 
-
 // import "../shardmaster"
 import "../labrpc"
 import "../raft"
 import "sync"
 import "../labgob"
-
-
 
 type Op struct {
 	// Your definitions here.
@@ -28,7 +25,6 @@ type ShardKV struct {
 	// Your definitions here.
 }
 
-
 func (kv *ShardKV) Get(args *GetArgs, reply *GetReply) {
 	// Your code here.
 }
@@ -47,7 +43,6 @@ func (kv *ShardKV) Kill() {
 	kv.rf.Kill()
 	// Your code here, if desired.
 }
-
 
 //
 // servers[] contains the ports of the servers in this group.
@@ -77,6 +72,9 @@ func (kv *ShardKV) Kill() {
 // StartServer() must return quickly, so it should start goroutines
 // for any long-running work.
 //
+
+// 从一个 group 发送数据到另外一个 group 只发送 state machine。
+
 func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister, maxraftstate int, gid int, masters []*labrpc.ClientEnd, make_end func(string) *labrpc.ClientEnd) *ShardKV {
 	// call labgob.Register on structures you want
 	// Go's RPC library to marshall/unmarshall.
@@ -96,7 +94,6 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 
 	kv.applyCh = make(chan raft.ApplyMsg)
 	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
-
 
 	return kv
 }
