@@ -35,6 +35,7 @@ type Record struct {
 type ShardKV struct {
 	mu           deadlock.Mutex
 	me           int
+	sm           *shardmaster.Clerk
 	rf           *raft.Raft
 	applyCh      chan raft.ApplyMsg
 	make_end     func(string) *labrpc.ClientEnd
@@ -97,12 +98,10 @@ func (kv *ShardKV) persiste() {
 func (kv *ShardKV) pollUpdateConfig() {
 	for {
 		time.Sleep(ConfigUpdateInterval)
-		/*
-			config := kv.sm.Query(-1)
-			kv.mu.Lock()
-			kv.config = config
-			kv.mu.Unlock()
-		*/
+		config := kv.sm.Query(-1)
+		kv.mu.Lock()
+		kv.config = config
+		kv.mu.Unlock()
 	}
 }
 
@@ -150,9 +149,7 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 	kv.masters = masters
 
 	// Your initialization code here.
-
-	// Use something like this to talk to the shardmaster:
-	// kv.mck = shardmaster.MakeClerk(kv.masters)
+	kv.sm = shardmaster.MakeClerk(kv.masters)
 
 	kv.applyCh = make(chan raft.ApplyMsg)
 	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
@@ -168,5 +165,6 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 	kv.readSnapShot()
 
 	go kv.persiste()
+	go kv.pollUpdateConfig()
 	return kv
 }
