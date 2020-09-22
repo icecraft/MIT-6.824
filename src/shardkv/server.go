@@ -1,19 +1,39 @@
 package shardkv
 
-// import "../shardmaster"
-import "../labrpc"
-import "../raft"
-import "sync"
-import "../labgob"
+import (
+	// "bytes"
+	// "encoding/gob"
+	// "fmt"
+	"sync/atomic"
+	"time"
+
+	"github.com/sasha-s/go-deadlock"
+	log "github.com/sirupsen/logrus"
+
+	"../labgob"
+	"../labrpc"
+	"../raft"
+	"../shardmaster"
+)
 
 type Op struct {
 	// Your definitions here.
 	// Field names must start with capital letters,
 	// otherwise RPC will break.
+	OpType       string
+	Value        string
+	Key          string
+	SerialNumber int64
+	ClientID     int
+}
+
+type Record struct {
+	Err   Err
+	Value string
 }
 
 type ShardKV struct {
-	mu           sync.Mutex
+	mu           deadlock.Mutex
 	me           int
 	rf           *raft.Raft
 	applyCh      chan raft.ApplyMsg
@@ -22,7 +42,21 @@ type ShardKV struct {
 	masters      []*labrpc.ClientEnd
 	maxraftstate int // snapshot if log grows this big
 
+	// shardmaster config
+	config shardmaster.Config
+
 	// Your definitions here.
+	dead                int32
+	log0                map[string]string
+	maxIndexInState     int
+	inLogCompaction     bool
+	history             map[string]Record
+	clientSn            map[int]int64
+	latestSnapShotIndex int
+
+	// snapshot
+	snapshot      []byte
+	snapshotIndex int
 }
 
 func (kv *ShardKV) Get(args *GetArgs, reply *GetReply) {
@@ -40,8 +74,36 @@ func (kv *ShardKV) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 // turn off debug output from this instance.
 //
 func (kv *ShardKV) Kill() {
+	atomic.AddInt32(&kv.dead, 1)
 	kv.rf.Kill()
-	// Your code here, if desired.
+}
+
+//#
+func (kv *ShardKV) Killed() bool {
+	return atomic.LoadInt32(&kv.dead) > 0
+}
+
+//#
+func (kv *ShardKV) readSnapShot() {
+	log.Warn("ShardKV readSnapShot NOT Implemented\n")
+}
+
+//#
+func (kv *ShardKV) persiste() {
+	log.Warn("ShardKV Persiste NOT Implemented\n")
+}
+
+//#
+func (kv *ShardKV) pollUpdateConfig() {
+	for {
+		time.Sleep(ConfigUpdateInterval)
+		/*
+			config := kv.sm.Query(-1)
+			kv.mu.Lock()
+			kv.config = config
+			kv.mu.Unlock()
+		*/
+	}
 }
 
 //
@@ -94,6 +156,17 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 
 	kv.applyCh = make(chan raft.ApplyMsg)
 	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
+	kv.applyCh = make(chan raft.ApplyMsg)
+	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
+	// You may need initialization code here.
+	kv.log0 = make(map[string]string)
+	kv.history = make(map[string]Record)
+	kv.maxIndexInState = -1
+	kv.latestSnapShotIndex = -1
+	kv.clientSn = make(map[int]int64)
+	// read snapShot
+	kv.readSnapShot()
 
+	go kv.persiste()
 	return kv
 }

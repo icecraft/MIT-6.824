@@ -30,6 +30,7 @@ const (
 
 	// interval
 	OpInterval    = 100 * time.Millisecond
+	ConfigUpdateInterval    = 100 * time.Millisecond
 	checkInterval = 50 * time.Millisecond
 )
 
