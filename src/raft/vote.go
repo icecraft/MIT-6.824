@@ -44,9 +44,13 @@ func doRquestVote(rf *Raft, args *RequestVoteArgs, reply *RequestVoteReply) {
 	}
 
 	if rf.State != STATE_FOLLOWER || (rf.VotedFor != VOTED_FOR_NULL && rf.VotedFor != args.CandidateId) || (logTerm == args.LastLogTerm && logIndex > args.LastLogIndex) || logTerm > args.LastLogTerm {
-		Dlog("node %d reject voted for %d, my_state: %d, votefor: %d, log_index: %d @%d\n", rf.me, args.CandidateId, rf.State, rf.VotedFor, logIndex, MicroSecondNow())
+		Dlog("node %d reject voted for %d, my_state: %d, votefor: %d, log_index: %d @%d\n",
+			rf.me, args.CandidateId, rf.State, rf.VotedFor, logIndex, MicroSecondNow())
 		rf.mu.Unlock()
 		return
+	} else {
+		Dlog("node %d will voted for %d, my_state: %d, votefor: %d, term: %d, log_index: %d @%d\n",
+			rf.me, args.CandidateId, rf.State, rf.VotedFor, rf.Term, logIndex, MicroSecondNow())
 	}
 
 	if rf.VotedFor != args.CandidateId {
