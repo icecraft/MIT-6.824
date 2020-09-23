@@ -31,7 +31,7 @@ func init() {
 
 	fn := os.Getenv("LOG_FILE")
 	if fn == "" {
-		fn = "kvraft.log"
+		fn = "shardmaster.log"
 	}
 	if debug == 0 {
 		fp, _ = os.OpenFile(fn, os.O_CREATE|os.O_RDWR|os.O_TRUNC, 0644)

@@ -29,9 +29,9 @@ const (
 	AppendOp = "Append"
 
 	// interval
-	OpInterval    = 100 * time.Millisecond
-	ConfigUpdateInterval    = 100 * time.Millisecond
-	checkInterval = 50 * time.Millisecond
+	OpInterval           = 100 * time.Millisecond
+	ConfigUpdateInterval = 100 * time.Millisecond
+	checkInterval        = 50 * time.Millisecond
 )
 
 type Err string

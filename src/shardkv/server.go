@@ -321,6 +321,7 @@ func (kv *ShardKV) pollUpdateConfig() {
 		time.Sleep(ConfigUpdateInterval)
 		config := kv.sm.Query(-1)
 		//TODO: 转移部分的 shard 出去
+		// log.Infof("get new config: %v\n", config)
 		kv.mu.Lock()
 		kv.config = config
 		kv.mu.Unlock()
