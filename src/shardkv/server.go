@@ -3,7 +3,7 @@ package shardkv
 import (
 	// "bytes"
 	// "encoding/gob"
-	// "fmt"
+	"fmt"
 	"sync/atomic"
 	"time"
 
@@ -60,12 +60,123 @@ type ShardKV struct {
 	snapshotIndex int
 }
 
+func (kv *ShardKV) getHistoryKey(clientId int, SerialNumber int64) string {
+	return fmt.Sprintf("%d/%d", clientId, SerialNumber)
+}
+
 func (kv *ShardKV) Get(args *GetArgs, reply *GetReply) {
-	// Your code here.
+	Dlog("Get: @%d\n", MicroSecondNow())
+	defer Dlog("Ret Get: me: %d args: %v, reply: %v @%d\n", kv.me, args, reply, MicroSecondNow())
+
+	if _, isLeader := kv.rf.GetState(); !isLeader {
+		reply.Err = ErrWrongLeader
+		return
+	}
+
+	historyKey := kv.getHistoryKey(args.ClientID, args.SerialNumber)
+	kv.mu.Lock()
+	v, existed := kv.history[historyKey]
+	if existed {
+		reply.Err = v.Err
+		reply.Value = v.Value
+		kv.mu.Unlock()
+		return
+	}
+	kv.mu.Unlock()
+
+	kv.mayLogCompaction()
+
+	op := Op{
+		OpType:       GetOp,
+		Value:        "",
+		Key:          args.Key,
+		ClientID:     args.ClientID,
+		SerialNumber: args.SerialNumber}
+
+	if _, _, isLeader := kv.rf.Start(op); !isLeader {
+		reply.Err = ErrWrongLeader
+		return
+	}
+
+	for {
+		kv.mu.Lock()
+		t, existed := kv.history[historyKey]
+		if existed {
+			reply.Err = t.Err
+			reply.Value = t.Value
+			kv.mu.Unlock()
+			return
+		}
+		kv.mu.Unlock()
+		if _, isLeader := kv.rf.GetState(); !isLeader {
+			reply.Err = ErrStaleLeader
+			return
+		}
+		time.Sleep(checkInterval)
+	}
 }
 
 func (kv *ShardKV) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
-	// Your code here.
+
+	Dlog("PUT: @%d\n", MicroSecondNow())
+	defer Dlog("Ret PUT: me: %d, args: %v, reply: %v @%d\n", kv.me, args, reply, MicroSecondNow())
+	// 不是 leader, 可能重新选一个 leader 来做。但是不能保证 本节点之前是 leader， 但是后面成为了 follower， 后面又成为了 leader
+	// client 提交给本节点的数据。不能保证不会同步，也不能保证会同步。
+	if _, isLeader := kv.rf.GetState(); !isLeader {
+		reply.Err = ErrWrongLeader
+		return
+	}
+
+	historyKey := kv.getHistoryKey(args.ClientID, args.SerialNumber)
+	kv.mu.Lock()
+	p, ok := kv.history[historyKey]
+	if ok {
+		reply.Err = p.Err
+		kv.mu.Unlock()
+		return
+	}
+	if kv.clientSn[args.ClientID] > args.SerialNumber {
+		log.Infof("PutAppend hitory sn: %d, req sn: %d\n", kv.clientSn[args.ClientID], args.SerialNumber)
+	}
+	kv.mu.Unlock()
+	kv.mayLogCompaction()
+
+	op := Op{
+		OpType:       args.Op,
+		Value:        args.Value,
+		Key:          args.Key,
+		ClientID:     args.ClientID,
+		SerialNumber: args.SerialNumber}
+
+	// 暂不处理 error 情况，所以 PutAppendRelpy 中的 Err 字段是不会被用到的
+	if _, _, isLeader := kv.rf.Start(op); !isLeader {
+		reply.Err = ErrWrongLeader
+		return
+	}
+
+	// 暂时不考虑处理 stale client
+	for {
+		kv.mu.Lock()
+		t, existed := kv.history[historyKey]
+		if existed {
+			reply.Err = t.Err
+			kv.mu.Unlock()
+			return
+		}
+		kv.mu.Unlock()
+		if _, isLeader := kv.rf.GetState(); !isLeader {
+			reply.Err = ErrStaleLeader
+			return
+		}
+
+		time.Sleep(checkInterval)
+	}
+}
+
+//#
+
+func (kv *ShardKV) mayLogCompaction() {
+	log.Warn("may log compaction not implemented\n")
 }
 
 //
