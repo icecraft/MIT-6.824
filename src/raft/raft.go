@@ -113,18 +113,20 @@ func (rf *Raft) GetState() (int, bool) {
 }
 
 // believes it is the leader.
-func (rf *Raft) GetState2() (int, int, bool) {
+func (rf *Raft) GetState2() (int, int, int, bool) {
 
 	var term int
 	var isleader bool
+	var index int
 	// Your code here (2A).
 	rf.mu.Lock()
 	if rf.State == STATE_LEADER {
 		isleader = true
+		index = rf.getLogIndex()
 	}
 	term = rf.Term
 	rf.mu.Unlock()
-	return term, rf.State, isleader
+	return index, term, rf.State, isleader
 }
 
 func (rf *Raft) SaveSnapShot(data []byte) {

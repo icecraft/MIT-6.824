@@ -298,7 +298,7 @@ func (cfg *config) checkOneLeader() int {
 	}
 
 	for i, _ := range cfg.rafts {
-		term, state, isl := cfg.rafts[i].GetState2()
+		_, term, state, isl := cfg.rafts[i].GetState2()
 		Dlog("%d %d %v @%d\n", term, state, isl, MicroSecondNow())
 	}
 

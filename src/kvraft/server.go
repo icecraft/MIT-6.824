@@ -81,6 +81,18 @@ func (kv *KVServer) Get(args *GetArgs, reply *GetReply) {
 		kv.mu.Unlock()
 		return
 	}
+
+	index, _, _, _ := kv.rf.GetState2()
+	if index == kv.maxIndexInState {
+		val, existed := kv.log0[args.Key]
+		if !existed {
+			reply.Err = ErrNoKey
+		} else {
+			reply.Value = val
+		}
+		kv.mu.Unlock()
+		return
+	}
 	kv.mu.Unlock()
 
 	kv.mayLogCompaction()
@@ -299,7 +311,7 @@ func (kv *KVServer) Persiste() {
 				kv.mu.Unlock()
 				continue
 			}
-			if kv.clientSn[p.ClientID] != p.SerialNumber-1 {
+			if kv.clientSn[p.ClientID] >= p.SerialNumber {
 				kv.mu.Unlock()
 				continue
 			} else {
