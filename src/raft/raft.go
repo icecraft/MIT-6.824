@@ -120,7 +120,7 @@ func (rf *Raft) GetState2() (int, int, int, bool) {
 	var index int
 	// Your code here (2A).
 	rf.mu.Lock()
-	if rf.State == STATE_LEADER {
+	if rf.State == STATE_LEADER && rf.lease > MicroSecondNow() {
 		isleader = true
 		index = rf.getLogIndex()
 	}
