@@ -26,7 +26,8 @@ type ShardMaster struct {
 	applyCh chan raft.ApplyMsg
 
 	// Your data here.
-	configs []Config // indexed by config num
+	configs         []Config // indexed by config num
+	maxIndexInState int
 
 	// Your definitions here.
 	dead       int32
@@ -211,6 +212,16 @@ func (sm *ShardMaster) Query(args *QueryArgs, reply *QueryReply) {
 		sm.mu.Unlock()
 		return
 	}
+
+	index, _, _, _ := sm.rf.GetState2()
+	if index == sm.maxIndexInState {
+		record := Record{}
+		sm.query(args.Num, &record)
+		reply.Config = record.Config
+		reply.Err = record.Err
+		sm.mu.Unlock()
+		return
+	}
 	sm.mu.Unlock()
 
 	op := Op{
@@ -391,13 +402,14 @@ func (sm *ShardMaster) Persiste() {
 			Dlog("me: %d, recv msg: %v\n", sm.me, p)
 
 			sm.mu.Lock()
-			if sm.clientSn[p.ClientID] != p.SerialNumber-1 {
+			if sm.clientSn[p.ClientID] >= p.SerialNumber {
 				sm.mu.Unlock()
 				continue
 			} else {
 				sm.clientSn[p.ClientID] = p.SerialNumber
 			}
 			Dlog("me: %d, [%s]: Index: %v\n", sm.me, p.OpType, val.Index)
+			sm.maxIndexInState = val.Index
 
 			t := Record{}
 			switch p.OpType {
@@ -468,25 +480,30 @@ func (sm *ShardMaster) Persiste() {
 			case QueryOp:
 				args := p.ArgQuery
 				// fmt.Printf("me: %d, num: %d, configs %v\n", sm.me, args.Num, sm.configs)
-				if args.Num == -1 {
-					if len(sm.configs) > 1 {
-						t.Config = sm.configs[len(sm.configs)-1]
-					} else {
-						t.Err = ErrConfigNum
-					}
-				} else {
-					if args.Num > 0 {
-						t.Config = sm.configs[args.Num]
-					} else {
-						t.Err = ErrConfigNum
-					}
-				}
+				sm.query(args.Num, &t)
 
 			default:
 				Dlog("Unkown op: %s @%d\n", p.OpType, MicroSecondNow())
 			}
 			sm.history[historyKey] = t
 			sm.mu.Unlock()
+		}
+	}
+}
+
+func (sm *ShardMaster) query(num int, record *Record) {
+
+	if num == -1 {
+		if len(sm.configs) > 1 {
+			record.Config = sm.configs[len(sm.configs)-1]
+		} else {
+			record.Err = ErrConfigNum
+		}
+	} else {
+		if num > 0 {
+			record.Config = sm.configs[num]
+		} else {
+			record.Err = ErrConfigNum
 		}
 	}
 }
@@ -513,6 +530,7 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister)
 	sm.history = make(map[string]Record)
 	sm.clientSn = make(map[int]int64)
 	sm.joinedGids = make(map[int]bool)
+	sm.maxIndexInState = -1
 
 	//初始化第一份配置
 	config := Config{Num: 0}
