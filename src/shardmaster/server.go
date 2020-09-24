@@ -212,6 +212,12 @@ func (sm *ShardMaster) Query(args *QueryArgs, reply *QueryReply) {
 		sm.mu.Unlock()
 		return
 	}
+	// 使用 config 序号是单调递增的特性, 快速返回
+	if sm.configs[len(sm.configs)-1].Num >= args.Num && args.Num != -1 {
+		reply.Config = sm.configs[args.Num]
+		sm.mu.Unlock()
+		return
+	}
 
 	index, _, _, _ := sm.rf.GetState2()
 	if index == sm.maxIndexInState {
