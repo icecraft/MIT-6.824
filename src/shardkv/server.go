@@ -54,10 +54,17 @@ type ShardKV struct {
 	history             map[string]Record
 	clientSn            map[int]int64
 	latestSnapShotIndex int
+	recieveMsgSeq       int64
+	migrateAtSeq        int64
 
 	// snapshot
 	snapshot      []byte
 	snapshotIndex int
+
+	// migrate
+	inMigrate    bool
+	shardSendOut map[int]bool
+	shardMissing map[int]bool
 }
 
 func (kv *ShardKV) getHistoryKey(clientId int, SerialNumber int64) string {
@@ -221,7 +228,6 @@ func (kv *ShardKV) Killed() bool {
 	return atomic.LoadInt32(&kv.dead) > 0
 }
 
-//TODO: 去除不属于本 gid 的 shard
 func (kv *ShardKV) shrinkHistoryLog() {
 	nHistory := make(map[string]Record)
 	for key, val := range kv.clientSn {
@@ -233,7 +239,7 @@ func (kv *ShardKV) shrinkHistoryLog() {
 	kv.history = nHistory
 }
 
-//TODO: 去除不属于本 gid 的 shard
+//#
 func (kv *ShardKV) mayLogCompaction() {
 	// 该配置表明不需要 log compaction
 	go func() {
@@ -252,6 +258,10 @@ func (kv *ShardKV) mayLogCompaction() {
 			e.Encode(kv.history)
 			e.Encode(kv.clientSn)
 			e.Encode(kv.maxIndexInState)
+			e.Encode(kv.recieveMsgSeq)
+			e.Encode(kv.shardSendOut)
+			e.Encode(kv.shardMissing)
+
 			kv.snapshot = w.Bytes()
 			kv.snapshotIndex = kv.maxIndexInState
 			Dlog("[prepare] me: %d, index: %s, map: %v\n", kv.me, Red(kv.snapshotIndex), kv.log0)
@@ -293,6 +303,9 @@ func (kv *ShardKV) readSnapShot() {
 	d.Decode(&kv.history)
 	d.Decode(&kv.clientSn)
 	d.Decode(&kv.latestSnapShotIndex)
+	d.Decode(&kv.recieveMsgSeq)
+	d.Decode(&kv.shardSendOut)
+	d.Decode(&kv.shardMissing)
 	kv.maxIndexInState = kv.latestSnapShotIndex
 	Dlog("me: %d, load log from map: %v\n", kv.me, kv.log0)
 	kv.mu.Unlock()
@@ -313,11 +326,18 @@ func (kv *ShardKV) applySnapShot(data []byte) {
 	d.Decode(&kv.history)
 	d.Decode(&kv.clientSn)
 	d.Decode(&kv.latestSnapShotIndex)
+	d.Decode(&kv.recieveMsgSeq)
+	d.Decode(&kv.shardSendOut)
+	d.Decode(&kv.shardMissing)
 	kv.maxIndexInState = kv.latestSnapShotIndex
 
 }
 
-//#
+//# 在这里需改 log map 的值
+//# 当我发现我需要的 shard 还没有发过来我该怎么办？
+//#    我需要的 shard 的数据发送过来的是 statemachine 的，还有没有被 commit 过来的我该怎么办？
+//#    我索要的 shard 是找 leader 索要？
+//# 当我发现我该送的 shard 总是没被送走我该怎么办？
 func (kv *ShardKV) pollUpdateConfig() {
 	for {
 		time.Sleep(ConfigUpdateInterval)
@@ -326,16 +346,22 @@ func (kv *ShardKV) pollUpdateConfig() {
 		kv.mu.Lock()
 		if config.Num != kv.config.Num {
 			kv.config = config
+			log.Infof("gid: %d, me: %d get new config\n", kv.gid, kv.me)
 		}
 		kv.mu.Unlock()
 	}
 }
 
-//TODO: 如果 shard 不在本 gid 内，则直接拒掉
+func (kv *ShardKV) IsLeader() bool {
+	_, isLeader := kv.rf.GetState()
+	return isLeader
+}
+
+//TODO: 就算不在 shard 中 key 也可能要 persiste 的
 func (kv *ShardKV) persiste() {
 	for {
 		select {
-		case <-time.After(200 * time.Millisecond):
+		case <-time.After(100 * time.Millisecond):
 			if atomic.LoadInt32(&kv.dead) > 0 {
 				break
 			}
@@ -344,8 +370,12 @@ func (kv *ShardKV) persiste() {
 			p, _ := val.Command.(Op)
 			historyKey := kv.getHistoryKey(p.ClientID, p.SerialNumber)
 			Dlog("GID: %d, me: %d, recv msg: %v\n", kv.gid, kv.me, p)
+			shard := key2shard(p.Key)
 			kv.mu.Lock()
-
+			if kv.config.Shards[shard] != kv.gid {
+				kv.mu.Unlock()
+				continue
+			}
 			// load data from snapshot
 			if val.SnapShot != nil && len(val.SnapShot) > 0 && val.LatestIndex > kv.snapshotIndex {
 				if 0 == kv.rf.MaySaveSnapShot(val.SnapShot, val.LatestIndex, val.LatestTerm) {
@@ -449,6 +479,10 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 	kv.maxIndexInState = -1
 	kv.latestSnapShotIndex = -1
 	kv.clientSn = make(map[int]int64)
+
+	kv.recieveMsgSeq = 1
+	kv.shardSendOut = make(map[int]bool)
+	kv.shardMissing = make(map[int]bool)
 	// read snapShot
 	kv.readSnapShot()
 
