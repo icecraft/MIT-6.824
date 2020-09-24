@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/sasha-s/go-deadlock"
+	"github.com/icecraft/go-deadlock"
 	log "github.com/sirupsen/logrus"
 
 	"../labgob"
@@ -65,8 +65,8 @@ func (kv *ShardKV) getHistoryKey(clientId int, SerialNumber int64) string {
 }
 
 func (kv *ShardKV) Get(args *GetArgs, reply *GetReply) {
-	Dlog("Get: @%d\n", MicroSecondNow())
-	defer Dlog("Ret Get: me: %d args: %v, reply: %v @%d\n", kv.me, args, reply, MicroSecondNow())
+	Dlog("GID: %d, Get: @%d\n", kv.gid, MicroSecondNow())
+	defer Dlog("GID: %d, Ret Get: me: %d args: %v, reply: %v @%d\n", kv.gid, kv.me, args, reply, MicroSecondNow())
 	shard := key2shard(args.Key)
 	historyKey := kv.getHistoryKey(args.ClientID, args.SerialNumber)
 
@@ -132,8 +132,8 @@ func (kv *ShardKV) Get(args *GetArgs, reply *GetReply) {
 
 func (kv *ShardKV) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 
-	Dlog("PUT: @%d\n", MicroSecondNow())
-	defer Dlog("Ret PUT: me: %d, args: %v, reply: %v @%d\n", kv.me, args, reply, MicroSecondNow())
+	Dlog("GID: %d, me:%d, PUT: value: %s @%d\n", kv.gid, kv.me, args.Value, MicroSecondNow())
+	defer Dlog("GID: %d, Ret PUT: me: %d, args: %v, reply: %v @%d\n", kv.gid, kv.me, args, reply, MicroSecondNow())
 	// 不是 leader, 可能重新选一个 leader 来做。但是不能保证 本节点之前是 leader， 但是后面成为了 follower， 后面又成为了 leader
 	// client 提交给本节点的数据。不能保证不会同步，也不能保证会同步。
 
@@ -163,7 +163,8 @@ func (kv *ShardKV) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 		log.Infof("PutAppend hitory sn: %d, req sn: %d\n", kv.clientSn[args.ClientID], args.SerialNumber)
 	}
 	kv.mu.Unlock()
-	kv.mayLogCompaction()
+
+	// kv.mayLogCompaction()
 
 	op := Op{
 		OpType:       args.Op,
@@ -181,6 +182,7 @@ func (kv *ShardKV) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	// 暂时不考虑处理 stale client
 	for {
 		kv.mu.Lock()
+		Dlog("GID :%d, me: %d, poll putAppend @%d\n", kv.gid, kv.me, MicroSecondNow())
 		gid := kv.config.Shards[shard]
 		if gid != kv.gid {
 			reply.Err = ErrWrongGroup
@@ -321,9 +323,10 @@ func (kv *ShardKV) pollUpdateConfig() {
 		time.Sleep(ConfigUpdateInterval)
 		config := kv.sm.Query(-1)
 		//TODO: 转移部分的 shard 出去
-		// log.Infof("get new config: %v\n", config)
 		kv.mu.Lock()
-		kv.config = config
+		if config.Num != kv.config.Num {
+			kv.config = config
+		}
 		kv.mu.Unlock()
 	}
 }
@@ -332,39 +335,40 @@ func (kv *ShardKV) pollUpdateConfig() {
 func (kv *ShardKV) persiste() {
 	for {
 		select {
-		case <-time.After(50 * time.Millisecond):
+		case <-time.After(200 * time.Millisecond):
 			if atomic.LoadInt32(&kv.dead) > 0 {
 				break
 			}
-			kv.mayLogCompaction()
+			// kv.mayLogCompaction()
 		case val := <-kv.applyCh:
 			p, _ := val.Command.(Op)
 			historyKey := kv.getHistoryKey(p.ClientID, p.SerialNumber)
-			Dlog("me: %d, recv msg: %v\n", kv.me, p)
+			Dlog("GID: %d, me: %d, recv msg: %v\n", kv.gid, kv.me, p)
 			kv.mu.Lock()
 
 			// load data from snapshot
 			if val.SnapShot != nil && len(val.SnapShot) > 0 && val.LatestIndex > kv.snapshotIndex {
 				if 0 == kv.rf.MaySaveSnapShot(val.SnapShot, val.LatestIndex, val.LatestTerm) {
 					kv.applySnapShot(val.SnapShot)
-					Dlog("me: %d, save Update from snapshot, index: %d, term: %d\n", kv.me, val.LatestIndex, val.LatestTerm)
+					Dlog("GID: %d, me: %d, save Update from snapshot, index: %d, term: %d\n", kv.gid, kv.me, val.LatestIndex, val.LatestTerm)
 				}
 				kv.mu.Unlock()
 				continue
 			}
-			if kv.clientSn[p.ClientID] != p.SerialNumber-1 {
+			if kv.clientSn[p.ClientID] >= p.SerialNumber {
+				Dlog("GID: %d, me: %d will continue, cindex:%d, index:%d\n", kv.gid, kv.me, kv.clientSn[p.ClientID], p.SerialNumber)
 				kv.mu.Unlock()
 				continue
 			} else {
 				kv.clientSn[p.ClientID] = p.SerialNumber
 			}
 
-			Dlog("me: %d, [%s]: key: %s, value:%s, Index: %v\n", kv.me, p.OpType, p.Key, p.Value, val.Index)
+			Dlog("GID: %d, me: %d, [%s]: key: %s, value:%s, Index: %v\n", kv.gid, kv.me, p.OpType, p.Key, p.Value, val.Index)
 			kv.maxIndexInState = val.Index
 			t := Record{}
 			switch p.OpType {
 			case GetOp:
-				Dlog("[GET] me: %d, key: %s\n", kv.me, p.Key)
+				Dlog("GID: %d, [GET] me: %d, key: %s\n", kv.gid, kv.me, p.Key)
 				v, existed := kv.log0[p.Key]
 				if existed {
 					t.Value = v
@@ -373,7 +377,7 @@ func (kv *ShardKV) persiste() {
 				}
 			case PutOp:
 				kv.log0[p.Key] = p.Value
-				// Dlog("[PUT] me: %d, key: %s, value: %s\n", kv.me, p.Key, p.Value)
+				Dlog("GID: %d, [PUT] me: %d, key: %s, value: %s\n", kv.gid, kv.me, p.Key, p.Value)
 			case AppendOp:
 				v, existed := kv.log0[p.Key]
 				nvalue := p.Value
@@ -381,7 +385,7 @@ func (kv *ShardKV) persiste() {
 					nvalue = fmt.Sprintf("%s%s", v, p.Value)
 				}
 				kv.log0[p.Key] = nvalue
-				Dlog("[Append] me: %d, key: %s, value:%s\n", kv.me, p.Key, nvalue)
+				Dlog("GID: %d, [Append] me: %d, key: %s, value:%s\n", kv.gid, kv.me, p.Key, nvalue)
 			default:
 				Dlog("Unkown op: %s @%d\n", p.OpType, MicroSecondNow())
 			}
@@ -426,7 +430,7 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 	// call labgob.Register on structures you want
 	// Go's RPC library to marshall/unmarshall.
 	labgob.Register(Op{})
-
+	Dlog("Make server %d\n", me)
 	kv := new(ShardKV)
 	kv.me = me
 	kv.maxraftstate = maxraftstate
@@ -437,8 +441,6 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 	// Your initialization code here.
 	kv.sm = shardmaster.MakeClerk(kv.masters)
 
-	kv.applyCh = make(chan raft.ApplyMsg)
-	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
 	kv.applyCh = make(chan raft.ApplyMsg)
 	kv.rf = raft.Make(servers, me, persister, kv.applyCh)
 	// You may need initialization code here.
