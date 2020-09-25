@@ -24,9 +24,10 @@ const (
 	ErrGidNotFound  = "ErrGidNotFound"
 
 	// op
-	GetOp    = "GET"
-	PutOp    = "Put"
-	AppendOp = "Append"
+	GetOp        = "GET"
+	PutOp        = "Put"
+	AppendOp     = "Append"
+	UpdateConfOp = "UpdateConfOp"
 
 	// interval
 	OpInterval           = 100 * time.Millisecond

@@ -22,6 +22,7 @@ type Op struct {
 	// otherwise RPC will break.
 	OpType       string
 	Value        string
+	ConfigNum    int
 	Key          string
 	SerialNumber int64
 	ClientID     int
@@ -78,6 +79,12 @@ func (kv *ShardKV) Get(args *GetArgs, reply *GetReply) {
 	historyKey := kv.getHistoryKey(args.ClientID, args.SerialNumber)
 
 	kv.mu.Lock()
+	if _, isLeader := kv.rf.GetState(); !isLeader {
+		reply.Err = ErrWrongLeader
+		kv.mu.Unlock()
+		return
+	}
+
 	gid := kv.config.Shards[shard]
 	if gid != kv.gid {
 		reply.Err = ErrWrongGroup
@@ -85,11 +92,6 @@ func (kv *ShardKV) Get(args *GetArgs, reply *GetReply) {
 		return
 	}
 
-	if _, isLeader := kv.rf.GetState(); !isLeader {
-		reply.Err = ErrWrongLeader
-		kv.mu.Unlock()
-		return
-	}
 	v, existed := kv.history[historyKey]
 	if existed {
 		reply.Err = v.Err
@@ -148,18 +150,19 @@ func (kv *ShardKV) PutAppend(args *PutAppendArgs, reply *PutAppendReply) {
 	historyKey := kv.getHistoryKey(args.ClientID, args.SerialNumber)
 
 	kv.mu.Lock()
-	gid := kv.config.Shards[shard]
-	if gid != kv.gid {
-		reply.Err = ErrWrongGroup
-		kv.mu.Unlock()
-		return
-	}
+
 	if _, isLeader := kv.rf.GetState(); !isLeader {
 		reply.Err = ErrWrongLeader
 		kv.mu.Unlock()
 		return
 	}
 
+	gid := kv.config.Shards[shard]
+	if gid != kv.gid {
+		reply.Err = ErrWrongGroup
+		kv.mu.Unlock()
+		return
+	}
 	p, ok := kv.history[historyKey]
 	if ok {
 		reply.Err = p.Err
@@ -258,9 +261,7 @@ func (kv *ShardKV) mayLogCompaction() {
 			e.Encode(kv.history)
 			e.Encode(kv.clientSn)
 			e.Encode(kv.maxIndexInState)
-			e.Encode(kv.recieveMsgSeq)
-			e.Encode(kv.shardSendOut)
-			e.Encode(kv.shardMissing)
+			e.Encode(kv.config.Num)
 
 			kv.snapshot = w.Bytes()
 			kv.snapshotIndex = kv.maxIndexInState
@@ -299,13 +300,15 @@ func (kv *ShardKV) readSnapShot() {
 	kv.mu.Lock()
 	r := bytes.NewBuffer(data)
 	d := gob.NewDecoder(r)
+	var configNum int
 	d.Decode(&kv.log0)
 	d.Decode(&kv.history)
 	d.Decode(&kv.clientSn)
 	d.Decode(&kv.latestSnapShotIndex)
-	d.Decode(&kv.recieveMsgSeq)
-	d.Decode(&kv.shardSendOut)
-	d.Decode(&kv.shardMissing)
+	d.Decode(&configNum)
+	if configNum > 0 {
+		kv.config = kv.sm.Query(configNum)
+	}
 	kv.maxIndexInState = kv.latestSnapShotIndex
 	Dlog("me: %d, load log from map: %v\n", kv.me, kv.log0)
 	kv.mu.Unlock()
@@ -322,13 +325,15 @@ func (kv *ShardKV) applySnapShot(data []byte) {
 	kv.log0 = make(map[string]string)
 	kv.history = make(map[string]Record)
 	kv.clientSn = make(map[int]int64)
+	var configNum int
 	d.Decode(&kv.log0)
 	d.Decode(&kv.history)
 	d.Decode(&kv.clientSn)
 	d.Decode(&kv.latestSnapShotIndex)
-	d.Decode(&kv.recieveMsgSeq)
-	d.Decode(&kv.shardSendOut)
-	d.Decode(&kv.shardMissing)
+	d.Decode(&configNum)
+	if configNum > 0 {
+		kv.config = kv.sm.Query(configNum)
+	}
 	kv.maxIndexInState = kv.latestSnapShotIndex
 
 }
@@ -341,12 +346,37 @@ func (kv *ShardKV) applySnapShot(data []byte) {
 func (kv *ShardKV) pollUpdateConfig() {
 	for {
 		time.Sleep(ConfigUpdateInterval)
+		if !kv.IsLeader() {
+			continue
+		}
+
 		config := kv.sm.Query(-1)
 		//TODO: 转移部分的 shard 出去
+
 		kv.mu.Lock()
 		if config.Num != kv.config.Num {
+			//# TODO 计算缺失了那些 shard ～//， 在 get， putappend 时候予以拦截
+			if kv.config.Num > 0 {
+				misShards := make(map[int]bool)
+				currentShards := make(map[int]bool)
+
+				for i, v := range kv.config.Shards {
+					if v != kv.gid {
+						continue
+					}
+					currentShards[i] = true
+				}
+				for i, v := range config.Shards {
+					if v != kv.gid {
+						continue
+					}
+					if !currentShards[i] {
+						misShards[i] = true
+					}
+				}
+			}
 			kv.config = config
-			log.Infof("gid: %d, me: %d get new config\n", kv.gid, kv.me)
+			//# TODO 发送到 raft 中去
 		}
 		kv.mu.Unlock()
 	}
@@ -480,9 +510,6 @@ func StartServer(servers []*labrpc.ClientEnd, me int, persister *raft.Persister,
 	kv.latestSnapShotIndex = -1
 	kv.clientSn = make(map[int]int64)
 
-	kv.recieveMsgSeq = 1
-	kv.shardSendOut = make(map[int]bool)
-	kv.shardMissing = make(map[int]bool)
 	// read snapShot
 	kv.readSnapShot()
 
